@@ -21,23 +21,22 @@
   <meta name="author" content="ChenZhiwei">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算机组成与体系结构 冯诺依曼和哈佛体系结构 冯诺依曼体系结构包括哪些组件？* 运算器、控制器、存储器、输入设备和输出设备 各自的特点？* 冯·诺伊曼体系结构的特点 ​ A.使用二进制数存储程序 ​ B.存储程序按地址顺序依次执行 ​ C.把程序及其操作数据一同存储 哈佛体系结构的特点 ​ 把程序与其操作数据分开存储 不同点？前者继承了后者那些特点？* 不同点：二者都将数据">
+    <meta name="description" content="项目开发中记录的简易教程 1 如何C盘中的WSL2转移到D盘 将 WSL2 (Windows Subsystem for Linux 2) 从 C 盘迁移到 D 盘，最推荐的方法是使用 wsl --export 和 wsl --import 命令。 这个过程涉及四个核心步骤：导出、注销、导入和恢复默认用户。 第一步：查看所有已安装的 WSL 发行版及其状态，并确保它们已停止运行。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机组成与体系结构">
-<meta property="og:url" content="https://imzwchen.github.io/cs-cource/computer-organization/index.html">
+<meta property="og:title" content="在项目开发中记录的简易教程">
+<meta property="og:url" content="https://imzwchen.github.io/quick/index.html">
 <meta property="og:site_name" content="陈志伟的个人博客">
-<meta property="og:description" content="计算机组成与体系结构 冯诺依曼和哈佛体系结构 冯诺依曼体系结构包括哪些组件？* 运算器、控制器、存储器、输入设备和输出设备 各自的特点？* 冯·诺伊曼体系结构的特点 ​ A.使用二进制数存储程序 ​ B.存储程序按地址顺序依次执行 ​ C.把程序及其操作数据一同存储 哈佛体系结构的特点 ​ 把程序与其操作数据分开存储 不同点？前者继承了后者那些特点？* 不同点：二者都将数据">
+<meta property="og:description" content="项目开发中记录的简易教程 1 如何C盘中的WSL2转移到D盘 将 WSL2 (Windows Subsystem for Linux 2) 从 C 盘迁移到 D 盘，最推荐的方法是使用 wsl --export 和 wsl --import 命令。 这个过程涉及四个核心步骤：导出、注销、导入和恢复默认用户。 第一步：查看所有已安装的 WSL 发行版及其状态，并确保它们已停止运行。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-15T05:53:13.000Z">
-<meta property="article:modified_time" content="2025-06-24T06:17:01.382Z">
+<meta property="article:published_time" content="2025-12-16T07:32:00.000Z">
+<meta property="article:modified_time" content="2025-12-19T16:00:25.787Z">
 <meta property="article:author" content="ChenZhiwei">
-<meta property="article:tag" content="408">
-<meta property="article:tag" content="计组">
+<meta property="article:tag" content="速记">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>计算机组成与体系结构 - 陈志伟的个人博客</title>
+  <title>在项目开发中记录的简易教程 - 陈志伟的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="计算机组成与体系结构"></span>
+            <span id="subtitle" data-typed-text="在项目开发中记录的简易教程"></span>
           
         </div>
 
@@ -214,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-15 13:53" pubdate>
-          2025年4月15日 下午
+        <time datetime="2025-12-16 15:32" pubdate>
+          2025年12月16日 下午
         </time>
       </span>
     
@@ -226,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          824 字
         
       </span>
     
@@ -237,7 +236,7 @@
         
         
         
-          25 分钟
+          7 分钟
         
       </span>
     
@@ -274,216 +273,116 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">计算机组成与体系结构</h1>
+            <h1 id="seo-header">在项目开发中记录的简易教程</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="计算机组成与体系结构">计算机组成与体系结构</h1>
-<h2 id="冯诺依曼和哈佛体系结构">冯诺依曼和哈佛体系结构</h2>
-<h3 id="冯诺依曼体系结构包括哪些组件">冯诺依曼体系结构包括哪些组件？*</h3>
-<p>运算器、控制器、存储器、输入设备和输出设备</p>
-<h3 id="各自的特点">各自的特点？*</h3>
-<p>冯·诺伊曼体系结构的特点</p>
-<p>​ A.使用二进制数存储程序</p>
-<p>​ B.存储程序按地址顺序依次执行</p>
-<p>​ C.把程序及其操作数据一同存储</p>
-<p>哈佛体系结构的特点</p>
-<p>​ 把程序与其操作数据分开存储</p>
-<h3 id="不同点前者继承了后者那些特点">不同点？前者继承了后者那些特点？*</h3>
-<p>不同点：二者都将数据和指令存储在计算机的存储器中，但前者共同存储，后者分开存储。</p>
-<p>哈佛体系结构将指令和数据完全在物理上分离；</p>
-<p>冯诺依曼体系结构的高速缓存Cache中，指令存储在Flash（只读），数据在RAM中，物理分离；</p>
-<p>冯诺依曼体系结构中，地址总线和数据总线也是物理上分离。</p>
-<h3 id="冯诺依曼体系结构怎么区分指令和数据">冯诺依曼体系结构怎么区分指令和数据？*</h3>
-<p>时间上，取指周期取出的是指令，执行周期取出的是数据；</p>
-<p>空间上，从存储器流向控制器的是指令，从存储器流向运算器的是数据。</p>
+                <h1 id="项目开发中记录的简易教程">项目开发中记录的简易教程</h1>
+<h2 id="如何c盘中的wsl2转移到d盘">1 如何C盘中的WSL2转移到D盘</h2>
+<p>将 WSL2 (Windows Subsystem for Linux 2) 从 C 盘迁移到 D
+盘，最推荐的方法是使用 <strong><code>wsl --export</code></strong> 和
+<strong><code>wsl --import</code></strong> 命令。</p>
+<p>这个过程涉及<strong>四个核心步骤</strong>：<strong>导出、注销、导入</strong>和<strong>恢复默认用户</strong>。</p>
+<p>第一步：查看所有已安装的 WSL
+发行版及其状态，并确保它们已停止运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --list --verbose<br></code></pre></td></tr></table></figure>
+<p>记下您想要迁移的发行版的名称（Ubuntu-22.04`）</p>
+<p>如果状态不是 <code>Stopped</code>，运行此命令关闭所有 WSL 实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --shutdown<br></code></pre></td></tr></table></figure>
+<p>第二步：将 C 盘的发行版导出为 <code>.tar</code> 文件</p>
+<p>将C盘内的wsl导出为一个 <code>.tar</code> 备份文件，暂时存放在 D
+盘的某个位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> D:\WSL_Backup<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --<span class="hljs-built_in">export</span> Ubuntu-22.04 D:\WSL_Backup\Ubuntu-22.04.tar<br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>注意：</strong> 此步骤可能需要一些时间，具体取决于现在 WSL
+系统大小。</li>
+</ul>
+<p>第三步：注销原有发行版，原 C 盘上 WSL 占用的所有空间将被释放。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --unregister &lt;DistroName&gt;<br></code></pre></td></tr></table></figure>
+<p>第四步：将 <code>.tar</code> 文件导入到 D 盘新位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> D:\WSL_Distros\Ubuntu<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --import Ubuntu-22.04 D:\WSL_Distros\Ubuntu D:\WSL_Backup\Ubuntu-22.04.tar --version 2<br></code></pre></td></tr></table></figure>
+<p>数据会存放在 VHDX 文件中，并保存在 D 盘目录。</p>
+<p><strong>注意：</strong> 必须添加 <code>--version 2</code> 以确保它是
+WSL 2</p>
+<h2 id="国内镜像源-学术加速">2 国内镜像源 | 学术加速</h2>
+<p><strong>2.1 pip:</strong></p>
 <blockquote>
-<p>（必考，10分）</p>
+<p>国内常用镜像源：</p>
+<ul>
+<li>清华大学： https://pypi.tuna.tsinghua.edu.cn/simple</li>
+<li>阿里云： http://mirrors.aliyun.com/pypi/simple/</li>
+<li>中国科学技术大学： https://mirrors.ustc.edu.cn/pypi/simple/</li>
+<li>华为云： https://repo.huaweicloud.com/repository/pypi/simple/</li>
+<li>腾讯云：https://mirrors.cloud.tencent.com/pypi/simple/</li>
+</ul>
 </blockquote>
-<h2 id="运算器">运算器</h2>
-<h3 id="反码">反码</h3>
-<p>反码的唯一意义是作为计算补码的中间过程，本身不参与任何运算。</p>
-<h3 id="补码">补码*</h3>
-<p>计算机采用补码表示进行存储和运算，因为补码符号位可以直接参与运算，无论数是正，还是负，计算机总是做加法运算。</p>
-<p>补码可以确定<span class="math inline">\(2^n\)</span>个二进制数，原码只能确定<span class="math inline">\(2^n - 1\)</span>(-0和+0是同一个数) *。</p>
+<p>帮助：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">pypi
+| 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source
+Mirror</a></p>
+<p>默认情况下 pip 使用的是国外的镜像，在下载的时候速度非常慢。</p>
+<p>但是我们可以直接在 pip 命令中使用 <strong>-i</strong>
+参数来指定镜像地址，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure>
+<p>也可以永久设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip config <span class="hljs-built_in">set</span> global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple<br></code></pre></td></tr></table></figure>
+<p><strong>2.2 torch</strong>：</p>
+<p>可以用：https://mirrors.nju.edu.cn/pytorch/whl/ 替代
+Pytorch官网给出的：https://download.pytorch.org/whl/</p>
+<p><strong>2.3 HuggingFace</strong>：</p>
+<p>安装huggingface_hub</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install huggingface_hub -i https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure>
+<p>启动镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> HF_ENDPOINT=https://hf-mirror.com<br></code></pre></td></tr></table></figure>
+<p><strong>2.4 git：</strong></p>
+<p>github常用国内加速镜像如下</p>
+<p>1.使用github.com.cnpmjs.org</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com.cnpmjs.org/hustvl/4DGaussians.git<br></code></pre></td></tr></table></figure>
+<p>2.使用 gitclone.com</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://gitclone.com/github.com/hustvl/4DGaussians.git<br></code></pre></td></tr></table></figure>
+<p>3.使用 ghproxy</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://ghproxy.com/https://github.com/hustvl/4DGaussians.git<br></code></pre></td></tr></table></figure>
+<p>4.使用 FastGit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://hub.fastgit.xyz/hustvl/4DGaussians.git<br></code></pre></td></tr></table></figure>
+<h2 id="修复vscode终端中python和python不一致的情况">3
+修复VSCode终端中Python和Python不一致的情况</h2>
+<p>VSCode 的 Path 加载过程中，默认继承了一些 PATH，当这些 PATH
+中包含系统全局的 PYTHON 版本路径时，则会出现永远加载系统版本的问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">(llm-dev) chenzhiwei@WIN-PHF8B89CDD7:~/workspace/rag_demo$ <span class="hljs-built_in">which</span> python3<br><span class="hljs-comment"># output: /usr/bin/python3 </span><br>(llm-dev) chenzhiwei@WIN-PHF8B89CDD7:~/workspace/rag_demo$ <span class="hljs-built_in">which</span> python<br><span class="hljs-comment"># output: /home/chenzhiwei/.conda/envs/llm-dev/bin/python </span><br></code></pre></td></tr></table></figure>
+<p>解决办法是在.vscode/setting.json中加入：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;terminal.integrated.env.linux&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;PATH&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/home/chenzhiwei/.conda/envs/llm-dev/bin:$&#123;env:PATH&#125;&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
+<p><strong>注意：</strong>此问题仅在VSCode的终端中出现，非系统终端。</p>
+<h2 id="大模型api接口">4 大模型API接口</h2>
+<ul>
+<li>2233AI：<a target="_blank" rel="noopener" href="https://gptsapi.net/api">GPTs API</a></li>
+</ul>
+<p>在使用时更换base_url，例如：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">将 OpenAI API base_url https:<span class="hljs-regexp">//</span>api.openai.com 替换为 https:<span class="hljs-regexp">//</span>api.gptsapi.net  <br>将 Claude API base_url https:<span class="hljs-regexp">//</span>api.anthropic.com 替换为 https:<span class="hljs-regexp">//</span>api.gptsapi.net <br>将 Gemini API base_url https:<span class="hljs-regexp">//g</span>enerativelanguage.googleapis.com 替换为 https:<span class="hljs-regexp">//</span>api.gptsapi.net<br></code></pre></td></tr></table></figure>
+<ul>
+<li>DeepSeek：<a target="_blank" rel="noopener" href="https://platform.deepseek.com/usage">DeepSeek
+开放平台</a></li>
+</ul>
 <blockquote>
-<p>为什么补码的符号位可以参与运算？*</p>
-<p>补码 天然满足 加法循环群 的概念，包含三大性质 （单位元、结合律 和
-逆元）</p>
-<p>本质上，补码的第一位并不是符号位，而是数值位。</p>
-<p>只是构造完成后，最高位能显示正负（01），和原码中符号位的定义一致。</p>
+<p>接口文档：<a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/">DeepSeek API
+Docs</a></p>
 </blockquote>
-<p>正数原码的补码就是本身；负数原码的补码 是 原码的反码 + 1；</p>
+<ul>
+<li>Kimi：<a target="_blank" rel="noopener" href="https://platform.moonshot.cn/docs/overview">Moonshot
+AI 开放平台 - Kimi 大模型 API 服务</a></li>
+</ul>
 <blockquote>
-<p>怎么理解 负数原码的补码 是 原码的反码 + 1？</p>
-<p>我们以-7为例子，设 X 为 -7</p>
-<p>X + 0111( = 7) = 0000，</p>
-<p>-&gt; X = 0000 - 0111</p>
-<p>-&gt; X = 1 + (1111 - 0111)</p>
-<p>1111 + 0111 就是 0111取反 + 1</p>
+<p>控制台：<a target="_blank" rel="noopener" href="https://platform.moonshot.cn/console/account">Moonshot AI -
+用户控制台</a></p>
 </blockquote>
-<h3 id="移码">移码*</h3>
-<p>移码的定义：移码是一种用于表示有符号数的编码方式。</p>
-<blockquote>
-<p>移码的存在目的是为了进行数的比较操作，以及简化计算机中有符号数的表示*</p>
-<p>移码通过在原码的基础上加上一个偏移量K，来表示有符号整数。</p>
-<p>在IEEE754标准中，移码被用于浮点数的指数表示。</p>
-</blockquote>
-<p>移码的基本原理：将每个数值加上一个固定的偏移量，使其范围从负数变为非负数。</p>
-<p>移码的计算：移码等于补码的符号（第一位数字）位取反。</p>
-<h3 id="浮点数">浮点数*</h3>
-<p>计算机中常用的数据表示格式有两种，定点和浮点：</p>
-<p>​
-定点数中，一个数中小数点的位置是固定的；定点格式可表示的数值的范围有限，但要求的处理硬件简单。</p>
-<p>​ 浮点数中，一个数中小数点的位置是浮动的；
-浮点格式可表示的数值的范围很大，但要求的处理硬件复杂。</p>
-<p>浮点数的表示： <span class="math display">\[
-\{S(1):E(m):M(n)\} == \pm1.M*2^{E}
-\]</span> ​ 浮点数采用二进制科学计数法表示。</p>
-<p>​ S为尾数的符号位，用01表示正负，占1位；</p>
-<p>​ E为阶码，用移码表示，紧跟在符号位之后，占m位；</p>
-<p>​ M为尾数，用原码表示，放在低位部分，占n位；</p>
-<blockquote>
-<p>IEEE754标准中，为什么指数的偏移量不选128？*</p>
-<p>当阶码E为全0且尾数M也为全0时，表示的真值X为零，
-结合符号位S为0或1，有正零和负零之分</p>
-<p>当阶码E为全1且尾数M也为全0时，表示的真值X为无穷大（∞），结合符号位S为0或1，有+∞和-∞之分</p>
-<p>这样，在32位浮点数表示中，要除去E用全0和全1（
-255）表示零和无穷大的特殊情况，因此，阶码E的取值范围变为1～254，指数的偏移量不选128（
-10000000B），而选127（01111111B）</p>
-<p>对于32位规格化浮点数，真正的指数值e为-126～+127</p>
-</blockquote>
-<p>浮点数的规格化：</p>
-<p>​
-为了提高数据的表示精度，需要充分利用尾数的有效位数；当尾数的值不为0时，尾数域的最高有效位应为1，
-否则就要用修改阶码同时左右移动小数点的办法，使其变成符合这一要求的表示形式。</p>
-<h3 id="定点加减法运算">定点加、减法运算</h3>
-<p><strong>补码加/减</strong></p>
-<p>加法： <span class="math display">\[
-[x]补+[y]补=[x+y]补 （mod 2）\\
-\]</span>
-当两数以补码形式相加时，运算的结果将直接得到两数之和的补码。</p>
-<p>符号位可以作为数据的一部分参加运算而不用单独处理，有进位也只要丢弃即可。</p>
-<p>减法： <span class="math display">\[
-[x-y]补=[x+(-y)]补=[x]补+[-y]补 （mod 2）
-\]</span>
-补码定点减法和补码定点加法在本质上是相同的，减法运算可以转换成加法运算。</p>
-<p>只需要将[y]补连同符号位取反且最低位加1，即可得到[-y]补。</p>
-<p><strong>溢出判断</strong></p>
-<p>双符号位法：</p>
-<p>​ 如果两个数相加后，其结果的两个符号位一致（00
-或11），则没有发生溢出；</p>
-<p>​ 如果两个符号位不一致（10或01），则发生溢出；</p>
-<p>​ 两个正数的首位都为00，若不溢出，仍然为00，否则为01（正溢）；</p>
-<p>​ 两个负数的首位都为11，若不溢出，仍然为11，否则为10（负溢）；</p>
-<p>​ 但是不论溢出与否，运算结果的最高符号位始终指示正确的符号。</p>
-<h3 id="浮点运算器">浮点运算器</h3>
-<p>浮点加减法运算规则：</p>
-<p><span class="math display">\[
-x\pm y=2^{E_x}\times M_x\pm2^{E_y}\times
-M_y=\begin{cases}(M_x\times2^{E_x-E_y}\pm
-M_y)\times2^{E_y}&amp;\mathrm{(Ex&lt;=Ey)}\\(M_x\pm
-M_y\times2^{E_y-E_x})\times2^{E_x}&amp;\mathrm{(Ex&gt;Ey)}&amp;\end{cases}
-\]</span></p>
-<blockquote>
-<p>为什么对阶必须遵循“小阶向大阶靠拢”的原则：*</p>
-<p>尾数的左右移都会造成有效数据的移出与丢失，但是右移丢失的是最低有效位，而左移丢失的却是最高有效位。</p>
-<p>显然，若小阶向大阶靠拢，数据误差更小。</p>
-</blockquote>
-<h2 id="存储器">存储器</h2>
-<h3 id="随机读写存储器">随机读写存储器*</h3>
-<p>按保存数据的机理分为：</p>
-<p>​
-1）静态存储器（SRAM）：双稳态触发器存储。集成度低，成本高，功耗较大；通常作为Cache的存储体。</p>
-<p>​
-2）动态存储器（DRAM）：电容存储。电路简单，集成度高，成本低，功耗小；要不间断地进行刷新；作为主存的主体部分。</p>
-<p>​ 3）增强型动态存储器（EDRAM）：
-在DRAM芯片上集成一个高速小容量的SRAM芯片，起到高速缓存的作用，
-性能得到显著改进。</p>
-<blockquote>
-<p>刷新操作通常是在哪个芯片上完成？ 为什么？*</p>
-<p>DRAM；DRAM
-使用电容存储数据，电容上的信息电荷会随时间逐渐泄漏，因此需要定期刷新（即重新写入数据）以维持数据完整性。</p>
-</blockquote>
-<h3 id="只读存储器">只读存储器</h3>
-<p>只读存储器ROM是一种存储固定信息的存储器。</p>
-<p>其特点是在正常工作状态下只能读取数据，不能即时修改或重新写入数据。</p>
-<p>ROM的最大优点是具有不易失性</p>
-<p>只读存储器有两大类：</p>
-<p>​ 1）不可重写只读存储器（MROM、PROM）；</p>
-<p>​ 2）可重写只读存储器（EPROM、EEPROM、闪速存储器flash ROM等）；</p>
-<h3 id="主存的拓展">主存的拓展</h3>
-<blockquote>
-<p>主存为什么可以拓展？*</p>
-<p>存储器芯片的容量是有限的，为了满足实际存储器的容量要求，</p>
-<p>我们可以将存储芯片连在一起组成足够的容量，包括位拓展、字拓展和字位拓展。</p>
-</blockquote>
-<blockquote>
-<p>什么情况下用位拓展法？字拓展法呢？*</p>
-<p>1）位拓展法*（增加存储字长【访问数据位宽】）</p>
-<p>地址范围不变，但每次访问的数据位数增加。</p>
-<p>数据总线需要扩展，地址总线无需改变。</p>
-<p>将多片存储芯片的相同地址线并联，数据线合并输出。</p>
-<p>2）字拓展法（增加存储字【地址】的数量）</p>
-<p>数据位宽不变，但地址空间翻倍。</p>
-<p>地址总线需要扩展，数据总线无需改变。</p>
-<p>通过译码器生成片选信号，区分芯片的具体地址。</p>
-</blockquote>
-<blockquote>
-<p>不考虑成本，主存可以无限拓展吗？*</p>
-<p>数据总线的数量决定了同单位时间能寻址的地址数量。</p>
-<p>地址总线的数量决定了存储的地址空间数量。</p>
-</blockquote>
-<h3 id="高速缓冲存储器cache">高速缓冲存储器(Cache)</h3>
-<blockquote>
-<p>什么是Cache的命中率？*</p>
-<p>Cache的命中率，用于描述CPU在Cache完成存取的占比。</p>
-<p>cache(高速缓冲存储器)的数据是主存的一个子集，CPU访问存储器时会先访问cache，如果cache没有找到需要的数据，就会去主存找。</p>
-</blockquote>
-<h2 id="指令系统">指令系统</h2>
-<blockquote>
-<p>掌握直接寻址和间接寻址的区别？</p>
-<p>直接寻址指令直接包含有操作数的有效地址。</p>
-<p>间接寻址指令的操作数则通过存储器间接给出，指令地址存放的是操作数的地址，而不是操作数本身。</p>
-</blockquote>
-<blockquote>
-<p>取指周期 取出的指令，流向了哪里？*</p>
-<p>当执行一条指令时，首先把该指令从主存读取到<strong>数据寄存器</strong>中，判断是指令还是数据。</p>
-<p>若是指令，将其传送至<strong>指令寄存器</strong>，使用<strong>指令译码器</strong>进行译码。</p>
-<p>最后，向<strong>操作控制器</strong>发出具体操作的特定信号。</p>
-</blockquote>
-<h2 id="中央处理器cpu">中央处理器（CPU）</h2>
-<blockquote>
-<p>控制器的实现方式？有什么区别？*</p>
-<p>实现方式有两种，组合逻辑控制 和 微程序控制。</p>
-<p>组合逻辑是用门电路直接生成控制信号。可能每个指令对应一系列的逻辑门组合，根据当前指令的操作码和其他状态（如条件码）来产生控制信号。</p>
-<p>微指令控制器将一条指令拆分为微指令，而微指令事先存放在控制存储器中，解码后生成控制信号。</p>
-<p>区别：</p>
-<p>组合逻辑是纯硬件实现，而微程序介于软硬件之间。</p>
-<p>组合逻辑设计复杂，电路一旦制造完成就难以调整，甚至无法修改。</p>
-<p>微程序则更容易修改和扩展，但可能因为需要访问控制存储器而增加延迟。</p>
-</blockquote>
-<p>流水线技术需要掌握。</p>
-<blockquote>
-<p>指令流水线的五大步骤分别是？*</p>
-<p>通常将指令的执行过程划分为取指令 、译码、执行、取数、写回
-5个并行处理过程，并按流水方式组织起来。</p>
-</blockquote>
-<blockquote>
-<p>流水线技术是时间并行还是空间并行？*</p>
-<p>时间并行指的是时间重叠，空间并行指的是资源重复。</p>
-<p>流水线技术是时间并行，将一个任务分解为不同阶段，在各个功能部件上并行执行。</p>
-<p>超标量和超流水都是时间并行。</p>
-</blockquote>
-<h2 id="输入输出系统">输入输出系统</h2>
-<blockquote>
-<p>DMA和通道方式的区别？</p>
-<p>1.相比DMA,
-通道方式下CPU的干预更少，DMA则需要CPU来控制传输块的大小和位置。</p>
-<p>2.通道是可编程的，可以灵活调整通道程序，而DMA无法。</p>
-<p>3.通常来说，相比DMA，一个通道可以控制多台设备。</p>
-</blockquote>
+<h2 id="大模型应用开发文档">5 大模型应用开发文档</h2>
+<p>Graddio LLM简易教程：<a target="_blank" rel="noopener" href="https://www.gradio.app/guides/creating-a-chatbot-fast">Creating A
+Chatbot Fast</a></p>
+<p>Graddio与其他开源LLM库结合实例：<a target="_blank" rel="noopener" href="https://www.gradio.app/guides/chatinterface-examples">Chatinterface
+Examples</a></p>
+<p>Langchain Documents：<a target="_blank" rel="noopener" href="https://docs.langchain.com/">Home -
+Docs by LangChain</a></p>
 
                 
               </div>
@@ -502,7 +401,7 @@ M_y\times2^{E_y-E_x})\times2^{E_x}&amp;\mathrm{(Ex&gt;Ey)}&amp;\end{cases}
     
       <span class="category-chain">
         
-  <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/" class="category-chain-item">专业课</a>
+  <a href="/categories/%E5%85%B6%E4%BB%96/" class="category-chain-item">其他</a>
   
   
 
@@ -517,9 +416,7 @@ M_y\times2^{E_y-E_x})\times2^{E_x}&amp;\mathrm{(Ex&gt;Ey)}&amp;\end{cases}
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/408/" class="print-no-link">#408</a>
-      
-        <a href="/tags/%E8%AE%A1%E7%BB%84/" class="print-no-link">#计组</a>
+        <a href="/tags/%E9%80%9F%E8%AE%B0/" class="print-no-link">#速记</a>
       
     </div>
   
@@ -531,8 +428,8 @@ M_y\times2^{E_y-E_x})\times2^{E_x}&amp;\mathrm{(Ex&gt;Ey)}&amp;\end{cases}
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>计算机组成与体系结构</div>
-      <div>https://imzwchen.github.io/cs-cource/computer-organization/</div>
+      <div>在项目开发中记录的简易教程</div>
+      <div>https://imzwchen.github.io/quick/</div>
     </div>
     <div class="license-meta">
       
@@ -544,7 +441,7 @@ M_y\times2^{E_y-E_x})\times2^{E_x}&amp;\mathrm{(Ex&gt;Ey)}&amp;\end{cases}
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月15日</div>
+          <div>2025年12月16日</div>
         </div>
       
       
@@ -576,18 +473,12 @@ M_y\times2^{E_y-E_x})\times2^{E_x}&amp;\mathrm{(Ex&gt;Ey)}&amp;\end{cases}
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/competition/GPLT/2025-group-match/" title="GPLT团体程序设计天梯赛模拟：2025年分组赛">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">GPLT团体程序设计天梯赛模拟：2025年分组赛</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/cs-cource/data-structure/" title="数据结构">
-                        <span class="hidden-mobile">数据结构</span>
+                      <a href="/lean-basic/" title="Lean4函数式编程基础与应用">
+                        <span class="hidden-mobile">Lean4函数式编程基础与应用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

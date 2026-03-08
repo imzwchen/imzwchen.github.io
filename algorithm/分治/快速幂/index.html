@@ -103,7 +103,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -281,53 +281,35 @@
             
               <div class="markdown-body">
                 
-                <h1 id="快速幂">快速幂</h1>
-<p>时间复杂度：O (logN)</p>
-<p>模板题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/21965/learning/?id=1149594&amp;compatibility=false">蓝桥杯省赛无忧班（C&amp;C++
-组）第 1 期 - 快速幂 - 蓝桥云课 (lanqiao.cn)</a></p>
+                <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>时间复杂度：O (logN)</p>
+<p>模板题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/21965/learning/?id=1149594&compatibility=false">蓝桥杯省赛无忧班（C&amp;C++ 组）第 1 期 - 快速幂 - 蓝桥云课 (lanqiao.cn)</a></p>
 <p>二进制解法</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">ll <span class="hljs-title">qpow</span><span class="hljs-params">(ll a, ll n)</span></span>&#123;<br>	ll ans = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span>(n)&#123;<br>		<span class="hljs-keyword">if</span>(n&amp;<span class="hljs-number">1</span>) ans = (ans*a)%MOD;<br>		a = (a*a)%MOD;<br>		n &gt;&gt;= <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>递归解法</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">ll <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-type">const</span> ll &amp; a,<span class="hljs-type">const</span> ll &amp; n)</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(n == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(n &amp; <span class="hljs-number">1</span>) <span class="hljs-built_in">return</span> (<span class="hljs-built_in">qpow</span>(a,n<span class="hljs-number">-1</span>)*a) % MOD;<br>	<span class="hljs-keyword">else</span>&#123;<br>		ll temp = <span class="hljs-built_in">qpow</span>(a,n/<span class="hljs-number">2</span>) % MOD;<br>		<span class="hljs-keyword">return</span> (temp*temp) % MOD;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="矩阵快速幂">矩阵快速幂</h1>
-<h2 id="基础">基础</h2>
-<p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3390">P3390
-【模板】矩阵快速幂 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+
+<h1 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3390">P3390 【模板】矩阵快速幂 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <p><strong>矩阵</strong></p>
-<p>要求矩阵的幂，我们首先要有一个 NxN
-的矩阵结构体，并重定义矩阵的乘法：</p>
+<p>要求矩阵的幂，我们首先要有一个 NxN 的矩阵结构体，并重定义矩阵的乘法：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp">ll n;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">matrix</span>&#123;<br>	ll a[maxn][maxn];<br>	<span class="hljs-built_in">matrix</span>(ll e = <span class="hljs-number">0</span>)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; n ; i ++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j &lt; n ; j ++)&#123;<br>				a[i][j] = e*(i == j);<br>			&#125;<br>		&#125;<br>	&#125;<br>	matrix <span class="hljs-keyword">operator</span>*(<span class="hljs-type">const</span> matrix &amp; rhs)&#123;<br>		<span class="hljs-function">matrix <span class="hljs-title">res</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; n ; i ++)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j &lt; n ; j ++)&#123;<br>				<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">0</span> ; k &lt; n ; k ++)&#123;<br>					res.a[i][j] = (res.a[i][j] + a[i][k]*rhs.a[k][j]) % mod;<br>				&#125;<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">return</span> res;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
 <p><strong>快速幂</strong></p>
 <p>自定义矩阵乘法后，和整数快速幂类似地，我们可以得到如下的快速幂函数：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">matrix <span class="hljs-title">qpow</span><span class="hljs-params">(matrix m, ll t)</span></span>&#123;<br>	<span class="hljs-function">matrix <span class="hljs-title">res</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span></span>;<br>	<span class="hljs-keyword">while</span>(t)&#123;<br>		<span class="hljs-keyword">if</span>(t &amp; <span class="hljs-number">1</span>) res = res*m;<br>		m = m*m;<br>		t &gt;&gt;= <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p><strong>主函数</strong></p>
 <p>求给定矩阵的k次幂</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;n&gt;&gt;k;<br><span class="hljs-function">matrix <span class="hljs-title">temp</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j &lt; n ; j ++)&#123;<br>        cin&gt;&gt;temp.a[i][j];<br>    &#125;<br>&#125;<br>matrix ans = <span class="hljs-built_in">qpow</span>(temp,k);<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; n ; i ++)&#123;<br>    cout&lt;&lt;ans.a[i][<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span> ; j &lt; n ; j ++)&#123;<br>        cout&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;ans.a[i][j];<br>    &#125;<br>    cout&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="求斐波那契数列">求斐波那契数列</h2>
-<p><a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/21965/learning/?id=1149720&amp;compatibility=false">蓝桥杯省赛无忧班（C&amp;C++
-组）第 1 期 - 斐波那契数列 - 蓝桥云课 (lanqiao.cn)</a></p>
+
+<h2 id="求斐波那契数列"><a href="#求斐波那契数列" class="headerlink" title="求斐波那契数列"></a>求斐波那契数列</h2><p><a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/21965/learning/?id=1149720&compatibility=false">蓝桥杯省赛无忧班（C&amp;C++ 组）第 1 期 - 斐波那契数列 - 蓝桥云课 (lanqiao.cn)</a></p>
 <p>矩阵快速幂可以以 指数级 加速求和操作，例如：求斐波那契数列。</p>
 <p>由</p>
-<figure>
-<img src="/algorithm/%E5%88%86%E6%B2%BB/%E5%BF%AB%E9%80%9F%E5%B9%82/formula.png" srcset="/img/loading.gif" lazyload alt="fib">
-<figcaption aria-hidden="true">fib</figcaption>
-</figure>
-<p>我们可以得到公式： <span class="math display">\[
-\begin{bmatrix}
-F(n)\\
-F(n-1)
-\end{bmatrix} =
-\begin{bmatrix}
-  1 &amp; 1\\
-  1 &amp; 0
-\end{bmatrix}^{n-1} *
-\begin{bmatrix}
-  f(1) \\
-  f(0)  
-\end{bmatrix}
-\]</span></p>
+<p><img src="/algorithm/%E5%88%86%E6%B2%BB/%E5%BF%AB%E9%80%9F%E5%B9%82/formula.png" srcset="/img/loading.gif" lazyload alt="fib"></p>
+<p>我们可以得到公式：<br>$$<br>\begin{bmatrix}<br> F(n)\<br> F(n-1)<br>\end{bmatrix} &#x3D;<br>\begin{bmatrix}<br>  1 &amp; 1\<br>  1 &amp; 0<br>\end{bmatrix}^{n-1} *<br>\begin{bmatrix}<br>  f(1) \<br>  f(0)<br>\end{bmatrix}<br>$$</p>
 <p>代码</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function">ll <span class="hljs-title">fib</span><span class="hljs-params">(ll x)</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(x == <span class="hljs-number">0</span> || x == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	<span class="hljs-function">matrix <span class="hljs-title">res</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;<br>	res.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = res.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = res.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>	res = <span class="hljs-built_in">qpow</span>(res,x<span class="hljs-number">-1</span>);<br>	<span class="hljs-keyword">return</span> (res.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] + res.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]) % mod;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

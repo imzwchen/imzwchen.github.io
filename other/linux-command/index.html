@@ -21,12 +21,12 @@
   <meta name="author" content="ChenZhiwei">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Linux常用命令整理 目录操作： 123456pwd # 打印当前路径cd src # 跳转到某个位置 ..表示上一级；..&#x2F;..上一级的上一级；ls # 查询当前目录下文件ls -a # 查询隐藏文件ls -l # （ll） 查询当前目录的详细信息，包括文件夹file filename # 输出某个文件的详细信息 文件操作： 123456789101112131415161718192">
+    <meta name="description" content="Linux常用命令整理目录操作： 123456pwd # 打印当前路径cd src # 跳转到某个位置 ..表示上一级；..&#x2F;..上一级的上一级；ls # 查询当前目录下文件ls -a # 查询隐藏文件ls -l # （ll） 查询当前目录的详细信息，包括文件夹file filename # 输出某个文件的详细信息  文件操作： 1234567891011121314151617181920# 读">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux常用命令整理">
 <meta property="og:url" content="https://imzwchen.github.io/other/linux-command/index.html">
 <meta property="og:site_name" content="陈志伟的个人博客">
-<meta property="og:description" content="Linux常用命令整理 目录操作： 123456pwd # 打印当前路径cd src # 跳转到某个位置 ..表示上一级；..&#x2F;..上一级的上一级；ls # 查询当前目录下文件ls -a # 查询隐藏文件ls -l # （ll） 查询当前目录的详细信息，包括文件夹file filename # 输出某个文件的详细信息 文件操作： 123456789101112131415161718192">
+<meta property="og:description" content="Linux常用命令整理目录操作： 123456pwd # 打印当前路径cd src # 跳转到某个位置 ..表示上一级；..&#x2F;..上一级的上一级；ls # 查询当前目录下文件ls -a # 查询隐藏文件ls -l # （ll） 查询当前目录的详细信息，包括文件夹file filename # 输出某个文件的详细信息  文件操作： 1234567891011121314151617181920# 读">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-02T08:50:00.000Z">
 <meta property="article:modified_time" content="2025-05-29T16:09:40.827Z">
@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -278,11 +278,12 @@
             
               <div class="markdown-body">
                 
-                <h2 id="linux常用命令整理">Linux常用命令整理</h2>
-<p>目录操作：</p>
+                <h2 id="Linux常用命令整理"><a href="#Linux常用命令整理" class="headerlink" title="Linux常用命令整理"></a>Linux常用命令整理</h2><p>目录操作：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">pwd # 打印当前路径<br>cd src # 跳转到某个位置 ..表示上一级；../..上一级的上一级；<br>ls # 查询当前目录下文件<br>ls -a # 查询隐藏文件<br>ls -l # （ll） 查询当前目录的详细信息，包括文件夹<br>file filename # 输出某个文件的详细信息<br></code></pre></td></tr></table></figure>
+
 <p>文件操作：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">读取</span><br>cat file # 输出这个文件的全部内容，用于查看小文件<br><br>head file # 查看文件的头部<br>head --lines=n file # 查看文件的前n行<br>tail file # 查看文件的尾部<br>tail --lines=n file # 查看文件的后n行<br><br>less file # 查看文件的全部内容，允许上下滚动，用于长文件<br>more file # 查看文件的全部内容，只允许向下滚动<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">修改</span><br><br>vim file # i 进入编辑模式；冒号+wq 保存并退出；q!强制退出<br>vi file <br>nano file<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除</span><br><br>rm file <br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

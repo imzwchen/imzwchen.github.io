@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          304 字
+          306 字
         
       </span>
     
@@ -278,24 +278,24 @@
             
               <div class="markdown-body">
                 
-                <h1 id="gcd-最大公约数">GCD-最大公约数</h1>
-<p>辗转相除法：两个数的最大公约数等于其中较小的数字和二者之间余数的最大公约数</p>
-<p>假设有两个数字[12921，4234]。
-将两数中较大的那一个看作是被除数A，将较小的那一个看作是除数B
-二者相除的商记作C，余数记作D。这样我们就可以得到一个等式：</p>
-<p>​ A = B×C + D</p>
-<p>而辗转相除法的所要用到的原理则是：(A , B) = (B , D)</p>
-<p>(12921,4234) -&gt; (4234,219) -&gt; (219,73) -&gt; (73,0)</p>
-<p>当较小的那个数为0时，较大的那个数就是最大公约数</p>
-<p>c++函数如下：</p>
+                <h1 id="GCD-最大公约数"><a href="#GCD-最大公约数" class="headerlink" title="GCD-最大公约数"></a>GCD-最大公约数</h1><p>辗转相除法：两个数的最大公约数等于其中较小的数字和二者之间余数的最大公约数</p>
+<p> 假设有两个数字[12921，4234]。<br> 将两数中较大的那一个看作是被除数A，将较小的那一个看作是除数B<br> 二者相除的商记作C，余数记作D。这样我们就可以得到一个等式：</p>
+<p>​		A &#x3D; B×C + D</p>
+<p> 而辗转相除法的所要用到的原理则是：(A , B) &#x3D; (B , D)</p>
+<p> (12921,4234) -&gt; (4234,219) -&gt; (219,73) -&gt; (73,0)</p>
+<p> 当较小的那个数为0时，较大的那个数就是最大公约数</p>
+<p> c++函数如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span>&#123; <span class="hljs-comment">//适当的时候，int换成ll</span><br>	<span class="hljs-keyword">if</span> (x &lt; y)<br>		<span class="hljs-built_in">swap</span>(x,y); <span class="hljs-comment">//确保x大于y</span><br>	<span class="hljs-keyword">if</span> (y == <span class="hljs-number">0</span>)<br>		<span class="hljs-keyword">return</span> x; <span class="hljs-comment">//y == 0时，返回x</span><br>	<span class="hljs-keyword">else</span><br>		<span class="hljs-keyword">return</span> <span class="hljs-built_in">gcd</span>(y,x%y); <span class="hljs-comment">//y ！= 0，继续运算</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>简写：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> y == <span class="hljs-number">0</span> ? x : <span class="hljs-built_in">gcd</span>(y, x%y);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>库函数</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> __gcd(a,b);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="lcm-最小公倍数">LCM-最小公倍数</h1>
-<p>若要求最小公倍数，只需要将两数的乘积除以最大公约数就可以。</p>
+
+<h1 id="LCM-最小公倍数"><a href="#LCM-最小公倍数" class="headerlink" title="LCM-最小公倍数"></a>LCM-最小公倍数</h1><p>若要求最小公倍数，只需要将两数的乘积除以最大公约数就可以。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">lcm</span><span class="hljs-params">(<span class="hljs-type">int</span> x,<span class="hljs-type">int</span> y)</span></span>&#123;  <span class="hljs-comment">//两个数的最小公倍数等于乘积/最大公约数</span><br>	<span class="hljs-keyword">return</span> (x*y)/<span class="hljs-built_in">gcd</span>(x,y); <br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

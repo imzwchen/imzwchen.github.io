@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          484 字
+          490 字
         
       </span>
     
@@ -278,30 +278,28 @@
             
               <div class="markdown-body">
                 
-                <h1 id="枚举法">枚举法</h1>
-<blockquote>
+                <h1 id="枚举法"><a href="#枚举法" class="headerlink" title="枚举法"></a>枚举法</h1><blockquote>
 <p>暴力枚举法， 一般在查询很少的时候使用</p>
 </blockquote>
-<p>判断一个数 n 是否为质数的时间复杂度为<span class="math inline">\(O(\sqrt{n})\)</span></p>
-<p>若询问m次，时间复杂度为 <span class="math inline">\(O(m\sqrt{n})\)</span></p>
+<p>判断一个数 n 是否为质数的时间复杂度为$O(\sqrt{n})$</p>
+<p>若询问m次，时间复杂度为 $O(m\sqrt{n})$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isPrime</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(x &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i*i &lt;= x ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(x % i == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="埃式筛法">埃式筛法</h1>
-<blockquote>
+
+<h1 id="埃式筛法"><a href="#埃式筛法" class="headerlink" title="埃式筛法"></a>埃式筛法</h1><blockquote>
 <p>Eratosthenes 筛法（埃拉托斯特尼筛法，简称埃氏筛法。</p>
 </blockquote>
-<p>建立一个&lt;=n的<span class="math inline">\(O(1)\)</span>查询表的时间复杂度是<span class="math inline">\(O(nloglogn)\)</span></p>
+<p>建立一个&lt;&#x3D;n的$O(1)$查询表的时间复杂度是$O(nloglogn)$</p>
 <p>原理：对于任意一个大于1的正整数，那么它的x倍就是非素数。如果从小到大遍历每个数，同时把当前数的所有倍数记为非素数，那么运行结束的时候没有被标记的数就是素数了。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">bool</span>&gt; isPrime;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">initPrime</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span>&#123;<br>	isPrime.<span class="hljs-built_in">resize</span>(n<span class="hljs-number">+1</span>, <span class="hljs-literal">true</span>);<br>	isPrime[<span class="hljs-number">0</span>] = isPrime[<span class="hljs-number">1</span>] = <span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123; <br>		<span class="hljs-keyword">if</span>(isPrime[i])&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = i*i ; j &lt;= n ; j += i)&#123;<br>                <span class="hljs-comment">// 注意这里可以从i*i开始,而不是2*i</span><br>                <span class="hljs-comment">// 因为所有因数为 [2, i-1] 的乘积都已经被计算过；</span><br>				isPrime[j] = <span class="hljs-literal">false</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="欧拉筛法">欧拉筛法</h1>
-<blockquote>
+
+<h1 id="欧拉筛法"><a href="#欧拉筛法" class="headerlink" title="欧拉筛法"></a>欧拉筛法</h1><blockquote>
 <p>埃氏筛法仍有优化空间，它会将一个合数重复多次标记。</p>
 <p>而欧拉筛法保证了一个合数只被最小的素因数标记，达到了线性的时间复杂度</p>
 </blockquote>
-<p>建立一个&lt;=n的<span class="math inline">\(O(1)\)</span>查询表的时间复杂度是<span class="math inline">\(O(n)\)</span></p>
-<p>原理：从小到大遍历每个数，记录&lt;= i的非素数，将它们与 i
-的乘积（&lt;=n）标记为非素数，若i % it ==
-0，则直接break，因为后面还会有更大倍数标记这个乘积。</p>
+<p>建立一个&lt;&#x3D;n的$O(1)$查询表的时间复杂度是$O(n)$</p>
+<p>原理：从小到大遍历每个数，记录&lt;&#x3D; i的非素数，将它们与 i 的乘积（&lt;&#x3D;n）标记为非素数，若i % it &#x3D;&#x3D; 0，则直接break，因为后面还会有更大倍数标记这个乘积。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">bool</span>&gt; isPrime;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">initPrime</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span>&#123;<br>	isPrime.<span class="hljs-built_in">resize</span>(n<span class="hljs-number">+1</span>, <span class="hljs-literal">true</span>);<br>	isPrime[<span class="hljs-number">0</span>] = isPrime[<span class="hljs-number">1</span>] = <span class="hljs-literal">false</span>;<br>    vector&lt;<span class="hljs-type">int</span> &gt; pri;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(isPrime[i])&#123;<br>			pri.<span class="hljs-built_in">push_back</span>(i);<br>		&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : pri)&#123;<br>			<span class="hljs-keyword">if</span>(i*it &gt; n) <span class="hljs-keyword">break</span>;<br>			isPrime[i*it] = <span class="hljs-literal">false</span>;<br>			<span class="hljs-keyword">if</span>(i % it == <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>; <span class="hljs-comment">//关键</span><br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -399,9 +397,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/algorithm/%E5%9B%BE%E8%AE%BA/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集">
+                      <a href="/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86/" title="二叉树算法合集">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">并查集</span>
+                        <span class="hidden-mobile">二叉树算法合集</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

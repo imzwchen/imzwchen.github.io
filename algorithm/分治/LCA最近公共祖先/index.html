@@ -102,7 +102,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          864 字
+          863 字
         
       </span>
     
@@ -280,10 +280,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="lca最近公共祖先">LCA最近公共祖先</h1>
-<p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">P3379
-【模板】最近公共祖先（LCA） - 洛谷 | 计算机科学教育新生态
-(luogu.com.cn)</a></p>
+                <h1 id="LCA最近公共祖先"><a href="#LCA最近公共祖先" class="headerlink" title="LCA最近公共祖先"></a>LCA最近公共祖先</h1><p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA） - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <blockquote>
 <p>在“Lowest Common Ancestor”中，“lowest”的含义与常规理解有些不同，</p>
 <p>指的是最深的公共祖先，而不是最接近树根的节点。</p>
@@ -291,29 +288,25 @@
 <blockquote>
 <p>LCA适用于多叉树（有向无环图），而不仅仅是二叉树。</p>
 </blockquote>
-<figure>
-<img src="/algorithm/%E5%88%86%E6%B2%BB/LCA%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/3030388996.png" srcset="/img/loading.gif" lazyload alt="LCA2.png">
-<figcaption aria-hidden="true">LCA2.png</figcaption>
-</figure>
-<h2 id="倍增">倍增</h2>
-<p>倍增是用的最多的LCA<strong>在线</strong>算法，其复杂度为 <span class="math inline">\(O(nlogn+mlogn)\)</span> [n为点数，m为询问数]</p>
+<p><img src="/algorithm/%E5%88%86%E6%B2%BB/LCA%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/3030388996.png" srcset="/img/loading.gif" lazyload alt="LCA2.png"></p>
+<h2 id="倍增"><a href="#倍增" class="headerlink" title="倍增"></a>倍增</h2><p>倍增是用的最多的LCA<strong>在线</strong>算法，其复杂度为 $O(nlogn+mlogn)$ [n为点数，m为询问数]</p>
 <p>倍增求解LCA的过程分为2个步骤：</p>
 <p>1）将两点的深度置为相同；</p>
 <p>2）同时向根移动两点，查找公共祖先；</p>
-<p>若使用朴素遍历，时间复杂度为<span class="math inline">\(O(n)\)</span>，必然导致超时。</p>
+<p>若使用朴素遍历，时间复杂度为$O(n)$，必然导致超时。</p>
 <p>但这2个过程可以使用倍增优化：无论是步骤1）还是步骤2），虽然向上移动的距离未知，但我们知道是一个固定的整数。</p>
 <p>因此，可以将距离按二进制进行分解，使用倍增的思想依次移动。</p>
-<p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">P3379
-【模板】最近公共祖先（LCA） - 洛谷</a></p>
+<p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA） - 洛谷</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn = <span class="hljs-number">5e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-type">int</span> n, m, s;<br>vector&lt;<span class="hljs-type">int</span> &gt; e[maxn];<br><span class="hljs-type">int</span> lg[maxn],dep[maxn],fa[maxn][<span class="hljs-number">30</span>];<br><br><span class="hljs-comment">// LCA预处理</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> f)</span></span>&#123;<br>	dep[x] = dep[f] + <span class="hljs-number">1</span>; <span class="hljs-comment">// 初始化深度</span><br>	<span class="hljs-comment">// 预处理该点的父亲数组</span><br>	fa[x][<span class="hljs-number">0</span>] = f;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; (<span class="hljs-number">1</span>&lt;&lt;i) &lt;= dep[x] ; i ++)&#123;<br>		fa[x][i] = fa[fa[x][i<span class="hljs-number">-1</span>]][i<span class="hljs-number">-1</span>];<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-keyword">if</span>(it != f)&#123;<br>			<span class="hljs-built_in">dfs</span>(it, x);<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n<span class="hljs-number">-1</span> ; i ++)&#123;<br>		<span class="hljs-type">int</span> x, y; cin&gt;&gt;x&gt;&gt;y;<br>		e[x].<span class="hljs-built_in">push_back</span>(y);<br>		e[y].<span class="hljs-built_in">push_back</span>(x);<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>		lg[i] = lg[i/<span class="hljs-number">2</span>] + <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-built_in">dfs</span>(s, <span class="hljs-number">0</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">lca</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span>&#123;<br>	<span class="hljs-comment">// 将2点的深度置为相同</span><br>	<span class="hljs-keyword">if</span>(dep[a] &lt; dep[b]) <span class="hljs-built_in">swap</span>(a, b);<br>	<span class="hljs-keyword">while</span>(dep[a] != dep[b])&#123;<br>		a = fa[a][lg[dep[a] - dep[b]]];<br>	&#125;<br>	<span class="hljs-keyword">if</span>(a == b) <span class="hljs-keyword">return</span> a;<br>	<span class="hljs-comment">// a或b到公共祖先的长度一定是一个正整数</span><br>	<span class="hljs-comment">// 可以用二进制分解，并倍增处理</span><br>	<span class="hljs-comment">// 倍增查询公共父亲</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = lg[dep[a]] ; i &gt;= <span class="hljs-number">0</span> ; i --)&#123;<br>		<span class="hljs-keyword">if</span>(fa[a][i] != fa[b][i])&#123;<br>			a = fa[a][i];<br>			b = fa[b][i];<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> fa[a][<span class="hljs-number">0</span>];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>), cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>), ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	<span class="hljs-built_in">init</span>();<br>	<span class="hljs-keyword">while</span>(m--)&#123;<br>		<span class="hljs-type">int</span> a, b; cin&gt;&gt;a&gt;&gt;b;<br>		cout&lt;&lt;<span class="hljs-built_in">lca</span>(a, b)&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="tarjan">Tarjan</h2>
-<p>Tarjan是求解LCA唯一的<strong>离线</strong>算法，其时间复杂度达到了<span class="math inline">\(O(n+m)\)</span>。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JVxie/p/4854719.html">最近公共祖先LCA(Tarjan算法)的思考和算法实现
-- JVxie - 博客园 (cnblogs.com)</a></p>
+
+<h2 id="Tarjan"><a href="#Tarjan" class="headerlink" title="Tarjan"></a>Tarjan</h2><p>Tarjan是求解LCA唯一的<strong>离线</strong>算法，其时间复杂度达到了$O(n+m)$。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JVxie/p/4854719.html">最近公共祖先LCA(Tarjan算法)的思考和算法实现 - JVxie - 博客园 (cnblogs.com)</a></p>
 <p>Tarjan的基本逻辑如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-number">1.</span>从根节点开始进行<span class="hljs-built_in">DFS</span> (设当前遍历到节点u，其子节点为v);<br><span class="hljs-number">2.</span>若u还存在没访问过的子节点，继续遍历，否则进行操作<span class="hljs-number">3</span>，<span class="hljs-number">4</span>，<span class="hljs-number">5</span>；<br><span class="hljs-number">3.</span>将u标记为”访问过“<br><span class="hljs-number">4.</span>在并查集中，将v合并到u上,并标记节点v已被访问过；<br><span class="hljs-number">5.</span>寻找与当前点u有询问关系的点x，若点x已经被访问过，那么lca（u,x）= <span class="hljs-built_in">find</span>(u)；<br></code></pre></td></tr></table></figure>
+
 <p>Tarjan函数</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> f)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-keyword">if</span>(!visited[it] &amp;&amp; it != f)&#123;<br>			<span class="hljs-built_in">tarjan</span>(it, x);<br>			<span class="hljs-built_in">join</span>(x, it);<br>		&#125;<br>	&#125;<br>	visited[x] = <span class="hljs-literal">true</span>;<br>	<span class="hljs-keyword">for</span>(pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; it : q[x])&#123;<br>		<span class="hljs-type">int</span> t = it.first;<br>		<span class="hljs-type">int</span> i = it.second;<br>		<span class="hljs-keyword">if</span>(visited[t])&#123;<br>			ans[i] = <span class="hljs-built_in">find</span>(t);<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>询问关系的存储</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; &gt; q[MAX];<br><span class="hljs-comment">//first - 端点 ；second - 下标 </span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; m ; i ++)&#123;<br>    <span class="hljs-type">int</span> u,v;cin&gt;&gt;u&gt;&gt;v;<br>    q[u].<span class="hljs-built_in">push_back</span>(&#123;v,i&#125;);<br>    q[v].<span class="hljs-built_in">push_back</span>(&#123;u,i&#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -423,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86/" title="二叉树算法合集">
-                        <span class="hidden-mobile">二叉树算法合集</span>
+                      <a href="/algorithm/%E5%9B%BE%E8%AE%BA/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集">
+                        <span class="hidden-mobile">并查集</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

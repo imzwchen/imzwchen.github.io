@@ -21,12 +21,12 @@
   <meta name="author" content="ChenZhiwei">
   <meta name="keywords" content="">
   
-    <meta name="description" content="参考：最长回文子串问题（五种方法） | 春水煎茶 (writings.sh) 判断回文字符串 暴力O(N2) 12345678bool palin(string s)&#123;	int l &#x3D; 0;	int r &#x3D; s.length();	while(l &lt; r)&#123;		if(s[l++] !&#x3D; s[r--]) return false;	&#125;	return tru">
+    <meta name="description" content="参考：最长回文子串问题（五种方法） | 春水煎茶 (writings.sh) 判断回文字符串暴力O(N2) 12345678bool palin(string s)&#123;	int l &#x3D; 0;	int r &#x3D; s.length();	while(l &lt; r)&#123;		if(s[l++] !&#x3D; s[r--]) return false;	&#125;	return true;&amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最长回文子串问题">
 <meta property="og:url" content="https://imzwchen.github.io/algorithm/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="陈志伟的个人博客">
-<meta property="og:description" content="参考：最长回文子串问题（五种方法） | 春水煎茶 (writings.sh) 判断回文字符串 暴力O(N2) 12345678bool palin(string s)&#123;	int l &#x3D; 0;	int r &#x3D; s.length();	while(l &lt; r)&#123;		if(s[l++] !&#x3D; s[r--]) return false;	&#125;	return tru">
+<meta property="og:description" content="参考：最长回文子串问题（五种方法） | 春水煎茶 (writings.sh) 判断回文字符串暴力O(N2) 12345678bool palin(string s)&#123;	int l &#x3D; 0;	int r &#x3D; s.length();	while(l &lt; r)&#123;		if(s[l++] !&#x3D; s[r--]) return false;	&#125;	return true;&amp;#1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-12T15:39:26.000Z">
 <meta property="article:modified_time" content="2025-05-29T16:09:40.834Z">
@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          352 字
+          355 字
         
       </span>
     
@@ -278,22 +278,19 @@
             
               <div class="markdown-body">
                 
-                <p>参考：<a target="_blank" rel="noopener" href="https://writings.sh/post/algorithm-longest-palindromic-substring#一维动态规划方法">最长回文子串问题（五种方法）
-| 春水煎茶 (writings.sh)</a></p>
-<h1 id="判断回文字符串">判断回文字符串</h1>
-<p>暴力O(N2)</p>
+                <p>参考：<a target="_blank" rel="noopener" href="https://writings.sh/post/algorithm-longest-palindromic-substring#%E4%B8%80%E7%BB%B4%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%96%B9%E6%B3%95">最长回文子串问题（五种方法） | 春水煎茶 (writings.sh)</a></p>
+<h1 id="判断回文字符串"><a href="#判断回文字符串" class="headerlink" title="判断回文字符串"></a>判断回文字符串</h1><p>暴力O(N2)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">palin</span><span class="hljs-params">(string s)</span></span>&#123;<br>	<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>;<br>	<span class="hljs-type">int</span> r = s.<span class="hljs-built_in">length</span>();<br>	<span class="hljs-keyword">while</span>(l &lt; r)&#123;<br>		<span class="hljs-keyword">if</span>(s[l++] != s[r--]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="求最长回文子子串">求最长回文子子串</h1>
-<h2 id="暴力枚举on4">暴力枚举O(N4)</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMaxPalin</span><span class="hljs-params">(string s)</span></span>&#123;<br>	<span class="hljs-type">int</span> len = s.<span class="hljs-built_in">length</span>();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = len ; i &gt;= <span class="hljs-number">2</span> ; i --)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j+i<span class="hljs-number">-1</span> &lt; len ; j ++)&#123;<br>			<span class="hljs-keyword">if</span>(<span class="hljs-built_in">palin</span>(s.<span class="hljs-built_in">substr</span>(j,i))) <span class="hljs-keyword">return</span> i;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="二维动态规划on2">二维动态规划O(N2)</h2>
-<p>dp[i][j] 表示 [ i, j ]区间内的子串是否为回文串</p>
-<p>状态转移方程 <span class="math inline">\(dp[l][r] = (s[l] == s[r]
-\&amp;\&amp; dp[l+1][r-1])\)</span></p>
+
+<h1 id="求最长回文子子串"><a href="#求最长回文子子串" class="headerlink" title="求最长回文子子串"></a>求最长回文子子串</h1><h2 id="暴力枚举O-N4"><a href="#暴力枚举O-N4" class="headerlink" title="暴力枚举O(N4)"></a>暴力枚举O(N4)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMaxPalin</span><span class="hljs-params">(string s)</span></span>&#123;<br>	<span class="hljs-type">int</span> len = s.<span class="hljs-built_in">length</span>();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = len ; i &gt;= <span class="hljs-number">2</span> ; i --)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j+i<span class="hljs-number">-1</span> &lt; len ; j ++)&#123;<br>			<span class="hljs-keyword">if</span>(<span class="hljs-built_in">palin</span>(s.<span class="hljs-built_in">substr</span>(j,i))) <span class="hljs-keyword">return</span> i;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="二维动态规划O-N2"><a href="#二维动态规划O-N2" class="headerlink" title="二维动态规划O(N2)"></a>二维动态规划O(N2)</h2><p>dp[i][j] 表示 [ i, j ]区间内的子串是否为回文串</p>
+<p>状态转移方程 $dp[l][r] &#x3D; (s[l] &#x3D;&#x3D; s[r] &amp;&amp; dp[l+1][r-1])$ </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; len ; i ++)&#123;<br>    dp[i][i] = <span class="hljs-literal">true</span>;<br>    max_ = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span>(i &gt; <span class="hljs-number">0</span> &amp;&amp; s[i<span class="hljs-number">-1</span>] == s[i])&#123;<br>        dp[i<span class="hljs-number">-1</span>][i] = <span class="hljs-literal">true</span>;<br>        max_ = <span class="hljs-number">2</span>;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">3</span> ; i &lt;= len ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j+i<span class="hljs-number">-1</span> &lt; len ; j ++)&#123;<br>        <span class="hljs-type">int</span> l = j;<br>        <span class="hljs-type">int</span> r = j + i - <span class="hljs-number">1</span>;<br>        dp[l][r] = (s[l] == s[r] &amp;&amp; dp[l<span class="hljs-number">+1</span>][r<span class="hljs-number">-1</span>]);<br>        <span class="hljs-keyword">if</span>(dp[l][r]) max_ = <span class="hljs-built_in">max</span>(max_, i);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="一维动态规划on2">一维动态规划O(N2)</h2>
-<p>dp[i] 表示以i结尾的最长回文子串的起始位置</p>
+
+<h2 id="一维动态规划O-N2"><a href="#一维动态规划O-N2" class="headerlink" title="一维动态规划O(N2)"></a>一维动态规划O(N2)</h2><p>dp[i] 表示以i结尾的最长回文子串的起始位置</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getMaxPalin</span><span class="hljs-params">(string s)</span></span>&#123;<br>	<span class="hljs-keyword">if</span>(s.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<span class="hljs-type">int</span> len = s.<span class="hljs-built_in">length</span>();<br>	<span class="hljs-type">int</span> res = <span class="hljs-number">1</span>;<br>	dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; len ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(dp[i<span class="hljs-number">-1</span>] &gt; <span class="hljs-number">0</span> &amp;&amp; s[i] == s[dp[i<span class="hljs-number">-1</span>]<span class="hljs-number">-1</span>])&#123;<br>			dp[i] = dp[i<span class="hljs-number">-1</span>]<span class="hljs-number">-1</span>;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			<span class="hljs-type">int</span> l = dp[i<span class="hljs-number">-1</span>];<br>			<span class="hljs-type">int</span> r = i;<br>			<span class="hljs-type">int</span> st = l;<br>			<span class="hljs-keyword">while</span>(l &lt; r)&#123;<br>				<span class="hljs-keyword">if</span>(s[l] == s[r])&#123;<br>					l++;r--;<br>				&#125;<span class="hljs-keyword">else</span>&#123;<br>					l++;r=i;<br>					st = l;<br>				&#125;<br>			&#125;<br>			dp[i] = st;<br>		&#125;<br>		res = <span class="hljs-built_in">max</span>(i - dp[i] + <span class="hljs-number">1</span>, res);<br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

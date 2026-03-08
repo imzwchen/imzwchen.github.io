@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -278,72 +278,60 @@
             
               <div class="markdown-body">
                 
-                <h1 id="哈密顿图">哈密顿图</h1>
-<h2 id="定义">定义</h2>
-<ul>
+                <h1 id="哈密顿图"><a href="#哈密顿图" class="headerlink" title="哈密顿图"></a>哈密顿图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
 <li>哈密顿路（通路）：无向图G中，通过图中每个结点一次而且仅一次的路径。</li>
 <li>哈密顿回路：无向图G中，通过图中每个结点一次而且仅一次的回路。</li>
 <li>哈密顿图：具有哈密顿回路的图。</li>
 <li>半哈密顿图：有哈密顿路径而没有哈密顿回路的图。</li>
 </ul>
-<h2 id="推论">推论</h2>
-<blockquote>
-<p>简单图 :
-在图中，若不存在顶点到其自身的边，且同一条边不重复出现，则称这样的图为简单图</p>
+<h2 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h2><blockquote>
+<p>简单图 : 在图中，若不存在顶点到其自身的边，且同一条边不重复出现，则称这样的图为简单图</p>
 </blockquote>
 <ul>
-<li>图G具有n个结点的无向简单连通图，G中任意两个不相邻的结点度数之和 ≥
-n-1，则G是半哈密顿图</li>
-<li>图G具有n个结点的无向简单连通图，如果图G中任意一对不相邻结点的度数之和
-≥ n，则G是哈密顿图</li>
+<li>图G具有n个结点的无向简单连通图，G中任意两个不相邻的结点度数之和 ≥ n-1，则G是半哈密顿图</li>
+<li>图G具有n个结点的无向简单连通图，如果图G中任意一对不相邻结点的度数之和 ≥ n，则G是哈密顿图</li>
 </ul>
-<h2 id="判断哈密顿回路">判断哈密顿回路</h2>
-<p>例题：<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805351814119424&amp;page=1">1122
-Hamiltonian Cycle - PAT (Advanced Level) Practice (pintia.cn)</a></p>
+<h2 id="判断哈密顿回路"><a href="#判断哈密顿回路" class="headerlink" title="判断哈密顿回路"></a>判断哈密顿回路</h2><p>例题：<a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805351814119424&page=1">1122 Hamiltonian Cycle - PAT (Advanced Level) Practice (pintia.cn)</a></p>
 <p>根据哈密顿回路的定义证明即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">judge</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">memset</span>(vis,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(vis));<br>	<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; len ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(!edge[v[i<span class="hljs-number">-1</span>]][v[i]] || vis[v[i]]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>		vis[v[i]] = <span class="hljs-literal">true</span>;<br>		cnt++;<br>	&#125;<br>	<span class="hljs-keyword">return</span> v[len<span class="hljs-number">-1</span>] == v[<span class="hljs-number">0</span>] &amp;&amp; cnt == n;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>一个可用于判断的必要条件：回路长度为n+1。</p>
 <p>此外，还需要注意：编号是否在范围内；边是否存在 等</p>
-<h1 id="欧拉图">欧拉图</h1>
-<h2 id="定义-1">定义</h2>
-<ul>
+<h1 id="欧拉图"><a href="#欧拉图" class="headerlink" title="欧拉图"></a>欧拉图</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><ul>
 <li>欧拉（通路）路径：无向图G中，通过图中每个边一次而且仅一次的路径。</li>
 <li>欧拉回路：无向图G中，通过图中每个边一次而且仅一次的回路。</li>
 <li>欧拉图：具有欧拉回路的图。</li>
 <li>半欧拉图：有欧拉路径而没有欧拉回路的图。</li>
 </ul>
-<h2 id="推论-1">推论</h2>
-<ul>
+<h2 id="推论-1"><a href="#推论-1" class="headerlink" title="推论"></a>推论</h2><ul>
 <li>图G是无向简单连通图，G中每个节点的度都为偶数，则G是欧拉图。</li>
 <li>图G是无向简单连通图，G中恰好有两个节点的度数为奇数，其他节点的度数都是偶数（这两个奇数度的节点恰是所有欧拉回路的起点S和终点T）。</li>
 </ul>
-<h2 id="判断欧拉图">判断欧拉图</h2>
-<p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805349851185152&amp;page=1">1126
-Eulerian Path - PAT (Advanced Level) Practice (pintia.cn)</a></p>
+<h2 id="判断欧拉图"><a href="#判断欧拉图" class="headerlink" title="判断欧拉图"></a>判断欧拉图</h2><p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805349851185152&page=1">1126 Eulerian Path - PAT (Advanced Level) Practice (pintia.cn)</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">judge</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-comment">//1-非欧拉图 2-半欧拉图 3-欧拉图</span><br>    <br>    <span class="hljs-comment">//并查集判断是否连通</span><br>	<span class="hljs-type">int</span> scc = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(i == <span class="hljs-built_in">find</span>(i)) scc++;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(scc != <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	<br>    <span class="hljs-comment">//求奇数度的点的个数</span><br>	<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(d[i] % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>)&#123;<br>			cnt++;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(cnt == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;<br>	<span class="hljs-keyword">if</span>(cnt == <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>    <br>	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="完全子图团">完全子图（团）</h1>
-<h2 id="定义-2">定义</h2>
-<ul>
-<li><p>图G的团（完全子图）就是一个两两之间有边的顶点集合</p></li>
-<li><p>极大团：增加任一顶点都不再符合团定义的团</p></li>
-<li><p>最大团：顶点最多的极大团，称之为图G的</p></li>
+
+<h1 id="完全子图（团）"><a href="#完全子图（团）" class="headerlink" title="完全子图（团）"></a>完全子图（团）</h1><h2 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h2><ul>
+<li><p>图G的团（完全子图）就是一个两两之间有边的顶点集合</p>
+</li>
+<li><p>极大团：增加任一顶点都不再符合团定义的团</p>
+</li>
+<li><p>最大团：顶点最多的极大团，称之为图G的</p>
+</li>
 </ul>
-<h2 id="判断团">判断团</h2>
-<p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805343979159552&amp;page=1">1142
-Maximal Clique - PAT (Advanced Level) Practice (pintia.cn)</a></p>
+<h2 id="判断团"><a href="#判断团" class="headerlink" title="判断团"></a>判断团</h2><p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805343979159552&page=1">1142 Maximal Clique - PAT (Advanced Level) Practice (pintia.cn)</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">memset</span>(visited,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(visited));<br>	cin&gt;&gt;k;<br>	v.<span class="hljs-built_in">clear</span>();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; k ; i ++)&#123;<br>		<span class="hljs-type">int</span> t;cin&gt;&gt;t;<br>		v.<span class="hljs-built_in">push_back</span>(t);<br>		visited[t] = <span class="hljs-literal">true</span>;<br>	&#125;<br>    <span class="hljs-comment">//是否为完全子图</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; k ; i ++)&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j &lt; k ; j ++)&#123;<br>			<span class="hljs-keyword">if</span>(j == i) <span class="hljs-keyword">continue</span>;<br>			<span class="hljs-keyword">if</span>(!edge[v[i]][v[j]])&#123;<br>				cout&lt;&lt;<span class="hljs-string">&quot;Not a Clique&quot;</span>&lt;&lt;endl;<br>				<span class="hljs-keyword">return</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>    <span class="hljs-comment">//是否为极大完全子图</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(visited[i]) <span class="hljs-keyword">continue</span>;<br>		<span class="hljs-type">bool</span> f = <span class="hljs-literal">true</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span> ; j &lt; k ; j ++)&#123;<br>			<span class="hljs-keyword">if</span>(!edge[v[j]][i])&#123;<br>				f = <span class="hljs-literal">false</span>;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(f)&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Not Maximal&quot;</span>&lt;&lt;endl;<br>			<span class="hljs-keyword">return</span>;<br>		&#125;<br>	&#125;<br>	cout&lt;&lt;<span class="hljs-string">&quot;Yes&quot;</span>&lt;&lt;endl;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="旅行商环路tsp">旅行商环路（TSP）</h1>
-<h2 id="定义-3">定义</h2>
-<p>给定一系列城市和每对城市之间的距离，求解访问每一座城市一次并回到起始城市的最短回路</p>
+
+
+
+<h1 id="旅行商环路（TSP）"><a href="#旅行商环路（TSP）" class="headerlink" title="旅行商环路（TSP）"></a>旅行商环路（TSP）</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><p>给定一系列城市和每对城市之间的距离，求解访问每一座城市一次并回到起始城市的最短回路</p>
 <blockquote>
 <p>给一张带权边的无向图G，求访问每个节点（可重复走边和点）的最短回路。</p>
 </blockquote>
-<h2 id="判断tsp">判断TSP</h2>
-<p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=1038430013544464384&amp;page=1">1150
-Travelling Salesman Problem - PAT (Advanced Level) Practice
-(pintia.cn)</a></p>
+<h2 id="判断TSP"><a href="#判断TSP" class="headerlink" title="判断TSP"></a>判断TSP</h2><p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=1038430013544464384&page=1">1150 Travelling Salesman Problem - PAT (Advanced Level) Practice (pintia.cn)</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//检查是否能走通，并求路径长度</span><br><span class="hljs-type">int</span> dis = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; k ; i ++)&#123;<br>    <span class="hljs-keyword">if</span>(dist[v[i<span class="hljs-number">-1</span>]][v[i]] == INF)&#123;<br>        dis = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        dis += dist[v[i<span class="hljs-number">-1</span>]][v[i]];<br>    &#125;<br>&#125;<br><span class="hljs-keyword">if</span>(dis == <span class="hljs-number">-1</span>)&#123;<br>    cout&lt;&lt;<span class="hljs-string">&quot;Path &quot;</span>&lt;&lt;x&lt;&lt;<span class="hljs-string">&quot;: NA&quot;</span>&lt;&lt;<span class="hljs-string">&quot; (Not a TS cycle)&quot;</span>&lt;&lt;endl;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//检查是否为经过每个点的环</span><br><span class="hljs-built_in">memset</span>(visNode,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(visNode));<br><span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; k ; i ++)&#123;<br>    <span class="hljs-keyword">if</span>(!visNode[v[i]])&#123;<br>        visNode[v[i]] = <span class="hljs-literal">true</span>;<br>        cnt++;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">if</span>(v[<span class="hljs-number">0</span>] != v[k<span class="hljs-number">-1</span>] || cnt != n)&#123;<br>    cout&lt;&lt;<span class="hljs-string">&quot;Path &quot;</span>&lt;&lt;x&lt;&lt;<span class="hljs-string">&quot;: &quot;</span>&lt;&lt;dis&lt;&lt;<span class="hljs-string">&quot; (Not a TS cycle)&quot;</span>&lt;&lt;endl;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">//检查是否存在重边</span><br><span class="hljs-built_in">memset</span>(visEdge,<span class="hljs-number">0</span>,<span class="hljs-built_in">sizeof</span>(visEdge));<br><span class="hljs-type">bool</span> isSimple = <span class="hljs-literal">true</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; k ; i ++)&#123;<br>    <span class="hljs-keyword">if</span>(visEdge[v[i]][v[i<span class="hljs-number">-1</span>]] || v[i] == v[i<span class="hljs-number">-1</span>])&#123;<br>        isSimple = <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>    visEdge[v[i]][v[i<span class="hljs-number">-1</span>]] = visEdge[v[i<span class="hljs-number">-1</span>]][v[i]] = <span class="hljs-literal">true</span>;<br>&#125;<br><span class="hljs-keyword">if</span>(isSimple)&#123;<br>    cout&lt;&lt;<span class="hljs-string">&quot;Path &quot;</span>&lt;&lt;x&lt;&lt;<span class="hljs-string">&quot;: &quot;</span>&lt;&lt;dis&lt;&lt;<span class="hljs-string">&quot; (TS simple cycle)&quot;</span>&lt;&lt;endl;<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>    cout&lt;&lt;<span class="hljs-string">&quot;Path &quot;</span>&lt;&lt;x&lt;&lt;<span class="hljs-string">&quot;: &quot;</span>&lt;&lt;dis&lt;&lt;<span class="hljs-string">&quot; (TS cycle)&quot;</span>&lt;&lt;endl;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 

@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -236,7 +236,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -278,16 +278,10 @@
             
               <div class="markdown-body">
                 
-                <h1 id="位运算基础">位运算基础</h1>
-<h2 id="补码">补码</h2>
-<p>计算机中所有数都是以补码形式存储的，引进补码的作用是为了让计算机更方便做减法。</p>
-<p>而正数的补码是它本身，负数的补码则是符号位不变，其余按位取反，最后再
-+ 1得到的。</p>
-<p>例如：15 原码:00001111；补码:00001111 ；−15
-原码:10001111；补码:11110001。</p>
-<h2 id="位运算符">位运算符</h2>
-<table>
-
+                <h1 id="位运算基础"><a href="#位运算基础" class="headerlink" title="位运算基础"></a>位运算基础</h1><h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>计算机中所有数都是以补码形式存储的，引进补码的作用是为了让计算机更方便做减法。</p>
+<p>而正数的补码是它本身，负数的补码则是符号位不变，其余按位取反，最后再 + 1得到的。</p>
+<p> 例如：15 原码:00001111；补码:00001111 ；−15 原码:10001111；补码:11110001。</p>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><table>
 <thead>
 <tr>
 <th>符号</th>
@@ -295,8 +289,7 @@
 <th>运算规则</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>&amp;</td>
 <td>与</td>
 <td>两个位都为1时，结果才为1</td>
@@ -326,19 +319,16 @@
 <td>右移</td>
 <td>各二进位全部右移若干位，对无符号数，高位补0（有符号数，右移补1）</td>
 </tr>
-</tbody>
-</table>
-<h2 id="基本用法">基本用法</h2>
-<table>
+</tbody></table>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><table>
 <thead>
 <tr>
 <th>功能</th>
 <th>符号表示</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>/ 2</td>
+<tbody><tr>
+<td>&#x2F; 2</td>
 <td>x &gt;&gt; 1</td>
 </tr>
 <tr>
@@ -355,83 +345,82 @@
 </tr>
 <tr>
 <td>将右数第k位置为1</td>
-<td>x = x | (1 &lt;&lt; (k-1))</td>
+<td>x &#x3D; x | (1 &lt;&lt; (k-1))</td>
 </tr>
 <tr>
 <td>将右数第k位置为0</td>
-<td>x = x &amp; (~(1 &lt;&lt; (k-1)))</td>
+<td>x &#x3D; x &amp; (~(1 &lt;&lt; (k-1)))</td>
 </tr>
 <tr>
 <td>将右数第k位取反</td>
-<td>x = x ^(1 &lt;&lt;(k-1))</td>
+<td>x &#x3D; x ^(1 &lt;&lt;(k-1))</td>
 </tr>
 <tr>
 <td>取右数k位，其他置为0</td>
-<td>x = x &amp; ( (1 &lt;&lt; k) - 1)</td>
+<td>x &#x3D; x &amp; ( (1 &lt;&lt; k) - 1)</td>
 </tr>
 <tr>
 <td>将右数k位都置为1</td>
-<td>x = x | ( (1 &lt;&lt; k) - 1 )</td>
+<td>x &#x3D; x | ( (1 &lt;&lt; k) - 1 )</td>
 </tr>
 <tr>
 <td>将右数k位都置为0</td>
-<td>x = x &amp; ( ~( (1 &lt;&lt; k) - 1) )</td>
+<td>x &#x3D; x &amp; ( ~( (1 &lt;&lt; k) - 1) )</td>
 </tr>
 <tr>
 <td>把右边连续的1变为0</td>
-<td>x = x &amp; (x + 1)</td>
+<td>x &#x3D; x &amp; (x + 1)</td>
 </tr>
 <tr>
 <td>把右边连续的0变为1</td>
-<td>x = x | (x - 1)</td>
+<td>x &#x3D; x | (x - 1)</td>
 </tr>
 <tr>
-<td>只取最靠右的1 (x != MIN)</td>
-<td>x = x&amp;(-x) 或 x = x&amp;(~x + 1)</td>
+<td>只取最靠右的1 (x !&#x3D; MIN)</td>
+<td>x &#x3D; x&amp;(-x) 或 x &#x3D; x&amp;(~x + 1)</td>
 </tr>
-</tbody>
-</table>
-<p><strong>对比 &gt;&gt; 1 和 / 2</strong></p>
-<p>效率差异：在编译器不优化的情况下，&gt;&gt;
-1的效率高，优先使用位运算</p>
+</tbody></table>
+<p><strong>对比 &gt;&gt; 1 和 &#x2F; 2</strong></p>
+<p>效率差异：在编译器不优化的情况下，&gt;&gt; 1的效率高，优先使用位运算</p>
 <p>结果差异：只有在负奇数情况下，二者有差异，其他情况下相同</p>
 <p><strong>原因</strong>是奇数除二会发生<strong>截断</strong>现象。而<code>&gt;&gt; 1</code>和<code>/ 2</code>在<code>n</code>为负奇数时截断的反向不一样。</p>
 <ul>
 <li><code>-5 / 2 = -(int)2.5 = -2</code>，这里是把绝对值变小了，加个负号，结果就变大了。</li>
 <li><code>-5 &gt;&gt; 1 = (1011) &gt;&gt; 1 = (1101) = -3</code>，假设用<code>4-bit</code>表示一个整数，补码表示。发现结果变小了。</li>
 </ul>
-<h1 id="其他">其他</h1>
-<h2 id="例题1swapa-b">例题1：Swap(A, B)</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 不使用中间变量，交换整数A和B</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Swap</span><span class="hljs-params">(<span class="hljs-type">int</span> &amp;a, <span class="hljs-type">int</span> &amp;b)</span></span>&#123;<br>	a = a ^ b;<br>	b = a ^ b;<br>	a = a ^ b;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="例题2位运算统计二进制中的1">例题2：位运算统计二进制中的1</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">ones</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(x)&#123;<br>		x = x &amp; (x - <span class="hljs-number">1</span>);<br>		res++;<br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
-<h2 id="例题3o1时间检测2的幂次">例题3：O(1)时间检测2的幂次</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 2的幂次必须是正整数</span><br><span class="hljs-comment">// 2的幂次的二进制中必然只包含一个1，因此x &amp; (x - 1)为0</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">judge</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> x &gt; <span class="hljs-number">0</span> &amp;&amp; (x &amp; (x - <span class="hljs-number">1</span>)) == <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="例题4粘贴子串">例题4：粘贴子串</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 给长度为j-i+1的二进制数m</span><br><span class="hljs-comment">// 将m覆盖到n的【i，j】位置上</span><br><span class="hljs-comment">// i，j从第0位开始</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> t = i ; t &lt;= j ; t ++)&#123;<br>		n = n &amp; (~(<span class="hljs-number">1</span> &lt;&lt; t));<br>	&#125;<br>	<span class="hljs-keyword">return</span> n |(m &lt;&lt; i);<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="debug二进制形式输出">Debug：二进制形式输出</h2>
-<p>C++:</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="例题1：Swap-A-B"><a href="#例题1：Swap-A-B" class="headerlink" title="例题1：Swap(A,  B)"></a>例题1：Swap(A,  B)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 不使用中间变量，交换整数A和B</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Swap</span><span class="hljs-params">(<span class="hljs-type">int</span> &amp;a, <span class="hljs-type">int</span> &amp;b)</span></span>&#123;<br>	a = a ^ b;<br>	b = a ^ b;<br>	a = a ^ b;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="例题2：位运算统计二进制中的1"><a href="#例题2：位运算统计二进制中的1" class="headerlink" title="例题2：位运算统计二进制中的1"></a>例题2：位运算统计二进制中的1</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">ones</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">while</span>(x)&#123;<br>		x = x &amp; (x - <span class="hljs-number">1</span>);<br>		res++;<br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="例题3：O-1-时间检测2的幂次"><a href="#例题3：O-1-时间检测2的幂次" class="headerlink" title="例题3：O(1)时间检测2的幂次"></a>例题3：O(1)时间检测2的幂次</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 2的幂次必须是正整数</span><br><span class="hljs-comment">// 2的幂次的二进制中必然只包含一个1，因此x &amp; (x - 1)为0</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">judge</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> x &gt; <span class="hljs-number">0</span> &amp;&amp; (x &amp; (x - <span class="hljs-number">1</span>)) == <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="例题4：粘贴子串"><a href="#例题4：粘贴子串" class="headerlink" title="例题4：粘贴子串"></a>例题4：粘贴子串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 给长度为j-i+1的二进制数m</span><br><span class="hljs-comment">// 将m覆盖到n的【i，j】位置上</span><br><span class="hljs-comment">// i，j从第0位开始</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> t = i ; t &lt;= j ; t ++)&#123;<br>		n = n &amp; (~(<span class="hljs-number">1</span> &lt;&lt; t));<br>	&#125;<br>	<span class="hljs-keyword">return</span> n |(m &lt;&lt; i);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Debug：二进制形式输出"><a href="#Debug：二进制形式输出" class="headerlink" title="Debug：二进制形式输出"></a>Debug：二进制形式输出</h2><p>C++:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cout &lt;&lt; hex &lt;&lt; i &lt;&lt;endl; <span class="hljs-comment">// 十六进制		</span><br>cout &lt;&lt; oct &lt;&lt; i &lt;&lt;endl; <span class="hljs-comment">// 八进制</span><br>cout &lt;&lt; (bitset&lt;<span class="hljs-built_in">sizeof</span>(i)*<span class="hljs-number">8</span>&gt;)i &lt;&lt;endl; <span class="hljs-comment">// 二进制</span><br><span class="hljs-comment">// bitset&lt;x&gt;里的x是多少，就输出多少位</span><br></code></pre></td></tr></table></figure>
+
 <p>C:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%x\n&quot;</span>, i); <span class="hljs-comment">// 十六进制	</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%o\n&quot;</span>, i); <span class="hljs-comment">// 八进制</span><br><span class="hljs-type">char</span> str[<span class="hljs-number">50</span>];<br>itoa(i, str, <span class="hljs-number">2</span>); <span class="hljs-comment">// (原数, C字符串, 基数)</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>,str); <span class="hljs-comment">// 二进制</span><br></code></pre></td></tr></table></figure>
-<h2 id="拓展brian-kernighan-算法">拓展：Brian Kernighan 算法</h2>
-<ul>
+
+
+
+<h2 id="拓展：Brian-Kernighan-算法"><a href="#拓展：Brian-Kernighan-算法" class="headerlink" title="拓展：Brian Kernighan 算法"></a>拓展：Brian Kernighan 算法</h2><ul>
 <li>一个二进制数n，与运算n-1的结果是n的二进制最右端的1变为0的结果</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">n &amp; (n<span class="hljs-number">-1</span>) <span class="hljs-comment">//n的二进制最右端的1变为0</span><br><span class="hljs-number">12</span> = <span class="hljs-number">1100</span><br><span class="hljs-number">12</span> - <span class="hljs-number">1</span> = <span class="hljs-number">1011</span><br><span class="hljs-number">12</span>&amp;(<span class="hljs-number">12</span><span class="hljs-number">-1</span>) = <span class="hljs-number">1000</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>n &amp; (~n + 1) 提取出整数n最后一位为1的数</li>
 </ul>
-<p>一个二进制数，其与 补码+1 （也就是反码）进行一次与运算的结果
-能够提取出其最后一位 1</p>
+<p>一个二进制数，其与 补码+1 （也就是反码）进行一次与运算的结果 能够提取出其最后一位 1 </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">n = <span class="hljs-number">01101</span><br><span class="hljs-comment">//~n 是将n按位取反就是10010</span><br>~n + <span class="hljs-number">1</span> = <span class="hljs-number">10011</span><br><span class="hljs-comment">//最后</span><br>n &amp; (~n + <span class="hljs-number">1</span>) = <span class="hljs-number">00001</span><br><span class="hljs-comment">//也相当于n&amp;（-n）</span><br></code></pre></td></tr></table></figure>
-<h2 id="拓展格雷码">拓展：格雷码</h2>
-<p>格雷码是一种数的二进制表示法，每一个数都与前一个数只相差一个bit位</p>
+
+<h2 id="拓展：格雷码"><a href="#拓展：格雷码" class="headerlink" title="拓展：格雷码"></a>拓展：格雷码</h2><p>格雷码是一种数的二进制表示法，每一个数都与前一个数只相差一个bit位</p>
 <ul>
 <li>格雷码一种求解策略：</li>
 </ul>
-<p>------奇数 == （奇数-1） 的 最后一位取反</p>
-<p>------偶数 == （偶数-1）的 最后一位1的前一位取反</p>
+<p>——奇数 &#x3D;&#x3D; （奇数-1） 的 最后一位取反</p>
+<p>——偶数 &#x3D;&#x3D;  （偶数-1）的 最后一位1的前一位取反</p>
 <p>使用Brian Kernighan算法可以快速实现格雷码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> bits;<br><br><span class="hljs-comment">//将int型转化为二进制</span><br><span class="hljs-function">string <span class="hljs-title">getBitStr</span><span class="hljs-params">(<span class="hljs-type">int</span> num)</span></span>&#123;<br>	string ans = <span class="hljs-string">&quot;&quot;</span>;<br>	<span class="hljs-type">int</span> msk = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= bits ; i ++)&#123;<br>		ans = (num&amp;msk ? <span class="hljs-string">&#x27;1&#x27;</span>:<span class="hljs-string">&#x27;0&#x27;</span>) + ans;<br>		msk = msk &lt;&lt; <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GrayCode</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">int</span> &amp;bits)</span></span>&#123;<br>	<span class="hljs-type">int</span> x = <span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,bits)<span class="hljs-number">-1</span>;<br>	<span class="hljs-type">int</span> num = <span class="hljs-number">0</span>;<br>	cout&lt;&lt;<span class="hljs-built_in">getBitStr</span>(num)&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= x ; i++)&#123;<br>		<span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>)&#123;<br>			num = num^<span class="hljs-number">1</span>;<br>		&#125;<br>		<span class="hljs-keyword">else</span>&#123;<br>			num = num^( ((num&amp;( (~num) + <span class="hljs-number">1</span>)) &lt;&lt; <span class="hljs-number">1</span>) );<br>            <span class="hljs-comment">//Brian Kernighan 算法</span><br>		&#125;<br>		cout&lt;&lt;<span class="hljs-built_in">getBitStr</span>(num)&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;bits;<br>	<span class="hljs-built_in">GrayCode</span>(bits);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 

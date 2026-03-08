@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          493 字
+          506 字
         
       </span>
     
@@ -278,36 +278,21 @@
             
               <div class="markdown-body">
                 
-                <h1 id="期望dp概念">期望DP概念</h1>
-<p>要求一个事件期望，有两种方法：</p>
-<p>一种是根据概率公式，直接求： <span class="math display">\[
-E(x) = \sum_{i}^{n} x_i*P(x_i)
-\]</span> 但是这样写程序一般会超时。</p>
-<p>另一种更常见的做法是根据期望的递归公式， <span class="math display">\[
-E(x) = F(E(x-1))
-\]</span> 来逐步推出所要求的期望值。</p>
-<h1 id="买卡片1">买卡片1</h1>
-<p>卡片一共有k种，现在要买n张卡片，买到每种卡片的概率相同，求
-买到卡片种类数 的期望。</p>
+                <h1 id="期望DP概念"><a href="#期望DP概念" class="headerlink" title="期望DP概念"></a>期望DP概念</h1><p>要求一个事件期望，有两种方法：</p>
+<p>一种是根据概率公式，直接求：<br>$$<br>E(x) &#x3D; \sum_{i}^{n} x_i*P(x_i)<br>$$<br>但是这样写程序一般会超时。</p>
+<p>另一种更常见的做法是根据期望的递归公式，<br>$$<br>E(x) &#x3D; F(E(x-1))<br>$$<br>来逐步推出所要求的期望值。</p>
+<h1 id="买卡片1"><a href="#买卡片1" class="headerlink" title="买卡片1"></a>买卡片1</h1><p>卡片一共有k种，现在要买n张卡片，买到每种卡片的概率相同，求 买到卡片种类数 的期望。</p>
 <p>首先，假设只买1张卡片，期望肯定为1，因为无论买哪张都是新的种类。</p>
-<p>然后，假设我们已经知道 买i-1张卡片，得到的种类数期望,
-那么再买到一张的新卡片的期望为 (k - E(i-1)) /
-k（因为x为1，期望和概率相同）。</p>
-<p>设 买i张卡片，得到的种类数 为 DP{i} , 有 <span class="math display">\[
-dp[i] = dp[i-1] + \frac{k - dp[i-1]}{k}
-\]</span> 即：买 i 张得到种类数的期望 = 买i-1张...的期望 +
-再获得一张新卡片的期望</p>
+<p>然后，假设我们已经知道 买i-1张卡片，得到的种类数期望, 那么再买到一张的新卡片的期望为 (k - E(i-1)) &#x2F; k（因为x为1，期望和概率相同）。</p>
+<p>设 买i张卡片，得到的种类数 为 DP{i} , 有<br>$$<br>dp[i] &#x3D; dp[i-1] + \frac{k - dp[i-1]}{k}<br>$$<br>即：买 i 张得到种类数的期望 &#x3D; 买i-1张…的期望 + 再获得一张新卡片的期望</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;n&gt;&gt;k;<br>dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= k ; i ++)&#123;<br>    dp[i] = dp[i<span class="hljs-number">-1</span>] + <span class="hljs-number">1.0</span>*k/(k - i<span class="hljs-number">+1</span>);<br>&#125;<br>cout&lt;&lt;fixed&lt;&lt;<span class="hljs-built_in">setprecision</span>(<span class="hljs-number">6</span>)&lt;&lt;dp[k];<br></code></pre></td></tr></table></figure>
-<h1 id="买卡片2">买卡片2</h1>
-<p>卡片一共有k种，买到每种卡片的概率相同，现在需要不断地购买，求
-买到k种所需要次数 的期望。</p>
+
+<h1 id="买卡片2"><a href="#买卡片2" class="headerlink" title="买卡片2"></a>买卡片2</h1><p>卡片一共有k种，买到每种卡片的概率相同，现在需要不断地购买，求 买到k种所需要次数 的期望。</p>
 <p>首先，假设只买1张卡片，期望为1，因为无论买哪张都是新的种类。</p>
-<p>然后，假设目前到手 i-1 种，那么接下来，每次购买，买到第 i 种的概率P
-== (k - i + 1)/k，那么所需要次数的期望，就是 1/P == k/(k - i +1)。</p>
-<p>由此，我们得到递推式： <span class="math display">\[
-dp[i] = dp[i-1] + \frac{k}{k-i+1}
-\]</span> 代码：</p>
+<p>然后，假设目前到手 i-1 种，那么接下来，每次购买，买到第 i 种的概率P &#x3D;&#x3D;  (k - i + 1)&#x2F;k，那么所需要次数的期望，就是 1&#x2F;P &#x3D;&#x3D; k&#x2F;(k - i +1)。</p>
+<p>由此，我们得到递推式：<br>$$<br>dp[i] &#x3D; dp[i-1] + \frac{k}{k-i+1}<br>$$<br>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;n&gt;&gt;k;<br>dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= k ; i ++)&#123;<br>    dp[i] = dp[i<span class="hljs-number">-1</span>] + <span class="hljs-number">1.0</span>*k/(k - i<span class="hljs-number">+1</span>);<br>&#125;<br>cout&lt;&lt;fixed&lt;&lt;<span class="hljs-built_in">setprecision</span>(<span class="hljs-number">6</span>)&lt;&lt;dp[k];<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

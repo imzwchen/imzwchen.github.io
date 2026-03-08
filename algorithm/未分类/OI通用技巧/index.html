@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          628 字
+          654 字
         
       </span>
     
@@ -278,31 +278,27 @@
             
               <div class="markdown-body">
                 
-                <h1 id="inf">1.INF</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> INF 0x3f3f3f3f</span><br><span class="hljs-comment">//或者</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br></code></pre></td></tr></table></figure>
+                <h1 id="1-INF"><a href="#1-INF" class="headerlink" title="1.INF"></a>1.INF</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> INF 0x3f3f3f3f</span><br><span class="hljs-comment">//或者</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> INF = <span class="hljs-number">0x3f3f3f3f</span>;<br></code></pre></td></tr></table></figure>
+
 <p>INF这个常量表示最大值</p>
-<p>通常令INF = 0x3f3f3f3f</p>
+<p>通常令INF &#x3D; 0x3f3f3f3f</p>
 <p>相比于INT_MAX，这个值有3个好处：</p>
-<ol type="1">
-<li>0x3f3f3f3f的十进制是1061109567，也就是10<sup>9级别的（和0x7fffffff一个数量级），而一般场合下的数据都是小于10</sup>9的，所以它==可以作为无穷大使用而不致出现数据大于无穷大的情形。==</li>
-<li>另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上0x3f3f3f3f+0x3f3f3f3f=2122219134，这非常大但却没有超过32-bit
-int的表示范围，所以0x3f3f3f3f还==满足了我们“无穷大加无穷大还是无穷大”的需求==。</li>
-<li>最后，0x3f3f3f3f还能给我们带来一个意想不到的额外好处：如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))这样的代码来实现（方便而高效），但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数而得自己写循环了（写这些不重要的代码真的很痛苦），我们知道这是因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0，现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！所以==要把一段内存全部置为无穷大，我们只需要memset(a,0x3f,sizeof(a))==。</li>
+<ol>
+<li>0x3f3f3f3f的十进制是1061109567，也就是10^9级别的（和0x7fffffff一个数量级），而一般场合下的数据都是小于10^9的，所以它&#x3D;&#x3D;可以作为无穷大使用而不致出现数据大于无穷大的情形。&#x3D;&#x3D;</li>
+<li>另一方面，由于一般的数据都不会大于10^9，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上0x3f3f3f3f+0x3f3f3f3f&#x3D;2122219134，这非常大但却没有超过32-bit int的表示范围，所以0x3f3f3f3f还&#x3D;&#x3D;满足了我们“无穷大加无穷大还是无穷大”的需求&#x3D;&#x3D;。</li>
+<li>最后，0x3f3f3f3f还能给我们带来一个意想不到的额外好处：如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))这样的代码来实现（方便而高效），但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数而得自己写循环了（写这些不重要的代码真的很痛苦），我们知道这是因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0，现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！所以&#x3D;&#x3D;要把一段内存全部置为无穷大，我们只需要memset(a,0x3f,sizeof(a))&#x3D;&#x3D;。</li>
 </ol>
-<h1 id="llull">2.LL/ULL</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ull unsigned long long</span><br><span class="hljs-comment">//或者</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ull;<br></code></pre></td></tr></table></figure>
-<h1 id="debug函数">3.debug函数</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> debug(a) cout&lt;&lt;#a&lt;&lt;<span class="hljs-string">&quot; == &quot;</span>&lt;&lt;a&lt;&lt;endl;</span><br></code></pre></td></tr></table></figure>
-<h1 id="cincout加速">4.cin/cout加速</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>)<br><span class="hljs-comment">//这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</span><br>cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>),cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br><span class="hljs-comment">//解除cin与cout的绑定</span><br>cout&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br><span class="hljs-comment">//效率比cout&lt;&lt;endl更高</span><br></code></pre></td></tr></table></figure>
+<h1 id="2-LL-ULL"><a href="#2-LL-ULL" class="headerlink" title="2.LL&#x2F;ULL"></a>2.LL&#x2F;ULL</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ull unsigned long long</span><br><span class="hljs-comment">//或者</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ull;<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-debug函数"><a href="#3-debug函数" class="headerlink" title="3.debug函数"></a>3.debug函数</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> debug(a) cout&lt;&lt;#a&lt;&lt;<span class="hljs-string">&quot; == &quot;</span>&lt;&lt;a&lt;&lt;endl;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="4-cin-cout加速"><a href="#4-cin-cout加速" class="headerlink" title="4.cin&#x2F;cout加速"></a>4.cin&#x2F;cout加速</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>)<br><span class="hljs-comment">//这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</span><br>cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>),cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br><span class="hljs-comment">//解除cin与cout的绑定</span><br>cout&lt;&lt;<span class="hljs-string">&#x27;\n&#x27;</span>;<br><span class="hljs-comment">//效率比cout&lt;&lt;endl更高</span><br></code></pre></td></tr></table></figure>
+
 <p>cin cout 和 scanf printf：</p>
-<p>==做题的时候尽量使用scanf printf==，因为cin cout 比 scanf
-printf慢20倍左右！</p>
+<p>&#x3D;&#x3D;做题的时候尽量使用scanf printf&#x3D;&#x3D;，因为cin cout 比 scanf printf慢20倍左右！</p>
 <p>一旦遇到大数据量，光是读入就有可能跪掉。</p>
-<p>可以使用std::ios::sync_with_stdio(false)这条语句关掉scanf 和cin
-的同步加快效率。</p>
-<p>但==cin 仍然慢 5倍左右==，而且一旦使用了这条语句，scanf和cin
-混用可能就会造成一些奇怪的问题。</p>
+<p>可以使用std::ios::sync_with_stdio(false)这条语句关掉scanf 和cin 的同步加快效率。</p>
+<p>但&#x3D;&#x3D;cin 仍然慢 5倍左右&#x3D;&#x3D;，而且一旦使用了这条语句，scanf和cin 混用可能就会造成一些奇怪的问题。</p>
 
                 
               </div>

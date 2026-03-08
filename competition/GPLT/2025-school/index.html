@@ -21,12 +21,12 @@
   <meta name="author" content="ChenZhiwei">
   <meta name="keywords" content="">
   
-    <meta name="description" content="GPLT团体程序设计天梯赛模拟：2025年校赛 摘要    题目 分值 知识点     竞赛 10 容斥原理   盒子游戏 15 博弈论   游戏机前的队伍 25 模拟、数据结构   国家管理 25 DFS   灯 25 二分答案   科技树 30 树上背包    L4 竞赛  Alice的班级有50名学生参">
+    <meta name="description" content="GPLT团体程序设计天梯赛模拟：2025年校赛摘要   题目 分值 知识点    竞赛 10 容斥原理   盒子游戏 15 博弈论   游戏机前的队伍 25 模拟、数据结构   国家管理 25 DFS   灯 25 二分答案   科技树 30 树上背包   L4 竞赛 Alice的班级有50名学生参与三种学科竞赛：数学、物理和化学。已知：  参加数学竞赛的有25人，物理竞赛28人，化学竞赛20人；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GPLT团体程序设计天梯赛模拟：2025年校赛">
 <meta property="og:url" content="https://imzwchen.github.io/competition/GPLT/2025-school/index.html">
 <meta property="og:site_name" content="陈志伟的个人博客">
-<meta property="og:description" content="GPLT团体程序设计天梯赛模拟：2025年校赛 摘要    题目 分值 知识点     竞赛 10 容斥原理   盒子游戏 15 博弈论   游戏机前的队伍 25 模拟、数据结构   国家管理 25 DFS   灯 25 二分答案   科技树 30 树上背包    L4 竞赛  Alice的班级有50名学生参">
+<meta property="og:description" content="GPLT团体程序设计天梯赛模拟：2025年校赛摘要   题目 分值 知识点    竞赛 10 容斥原理   盒子游戏 15 博弈论   游戏机前的队伍 25 模拟、数据结构   国家管理 25 DFS   灯 25 二分答案   科技树 30 树上背包   L4 竞赛 Alice的班级有50名学生参与三种学科竞赛：数学、物理和化学。已知：  参加数学竞赛的有25人，物理竞赛28人，化学竞赛20人；">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://imzwchen.github.io/competition/GPLT/2025-school/incexcp.png">
 <meta property="og:image" content="https://imzwchen.github.io/competition/GPLT/2025-school/e20f49db-3b50-471b-8104-c81b535ab8c9.png">
@@ -104,7 +104,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -282,9 +282,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="gplt团体程序设计天梯赛模拟2025年校赛">GPLT团体程序设计天梯赛模拟：2025年校赛</h1>
-<h2 id="摘要">摘要</h2>
-<table>
+                <h1 id="GPLT团体程序设计天梯赛模拟：2025年校赛"><a href="#GPLT团体程序设计天梯赛模拟：2025年校赛" class="headerlink" title="GPLT团体程序设计天梯赛模拟：2025年校赛"></a>GPLT团体程序设计天梯赛模拟：2025年校赛</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><table>
 <thead>
 <tr>
 <th>题目</th>
@@ -292,8 +290,7 @@
 <th>知识点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>竞赛</td>
 <td>10</td>
 <td>容斥原理</td>
@@ -323,10 +320,8 @@
 <td>30</td>
 <td>树上背包</td>
 </tr>
-</tbody>
-</table>
-<h2 id="l4-竞赛">L4 竞赛</h2>
-<blockquote>
+</tbody></table>
+<h2 id="L4-竞赛"><a href="#L4-竞赛" class="headerlink" title="L4 竞赛"></a>L4 竞赛</h2><blockquote>
 <p>Alice的班级有50名学生参与三种学科竞赛：数学、物理和化学。已知：</p>
 <ul>
 <li>参加数学竞赛的有25人，物理竞赛28人，化学竞赛20人；</li>
@@ -334,219 +329,139 @@
 <li>同时参加所有三种竞赛的有5人。</li>
 </ul>
 <p><strong>问题：</strong></p>
-<ol type="1">
+<ol>
 <li>至少参加一项竞赛的学生有多少人？</li>
 <li>恰好参加两种竞赛的学生有多少人？</li>
 </ol>
 </blockquote>
-<p>Alice很快解决了该问题，于是其他班级的同学也向Alice求助，请你写个程序来自动解决这类问题：给出8个数字，分别代表学生总数
-<em>n</em> 、数学竞赛的人数 <em>a</em> 、参加物理竞赛的人数 <em>b</em>
-、参加化学竞赛的人数 <em>c</em> 、同时参加数学和物理的人数 <em>ab</em>
-、同时参加数学和化学的人数 *a**c* 、同时参加物理和化学的人数 *b**c*
-、同时参加所有三种竞赛的人数 *ab**c*
-，问至少参加一项竞赛的学生有多少人？恰好参加两种竞赛的学生有多少人？</p>
-<h3 id="输入格式">输入格式：</h3>
-<p>输入一行，给出八个均不超过 100 的整数
-<em>n</em>,<em>a</em>,<em>b</em>,<em>c</em>,<em>ab</em>,<em>a<strong>c<em>,</em>b</strong>c</em>,*ab**c*
-，含义同题目描述。</p>
-<h3 id="输出格式">输出格式：</h3>
-<p>在一行中输出用空格间隔的两个正整数
-<em>an<strong>s<em>1,</em>an</strong>s</em>2 ，其中 <em>an<strong>s<em>1
-代表至少参加一项竞赛的学生人数，</em>an</strong>s</em>2
-代表恰好参加两种竞赛的学生人数。</p>
-<h3 id="输入样例">输入样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs in">50 25 28 20 12 8 10 5<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例">输出样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">48 15<br></code></pre></td></tr></table></figure>
-<h3 id="题解">题解：</h3>
-<figure>
-<img src="/competition/GPLT/2025-school/incexcp.png" srcset="/img/loading.gif" lazyload alt="容斥原理 - venn 图示例">
-<figcaption aria-hidden="true">容斥原理 - venn 图示例</figcaption>
-</figure>
+<p>Alice很快解决了该问题，于是其他班级的同学也向Alice求助，请你写个程序来自动解决这类问题：给出8个数字，分别代表学生总数 <em>n</em> 、数学竞赛的人数 <em>a</em> 、参加物理竞赛的人数 <em>b</em> 、参加化学竞赛的人数 <em>c</em> 、同时参加数学和物理的人数 <em>ab</em> 、同时参加数学和化学的人数 <em>a**c</em> 、同时参加物理和化学的人数 <em>b**c</em> 、同时参加所有三种竞赛的人数 <em>ab**c</em> ，问至少参加一项竞赛的学生有多少人？恰好参加两种竞赛的学生有多少人？</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入一行，给出八个均不超过 100 的整数 <em>n</em>,<em>a</em>,<em>b</em>,<em>c</em>,<em>ab</em>,<em>a**c</em>,<em>b**c</em>,<em>ab**c</em> ，含义同题目描述。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>在一行中输出用空格间隔的两个正整数 <em>an**s</em>1,<em>an**s</em>2 ，其中 <em>an**s</em>1 代表至少参加一项竞赛的学生人数，<em>an**s</em>2 代表恰好参加两种竞赛的学生人数。</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs in">50 25 28 20 12 8 10 5<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">48 15<br></code></pre></td></tr></table></figure>
+
+<h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><p><img src="/competition/GPLT/2025-school/incexcp.png" srcset="/img/loading.gif" lazyload alt="容斥原理 - venn 图示例"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,a,b,c,ab,ac,bc,abc;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;ab&gt;&gt;ac&gt;&gt;bc&gt;&gt;abc;<br>	cout&lt;&lt;a+b+c - ab - ac - bc + abc&lt;&lt;<span class="hljs-string">&quot; &quot;</span>;<br>	cout&lt;&lt;(ab+bc+ac - <span class="hljs-number">3</span>*abc);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="l5-盒子游戏">L5 盒子游戏</h2>
-<p>有两个相同的盒子，其中一个装了 n 个球，另一个装了一个球。 Alice 和
-Bob 发明了一个游戏，规则如下：</p>
-<p>Alice 和 Bob 轮流操作， Alice
-先操作。每次操作时，游戏者先看看哪个盒子里的球的数目比较少（数量相同就随便选一个盒子），
-然后清空这个盒子（盒子里的球直接扔掉），然后把另一个盒子里的球拿一些到这个盒子中，使得两个盒子都至少有一个球。如果一个游戏者无法进行操作（无法使得两个盒子都至少有一个球），他（她）就输了。下面一行是一个
-<em>n</em>=6 的游戏：</p>
-<p>Alice先操作，分为 (3,3) Bob操作，丢弃 3 ，剩下 3 ，分为 (1,2)
-Alice操作，丢弃 1 ，剩下 2 ，分为 (1,1) Bob操作， 丢弃 1 ，剩下 1 Bob
-无法继续操作，因此 Alice 获胜。</p>
+
+<h2 id="L5-盒子游戏"><a href="#L5-盒子游戏" class="headerlink" title="L5 盒子游戏"></a>L5 盒子游戏</h2><p>有两个相同的盒子，其中一个装了 n 个球，另一个装了一个球。 Alice 和 Bob 发明了一个游戏，规则如下：</p>
+<p>Alice 和 Bob 轮流操作， Alice 先操作。每次操作时，游戏者先看看哪个盒子里的球的数目比较少（数量相同就随便选一个盒子）， 然后清空这个盒子（盒子里的球直接扔掉），然后把另一个盒子里的球拿一些到这个盒子中，使得两个盒子都至少有一个球。如果一个游戏者无法进行操作（无法使得两个盒子都至少有一个球），他（她）就输了。下面一行是一个 <em>n</em>&#x3D;6 的游戏：</p>
+<p>Alice先操作，分为 (3,3)<br>Bob操作，丢弃 3 ，剩下 3 ，分为 (1,2)<br>Alice操作，丢弃 1 ，剩下 2 ，分为 (1,1)<br>Bob操作， 丢弃 1 ，剩下 1<br>Bob 无法继续操作，因此 Alice 获胜。</p>
 <p>你的任务是找出谁会获胜。假定两人都很聪明，总是采取最优策略。</p>
-<h3 id="输入格式-1">输入格式：</h3>
-<p>输入最多包含 300 组测试数据。每组数据仅一行，包含一个整数 <em>n</em>
-(2≤<em>n</em>≤109) 。输入结束标志为 <em>n</em>=0 。</p>
-<h3 id="输出格式-1">输出格式：</h3>
-<p>对于每组数据，输出胜者的名字。</p>
-<h3 id="输入样例-1">输入样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs in">2<br>3<br>4<br>0<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例-1">输出样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs out">Alice<br>Bob<br>Alice<br></code></pre></td></tr></table></figure>
-<h3 id="题解-1">题解：</h3>
-<p>根据题意， 谁先拿到1，无法分解就lose。</p>
-<p>n = 1，Alice(1) lose</p>
-<p>n = 2，Alice(2) -&gt; Bob(1) win</p>
-<p>n = 3，Alice(3) -&gt; Bob(2) -&gt; Alice(1) lose</p>
-<p>n = 4，Alice(4) -&gt; Bob(3) win</p>
-<p>这里4一定分解为3,1。若将4分解为2,2，Bob拿到2，Alice就会输；若将4分解为3,1，Bob拿到3，根据n=3的结果，先拿到3的人将lose，所以Alice是必胜；</p>
-<p>根据上述情况递推，可以得到 1，3，7，15的情况【2^n -
-1】，Alice会输，否则会赢。</p>
+<h3 id="输入格式：-1"><a href="#输入格式：-1" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入最多包含 300 组测试数据。每组数据仅一行，包含一个整数 <em>n</em> (2≤<em>n</em>≤109) 。输入结束标志为 <em>n</em>&#x3D;0 。</p>
+<h3 id="输出格式：-1"><a href="#输出格式：-1" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对于每组数据，输出胜者的名字。</p>
+<h3 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs in">2<br>3<br>4<br>0<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs out">Alice<br>Bob<br>Alice<br></code></pre></td></tr></table></figure>
+
+<h3 id="题解：-1"><a href="#题解：-1" class="headerlink" title="题解："></a>题解：</h3><p>根据题意， 谁先拿到1，无法分解就lose。</p>
+<p>n &#x3D; 1，Alice(1)         lose</p>
+<p>n &#x3D; 2，Alice(2) -&gt; Bob(1)         win</p>
+<p>n &#x3D; 3，Alice(3) -&gt; Bob(2) -&gt; Alice(1)         lose </p>
+<p>n &#x3D; 4，Alice(4) -&gt; Bob(3)         win </p>
+<p>这里4一定分解为3,1。若将4分解为2,2，Bob拿到2，Alice就会输；若将4分解为3,1，Bob拿到3，根据n&#x3D;3的结果，先拿到3的人将lose，所以Alice是必胜；</p>
+<p>根据上述情况递推，可以得到 1，3，7，15的情况【2^n - 1】，Alice会输，否则会赢。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br>set&lt;<span class="hljs-type">int</span> &gt; st;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	<span class="hljs-type">int</span> t = <span class="hljs-number">2</span>;<br>	<span class="hljs-keyword">while</span>(t &lt;= <span class="hljs-number">1e9</span>)&#123;<br>		st.<span class="hljs-built_in">insert</span>(t<span class="hljs-number">-1</span>);<br>		t *= <span class="hljs-number">2</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> x;<br>	<span class="hljs-keyword">while</span>(cin&gt;&gt;x, x)&#123;<br>		<span class="hljs-keyword">if</span>(st.<span class="hljs-built_in">count</span>(x))&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Bob\n&quot;</span>;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Alice\n&quot;</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="m1-游戏机前的队伍"><strong>M1</strong> 游戏机前的队伍</h2>
-<p><strong>补充说明：这里的排队和传统的排队有出入。正在游玩的人为队列的前两位，所以正在游玩视为正在排队。</strong></p>
+
+<h2 id="M1-游戏机前的队伍"><a href="#M1-游戏机前的队伍" class="headerlink" title="M1 游戏机前的队伍"></a><strong>M1</strong> 游戏机前的队伍</h2><p><strong>补充说明：这里的排队和传统的排队有出入。正在游玩的人为队列的前两位，所以正在游玩视为正在排队。</strong></p>
 <p>机厅里有一台游戏机，每次可供最多两人同时游玩。但是来玩的人显然不止两个！这个时候他们就需要排队了，而你需要写一个程序维护这个队列，并在他人游玩结束后通知接下来上场的人。在整个过程中，有以下几种事件可能发生：</p>
 <ul>
-<li><code>start</code>：一局游戏开始。若这不是第一局游戏，则上一局的参与者<strong>在这一局游戏开始前一瞬间</strong>按照原本的顺序回到队尾。此时你应该按在队列中的顺序输出这一局上场的人的名字（正常来讲是队列前两位或者唯一一个人），若有两个则以空格分割。若这一局无人上场，则输出
-<code>Error</code> 并忽略这条事件。</li>
-<li><code>arrive x</code>：<em>x</em> 到达机厅并且将自己加入队尾，此时
-<em>x</em> 不应该在排队，否则输出 <code>Error</code>
-并忽略这条事件。若该事件成功执行则输出 <code>OK</code>。</li>
-<li><code>leave x</code>：<em>x</em> 离开机厅并离开队列。此时 <em>x</em>
-应该在排队但不应该在游玩，否则输出 <code>Error</code>
-并忽略这条事件。若该事件成功执行则输出 <code>OK</code>。</li>
+<li><code>start</code>：一局游戏开始。若这不是第一局游戏，则上一局的参与者<strong>在这一局游戏开始前一瞬间</strong>按照原本的顺序回到队尾。此时你应该按在队列中的顺序输出这一局上场的人的名字（正常来讲是队列前两位或者唯一一个人），若有两个则以空格分割。若这一局无人上场，则输出 <code>Error</code> 并忽略这条事件。</li>
+<li><code>arrive x</code>：<em>x</em> 到达机厅并且将自己加入队尾，此时 <em>x</em> 不应该在排队，否则输出 <code>Error</code> 并忽略这条事件。若该事件成功执行则输出 <code>OK</code>。</li>
+<li><code>leave x</code>：<em>x</em> 离开机厅并离开队列。此时 <em>x</em> 应该在排队但不应该在游玩，否则输出 <code>Error</code> 并忽略这条事件。若该事件成功执行则输出 <code>OK</code>。</li>
 </ul>
 <p>你需要维护队列信息，并输出上述事件中要求的输出。</p>
-<h3 id="输入格式-2">输入格式</h3>
-<p>第一行一个整数
-<em>n</em>(1≤<em>n</em>≤1<em>e</em>5)，表示事件条数。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个整数 <em>n</em>(1≤<em>n</em>≤1<em>e</em>5)，表示事件条数。</p>
 <p>接下来 <em>n</em> 行，每行表示一条事件。</p>
-<h3 id="输出格式-2">输出格式</h3>
-<p>按照题目要求输出 <em>n</em> 行，表示程序对事件的响应。</p>
-<h3 id="输入样例1">输入样例1：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs in">14<br>start<br>arrive A<br>start<br>arrive B<br>arrive C<br>arrive D<br>start<br>leave C<br>leave D<br>start<br>arrive A<br>arrive D<br>leave E<br>start<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例1">输出样例1：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs out">Error<br>OK<br>A<br>OK<br>OK<br>OK<br>B C<br>Error<br>OK<br>A B<br>Error<br>OK<br>Error<br>C D<br></code></pre></td></tr></table></figure>
-<h3 id="输入样例2">输入样例2：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs in">3<br>arrive A<br>arrive B<br>arrive C<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例2">输出样例2：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs out">OK<br>OK<br>OK<br></code></pre></td></tr></table></figure>
-<h3 id="说明提示">说明/提示</h3>
-<p><strong>【样例说明】</strong></p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>按照题目要求输出 <em>n</em> 行，表示程序对事件的响应。</p>
+<h3 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs in">14<br>start<br>arrive A<br>start<br>arrive B<br>arrive C<br>arrive D<br>start<br>leave C<br>leave D<br>start<br>arrive A<br>arrive D<br>leave E<br>start<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs out">Error<br>OK<br>A<br>OK<br>OK<br>OK<br>B C<br>Error<br>OK<br>A B<br>Error<br>OK<br>Error<br>C D<br></code></pre></td></tr></table></figure>
+
+<h3 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs in">3<br>arrive A<br>arrive B<br>arrive C<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs out">OK<br>OK<br>OK<br></code></pre></td></tr></table></figure>
+
+<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h3><p><strong>【样例说明】</strong></p>
 <p>样例 1 中发生了如下的事件：</p>
 <ul>
-<li>第一次 <code>start</code> 时队列并没有任何人，输出
-<code>Error</code>。</li>
+<li>第一次 <code>start</code> 时队列并没有任何人，输出 <code>Error</code>。</li>
 <li><code>A</code> 随即加入队列。</li>
-<li>第二次 <code>start</code> 时仅有 <code>A</code> 一个人，所以输出
-<code>A</code>。</li>
+<li>第二次 <code>start</code> 时仅有 <code>A</code> 一个人，所以输出 <code>A</code>。</li>
 <li><code>B, C, D</code> 随即依次加入队列。</li>
 <li>第三次 <code>start</code> 时 <code>B, C</code> 上场。</li>
-<li><code>C</code> 试图离开，但是他在游玩。所以输出
-<code>Error</code>。</li>
+<li><code>C</code> 试图离开，但是他在游玩。所以输出 <code>Error</code>。</li>
 <li><code>D</code> 成功离开。</li>
 <li>第四次 <code>start</code> 时 <code>A, B</code> 上场。</li>
-<li><code>A</code> 试图加入队列，但是他已经在队列中。输出
-<code>Error</code>。</li>
+<li><code>A</code> 试图加入队列，但是他已经在队列中。输出 <code>Error</code>。</li>
 <li><code>D</code> 重新加入队列。</li>
-<li><code>E</code> 试图离开，但是他根本不在排队，输出
-<code>Error</code>。</li>
+<li><code>E</code> 试图离开，但是他根本不在排队，输出 <code>Error</code>。</li>
 <li>第五次 <code>start</code> 时 <code>C, D</code> 上场。</li>
 </ul>
-<p>样例 2 中，<code>A, B, C</code> 依次入队，操作合法，输出三个
-<code>OK</code>。</p>
-<h3 id="题解-2">题解：</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> string def = <span class="hljs-string">&quot;$$$$$$$&quot;</span>;<br><br>deque&lt;string &gt; q; <span class="hljs-comment">// 使用双端队列的原因是，相比queue, 可以使用erase函数，不用每次遍历整个队列</span><br>map&lt;string , <span class="hljs-type">bool</span>&gt; mp; <span class="hljs-comment">// 1 - 在排队，且在game； 0 - 在排队，但不在game； mp.count(x) = 0 - 不在排队 </span><br>string g[<span class="hljs-number">3</span>]; <span class="hljs-comment">// g[1], g[2] - 正在排队的2人；</span><br><span class="hljs-type">int</span> t;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Erase_queue</span><span class="hljs-params">(deque&lt;string &gt; &amp; q, string re)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it = q.<span class="hljs-built_in">begin</span>() ; it != q.<span class="hljs-built_in">end</span>() ; ++it)&#123;<br>		<span class="hljs-keyword">if</span>(*it == re)&#123;<br>			q.<span class="hljs-built_in">erase</span>(it);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	string op; cin&gt;&gt;op;<br>	<span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;start&quot;</span>)&#123;<br>		<span class="hljs-keyword">if</span>(g[<span class="hljs-number">1</span>] != def)&#123;<br>			q.<span class="hljs-built_in">push_back</span>(g[<span class="hljs-number">1</span>]); mp[g[<span class="hljs-number">1</span>]] = <span class="hljs-number">0</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(g[<span class="hljs-number">2</span>] != def)&#123;<br>			q.<span class="hljs-built_in">push_back</span>(g[<span class="hljs-number">2</span>]); mp[g[<span class="hljs-number">2</span>]] = <span class="hljs-number">0</span>;<br>		&#125;<br>        <span class="hljs-comment">// 这里要先把在游戏2人加入队尾，再判断队列长度，否则会出错。</span><br>		<span class="hljs-keyword">if</span>(q.<span class="hljs-built_in">empty</span>())&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(q.<span class="hljs-built_in">size</span>() == <span class="hljs-number">1</span>)&#123;<br>			g[<span class="hljs-number">1</span>] = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop_front</span>();<br>			g[<span class="hljs-number">2</span>] = def;<br>			mp[g[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span>;<br>			cout&lt;&lt;g[<span class="hljs-number">1</span>]&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			g[<span class="hljs-number">1</span>] = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop_front</span>();<br>			g[<span class="hljs-number">2</span>] = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop_front</span>();<br>			mp[g[<span class="hljs-number">1</span>]] = mp[g[<span class="hljs-number">2</span>]] = <span class="hljs-number">1</span>;<br>			cout&lt;&lt;g[<span class="hljs-number">1</span>]&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;g[<span class="hljs-number">2</span>]&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		&#125;<br>	&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;arrive&quot;</span>)&#123;<br>		string name;cin&gt;&gt;name;<br>		<span class="hljs-keyword">if</span>(mp.<span class="hljs-built_in">count</span>(name))&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<br>		cout&lt;&lt;<span class="hljs-string">&quot;OK&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		mp[name] = <span class="hljs-number">0</span>;<br>		q.<span class="hljs-built_in">push_back</span>(name);<br>	&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;leave&quot;</span>)&#123;<br>		string name;cin&gt;&gt;name;<br>		<span class="hljs-keyword">if</span>(!mp.<span class="hljs-built_in">count</span>(name))&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(mp.<span class="hljs-built_in">count</span>(name) &amp;&amp; mp[name] == <span class="hljs-number">1</span>)&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<br>		cout&lt;&lt;<span class="hljs-string">&quot;OK&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		mp.<span class="hljs-built_in">erase</span>(name);<br>		<span class="hljs-built_in">Erase_queue</span>(q, name);<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;t;<br>	g[<span class="hljs-number">1</span>] = g[<span class="hljs-number">2</span>] = def;<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		<span class="hljs-built_in">solve</span>();<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="m2-国家管理">M2 国家管理</h2>
-<p>Alice
-所在的国家中的城市通过道路连接起来，形成一颗<strong>树</strong>（全连通但无环），并且每个城市分为<strong>红派</strong>或者<strong>蓝派</strong>。</p>
+<p>样例 2 中，<code>A, B, C</code> 依次入队，操作合法，输出三个 <code>OK</code>。</p>
+<h3 id="题解：-2"><a href="#题解：-2" class="headerlink" title="题解："></a>题解：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> string def = <span class="hljs-string">&quot;$$$$$$$&quot;</span>;<br><br>deque&lt;string &gt; q; <span class="hljs-comment">// 使用双端队列的原因是，相比queue, 可以使用erase函数，不用每次遍历整个队列</span><br>map&lt;string , <span class="hljs-type">bool</span>&gt; mp; <span class="hljs-comment">// 1 - 在排队，且在game； 0 - 在排队，但不在game； mp.count(x) = 0 - 不在排队 </span><br>string g[<span class="hljs-number">3</span>]; <span class="hljs-comment">// g[1], g[2] - 正在排队的2人；</span><br><span class="hljs-type">int</span> t;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Erase_queue</span><span class="hljs-params">(deque&lt;string &gt; &amp; q, string re)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it = q.<span class="hljs-built_in">begin</span>() ; it != q.<span class="hljs-built_in">end</span>() ; ++it)&#123;<br>		<span class="hljs-keyword">if</span>(*it == re)&#123;<br>			q.<span class="hljs-built_in">erase</span>(it);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	string op; cin&gt;&gt;op;<br>	<span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;start&quot;</span>)&#123;<br>		<span class="hljs-keyword">if</span>(g[<span class="hljs-number">1</span>] != def)&#123;<br>			q.<span class="hljs-built_in">push_back</span>(g[<span class="hljs-number">1</span>]); mp[g[<span class="hljs-number">1</span>]] = <span class="hljs-number">0</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(g[<span class="hljs-number">2</span>] != def)&#123;<br>			q.<span class="hljs-built_in">push_back</span>(g[<span class="hljs-number">2</span>]); mp[g[<span class="hljs-number">2</span>]] = <span class="hljs-number">0</span>;<br>		&#125;<br>        <span class="hljs-comment">// 这里要先把在游戏2人加入队尾，再判断队列长度，否则会出错。</span><br>		<span class="hljs-keyword">if</span>(q.<span class="hljs-built_in">empty</span>())&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(q.<span class="hljs-built_in">size</span>() == <span class="hljs-number">1</span>)&#123;<br>			g[<span class="hljs-number">1</span>] = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop_front</span>();<br>			g[<span class="hljs-number">2</span>] = def;<br>			mp[g[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span>;<br>			cout&lt;&lt;g[<span class="hljs-number">1</span>]&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			g[<span class="hljs-number">1</span>] = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop_front</span>();<br>			g[<span class="hljs-number">2</span>] = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop_front</span>();<br>			mp[g[<span class="hljs-number">1</span>]] = mp[g[<span class="hljs-number">2</span>]] = <span class="hljs-number">1</span>;<br>			cout&lt;&lt;g[<span class="hljs-number">1</span>]&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;g[<span class="hljs-number">2</span>]&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		&#125;<br>	&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;arrive&quot;</span>)&#123;<br>		string name;cin&gt;&gt;name;<br>		<span class="hljs-keyword">if</span>(mp.<span class="hljs-built_in">count</span>(name))&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<br>		cout&lt;&lt;<span class="hljs-string">&quot;OK&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		mp[name] = <span class="hljs-number">0</span>;<br>		q.<span class="hljs-built_in">push_back</span>(name);<br>	&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;leave&quot;</span>)&#123;<br>		string name;cin&gt;&gt;name;<br>		<span class="hljs-keyword">if</span>(!mp.<span class="hljs-built_in">count</span>(name))&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(mp.<span class="hljs-built_in">count</span>(name) &amp;&amp; mp[name] == <span class="hljs-number">1</span>)&#123;<br>			cout&lt;&lt;<span class="hljs-string">&quot;Error&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>; <span class="hljs-keyword">return</span>;<br>		&#125;<br>		cout&lt;&lt;<span class="hljs-string">&quot;OK&quot;</span>&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>;<br>		mp.<span class="hljs-built_in">erase</span>(name);<br>		<span class="hljs-built_in">Erase_queue</span>(q, name);<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;t;<br>	g[<span class="hljs-number">1</span>] = g[<span class="hljs-number">2</span>] = def;<br>	<span class="hljs-keyword">while</span>(t--)&#123;<br>		<span class="hljs-built_in">solve</span>();<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="M2-国家管理"><a href="#M2-国家管理" class="headerlink" title="M2 国家管理"></a>M2 国家管理</h2><p>Alice 所在的国家中的城市通过道路连接起来，形成一颗<strong>树</strong>（全连通但无环），并且每个城市分为<strong>红派</strong>或者<strong>蓝派</strong>。</p>
 <p>相邻的同派城市可以形成一个城市群，一个同派的城市群距离首都越远，并且城市群内的城市越多，对国家的威胁越大。</p>
-<p>我们将一个城市群的威胁值表示为
-<strong>一个城市群内距离首都距离最近的城市相对于首都的距离</strong> 加上
-<strong>城市群内城市的数量</strong> 。</p>
+<p>我们将一个城市群的威胁值表示为 <strong>一个城市群内距离首都距离最近的城市相对于首都的距离</strong> 加上 <strong>城市群内城市的数量</strong> 。</p>
 <p>我们给城市编号 1 到 <em>n</em>，并假设首都的编号为 1 。</p>
 <p>道路的长度均为 1 。</p>
-<p>总统委托 Alice
-计算最大威胁值的城市群的威胁值为多少，你能写一个程序来帮帮她吗？</p>
-<h3 id="输入格式-3">输入格式：</h3>
-<p>第一行给出一个整数 <em>n</em> (1≤<em>n</em>≤1<em>e</em>5)
-，代表城市的总数。</p>
-<p>第 2 到 <em>n</em> 行，每行给出两个整数 <em>u</em> 和 <em>v</em>
-，代表编号为 <em>u</em> 的城市与编号为 <em>v</em>
-的城市有道路相连（保证所给的图能形成一颗树）。</p>
-<p>第 <em>n</em>+1 行，给出 <em>n</em> 个小于等于 1 的非负整数 *c**i*
-，如果 *c**i<em>=1 代表编号为 </em>i* 的城市为红派， *c**i<em>=0
-代表编号为 </em>i* 的城市为蓝派。</p>
-<h3 id="输出格式-3">输出格式：</h3>
-<p>输出一个整数，代表最大威胁值的城市群的威胁值为多少。</p>
-<h3 id="输入样例-2">输入样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs in">6<br>1 2<br>1 3<br>2 4<br>2 5<br>3 6<br>0 1 1 0 1 0<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例-2">输出样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">3<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="/competition/GPLT/2025-school/e20f49db-3b50-471b-8104-c81b535ab8c9.png" srcset="/img/loading.gif" lazyload alt="graph.png">
-<figcaption aria-hidden="true">graph.png</figcaption>
-</figure>
+<p>总统委托 Alice 计算最大威胁值的城市群的威胁值为多少，你能写一个程序来帮帮她吗？</p>
+<h3 id="输入格式：-2"><a href="#输入格式：-2" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行给出一个整数 <em>n</em> (1≤<em>n</em>≤1<em>e</em>5) ，代表城市的总数。</p>
+<p>第 2 到 <em>n</em> 行，每行给出两个整数 <em>u</em> 和 <em>v</em> ，代表编号为 <em>u</em> 的城市与编号为 <em>v</em> 的城市有道路相连（保证所给的图能形成一颗树）。</p>
+<p>第 <em>n</em>+1 行，给出 <em>n</em> 个小于等于 1 的非负整数 <em>c**i</em> ，如果 <em>c**i</em>&#x3D;1 代表编号为 <em>i</em> 的城市为红派， <em>c**i</em>&#x3D;0 代表编号为 <em>i</em> 的城市为蓝派。</p>
+<h3 id="输出格式：-2"><a href="#输出格式：-2" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出一个整数，代表最大威胁值的城市群的威胁值为多少。</p>
+<h3 id="输入样例：-2"><a href="#输入样例：-2" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs in">6<br>1 2<br>1 3<br>2 4<br>2 5<br>3 6<br>0 1 1 0 1 0<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例：-2"><a href="#输出样例：-2" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">3<br></code></pre></td></tr></table></figure>
+
+<p><img src="/competition/GPLT/2025-school/e20f49db-3b50-471b-8104-c81b535ab8c9.png" srcset="/img/loading.gif" lazyload alt="graph.png"></p>
 <ul>
 <li>分为五个城市群，<code>&#123;1&#125;，&#123;2,5&#125;，&#123;3&#125;，&#123;4&#125;，&#123;6&#125;</code></li>
 <li>威胁值分别为，1，3，2，3，3</li>
 <li>最大值为 3 因此输出 3</li>
 </ul>
-<h3 id="题解-3">题解：</h3>
-<p>以下两种写法时间上没有差异：</p>
+<h3 id="题解：-3"><a href="#题解：-3" class="headerlink" title="题解："></a>题解：</h3><p>以下两种写法时间上没有差异：</p>
 <p>1）两次dfs</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-type">int</span> n;<br>vector&lt;<span class="hljs-type">int</span> &gt; e[maxn];<br><span class="hljs-type">bool</span> visited[maxn];<br><span class="hljs-type">int</span> depth[maxn],color[maxn];<br><span class="hljs-type">int</span> min_, sum, ans;<br><br><span class="hljs-comment">// 求出每个节点深度</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">get_depth</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-keyword">if</span>(it != <span class="hljs-number">1</span> &amp;&amp; depth[it] == <span class="hljs-number">0</span>)&#123;<br>			depth[it] = depth[x] + <span class="hljs-number">1</span>;<br>			<span class="hljs-built_in">get_depth</span>(it);<br>		&#125;<br>	&#125;<br>&#125;<br><span class="hljs-comment">// 计算相邻同色节点的数量和最小深度</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	min_ = <span class="hljs-built_in">min</span>(min_, depth[x]);<br>	sum++;<br>	visited[x] = <span class="hljs-literal">true</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-keyword">if</span>(!visited[it] &amp;&amp; color[x] == color[it])&#123;<br>			<span class="hljs-built_in">dfs</span>(it);<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n<span class="hljs-number">-1</span> ; i ++)&#123;<br>		<span class="hljs-type">int</span> u, v; cin&gt;&gt;u&gt;&gt;v;<br>		e[u].<span class="hljs-built_in">push_back</span>(v);<br>		e[v].<span class="hljs-built_in">push_back</span>(u);<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		cin&gt;&gt;color[i];<br>	&#125;<br>	<span class="hljs-built_in">get_depth</span>(<span class="hljs-number">1</span>);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(!visited[i])&#123;<br>			min_ = INT_MAX;<br>			sum = <span class="hljs-number">0</span>;<br>			<span class="hljs-built_in">dfs</span>(i);<br>			ans = <span class="hljs-built_in">max</span>(sum + min_, ans);<br>		&#125;<br>	&#125;<br>	cout&lt;&lt;ans;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>2）单次dfs（更简洁）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>;<br><br><span class="hljs-type">int</span> n,ans;<br><span class="hljs-type">int</span> color[maxn],num[maxn];<br>vector&lt;<span class="hljs-type">int</span> &gt; e[maxn];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> f, <span class="hljs-type">int</span> d)</span></span>&#123;<br>	num[x] = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-keyword">if</span>(it != f)&#123;<br>			<span class="hljs-built_in">dfs</span>(it, x, d<span class="hljs-number">+1</span>);<br>			<span class="hljs-keyword">if</span>(color[it] == color[x]) num[x] += num[it];<br>		&#125;<br>	&#125;<br>	ans = <span class="hljs-built_in">max</span>(ans, num[x] + d);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;n;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n<span class="hljs-number">-1</span> ; i ++)&#123;<br>		<span class="hljs-type">int</span> u, v; cin&gt;&gt;u&gt;&gt;v;<br>		e[u].<span class="hljs-built_in">push_back</span>(v);<br>		e[v].<span class="hljs-built_in">push_back</span>(u);<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		cin&gt;&gt;color[i];<br>	&#125;<br>	<span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	cout&lt;&lt;ans;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="m3-灯">M3 灯</h2>
-<p>有 <em>n</em>
-盏灯排成一列，其中有些灯开着，有些灯关着。Alice希望灯是错落有致的，他定义一列灯的状态的不优美度为这些灯中最长的连续的开着或关着的灯的个数。小可可最多可以按开关
-<em>k</em>
-次，每次操作可以使该盏灯的状态取反：原来开着的就关着，反之开着。现在给出这些灯的状态，求操作后最小的不优美度。</p>
-<h3 id="输入格式-4">输入格式：</h3>
-<p>第一行两个整数 <em>n</em>,<em>k</em>
-(1≤<em>k</em>≤<em>n</em>≤2<em>e</em>5)，代表灯的总数为 <em>n</em>
-，最多可以按 <em>k</em> 次开关</p>
-<p>第二行是一个长度为 <em>n</em>
-的字符串，其中有两种字符：<code>N</code> 和 <code>F</code>。其中
-<code>N</code> 表示该灯开着，<code>F</code> 表示该灯关着。</p>
-<h3 id="输出格式-4">输出格式：</h3>
-<p>输出一个整数，代表操作后最小的不优美度。</p>
-<h3 id="输入样例-3">输入样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs in">8 1<br>NNNFFNNN<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例-3">输出样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">3<br></code></pre></td></tr></table></figure>
-<h3 id="题解-4">题解：</h3>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3718">P3718
-AHOI2017初中组] alter - 洛谷</a></p>
+
+<h2 id="M3-灯"><a href="#M3-灯" class="headerlink" title="M3 灯"></a>M3 灯</h2><p>有 <em>n</em> 盏灯排成一列，其中有些灯开着，有些灯关着。Alice希望灯是错落有致的，他定义一列灯的状态的不优美度为这些灯中最长的连续的开着或关着的灯的个数。小可可最多可以按开关 <em>k</em> 次，每次操作可以使该盏灯的状态取反：原来开着的就关着，反之开着。现在给出这些灯的状态，求操作后最小的不优美度。</p>
+<h3 id="输入格式：-3"><a href="#输入格式：-3" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行两个整数 <em>n</em>,<em>k</em> (1≤<em>k</em>≤<em>n</em>≤2<em>e</em>5)，代表灯的总数为 <em>n</em> ，最多可以按 <em>k</em> 次开关</p>
+<p>第二行是一个长度为 <em>n</em> 的字符串，其中有两种字符：<code>N</code> 和 <code>F</code>。其中 <code>N</code> 表示该灯开着，<code>F</code> 表示该灯关着。</p>
+<h3 id="输出格式：-3"><a href="#输出格式：-3" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出一个整数，代表操作后最小的不优美度。</p>
+<h3 id="输入样例：-3"><a href="#输入样例：-3" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs in">8 1<br>NNNFFNNN<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例：-3"><a href="#输出样例：-3" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">3<br></code></pre></td></tr></table></figure>
+
+<h3 id="题解：-4"><a href="#题解：-4" class="headerlink" title="题解："></a>题解：</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3718">P3718 AHOI2017初中组] alter - 洛谷</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,k,ans;<br>string s;<br><br><span class="hljs-comment">// A.i 号灯修改后和 (i+1) 号灯一样，那么应该修改 (i−1) 号灯。</span><br><span class="hljs-comment">// B.i 号灯修改后和 (i+1) 号灯不一样，那么就修改 i 号灯。</span><br><span class="hljs-comment">// 但是对于A，当x==1时， 修改i-1可能会导致前面连成2，需要特判</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	string t = s;<br>	<span class="hljs-type">int</span> cnt = <span class="hljs-number">1</span>;<br>	<span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(t[i] != t[i<span class="hljs-number">-1</span>])&#123;<br>			cnt = <span class="hljs-number">1</span>;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			cnt++;<br>		&#125;<br>		<span class="hljs-keyword">if</span>(cnt &gt; x)&#123;<br>			<span class="hljs-keyword">if</span>(i<span class="hljs-number">+1</span> &lt;= n &amp;&amp; t[i<span class="hljs-number">+1</span>] == t[i]) t[i] = (t[i] == <span class="hljs-string">&#x27;N&#x27;</span> ? <span class="hljs-string">&#x27;F&#x27;</span>:<span class="hljs-string">&#x27;N&#x27;</span>);<br>			sum++; cnt = <span class="hljs-number">1</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> sum &lt;= k;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;k;<br>	cin&gt;&gt;s;<br>	s = <span class="hljs-string">&quot; &quot;</span> + s;<br>	<span class="hljs-comment">// 特判 x == 1 是否可行</span><br>	<span class="hljs-type">int</span> n1 = <span class="hljs-number">0</span>, n2 = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		<span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>			s[i] == <span class="hljs-string">&#x27;N&#x27;</span> ? ++n1:++n2;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			s[i] == <span class="hljs-string">&#x27;F&#x27;</span> ? ++n1:++n2;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(n1 &lt;= k || n2 &lt;= k)&#123;<br>		cout&lt;&lt;<span class="hljs-number">1</span>; <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> l = <span class="hljs-number">1</span>;<br>	<span class="hljs-type">int</span> r = n;<br>	<span class="hljs-keyword">while</span>(l<span class="hljs-number">+1</span> != r)&#123;<br>		<span class="hljs-type">int</span> mid = (l+r)/<span class="hljs-number">2</span>;<br>		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid))&#123;<br>			r = mid;<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			l = mid;<br>		&#125;<br>	&#125;<br>	cout&lt;&lt;r;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="h1-科技树">H1 科技树</h2>
-<p>如果我们想要解锁某种科技，必须解锁其前置科技，这种前置关系正好形成一棵树。</p>
-<figure>
-<img src="/competition/GPLT/2025-school/1_bb51ecbcd2-QQ图片20181018170337.png" srcset="/img/loading.gif" lazyload alt="QQ图片20181018170337.png">
-<figcaption aria-hidden="true">QQ图片20181018170337.png</figcaption>
-</figure>
+
+<h2 id="H1-科技树"><a href="#H1-科技树" class="headerlink" title="H1 科技树"></a>H1 科技树</h2><p>如果我们想要解锁某种科技，必须解锁其前置科技，这种前置关系正好形成一棵树。</p>
+<p><img src="/competition/GPLT/2025-school/1_bb51ecbcd2-QQ%E5%9B%BE%E7%89%8720181018170337.png" srcset="/img/loading.gif" lazyload alt="QQ图片20181018170337.png"></p>
 <p>如果解锁科技 5 ，则必须解锁科技 1 和 2</p>
 <p>解锁科技需要资源，同时会给一些科技点，Alice的资源有限，但她希望得到最多的科技点。</p>
-<p>每项科技的编号为 <em>i</em> ，需要的资源为 *v**i* ，提供的科技点为
-*w**i* ，依赖的科技为 *p**i* 。科技的下标范围是 1...<em>N</em> 。</p>
+<p>每项科技的编号为 <em>i</em> ，需要的资源为 <em>v**i</em> ，提供的科技点为 <em>w**i</em> ，依赖的科技为 <em>p**i</em> 。科技的下标范围是 1…<em>N</em> 。</p>
 <p>输出能获得的最多科技点。</p>
-<h3 id="输入格式-5">输入格式：</h3>
-<p>第一行有两个整数
-<em>N</em>，<em>V</em>，用空格隔开，分别表示科技个数和Alice初始拥有的资源。</p>
-<p>接下来有 <em>N</em> 行数据，每行数据表示一个科技。 第 <em>i</em>
-行有三个整数
-<em>v<strong>i<em>,</em>w</strong>i</em>,<em>p<strong>i<em>，用空格隔开，分别表示解锁科技需要的资源、提供的科技点和依赖的科技编号。
-如果 </em>p</strong>i</em>=−1 ，表示根节点。
-<strong>数据保证所有科技构成一棵树。</strong></p>
-<h3 id="输出格式-5">输出格式：</h3>
-<p>输出一个整数，代表能获得的最多科技点。</p>
-<h3 id="输入样例-4">输入样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs in">5 7<br>2 3 -1<br>2 2 1<br>3 5 1<br>4 7 2<br>3 6 2<br></code></pre></td></tr></table></figure>
-<h3 id="输出样例-4">输出样例：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">11<br></code></pre></td></tr></table></figure>
+<h3 id="输入格式：-4"><a href="#输入格式：-4" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行有两个整数 <em>N</em>，<em>V</em>，用空格隔开，分别表示科技个数和Alice初始拥有的资源。</p>
+<p>接下来有 <em>N</em> 行数据，每行数据表示一个科技。<br>第 <em>i</em> 行有三个整数 <em>v**i</em>,<em>w**i</em>,<em>p**i</em>，用空格隔开，分别表示解锁科技需要的资源、提供的科技点和依赖的科技编号。<br>如果 <em>p**i</em>&#x3D;−1 ，表示根节点。 <strong>数据保证所有科技构成一棵树。</strong></p>
+<h3 id="输出格式：-4"><a href="#输出格式：-4" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出一个整数，代表能获得的最多科技点。</p>
+<h3 id="输入样例：-4"><a href="#输入样例：-4" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs in">5 7<br>2 3 -1<br>2 2 1<br>3 5 1<br>4 7 2<br>3 6 2<br></code></pre></td></tr></table></figure>
+
+<h3 id="输出样例：-4"><a href="#输出样例：-4" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs out">11<br></code></pre></td></tr></table></figure>
+
 <p>数据范围：</p>
-<p>1≤<em>N</em>,<em>V</em>≤100
-1≤<em>v<strong>i<em>,</em>w</strong>i</em>≤100</p>
+<p>1≤<em>N</em>,<em>V</em>≤100<br>1≤<em>v**i</em>,<em>w**i</em>≤100</p>
 <p>父节点编号范围：</p>
 <ul>
-<li>内部结点：1≤*p**i<em>≤</em>N*;</li>
-<li>根节点 *p**i*=−1;</li>
+<li>内部结点：1≤<em>p**i</em>≤<em>N</em>;</li>
+<li>根节点 <em>p**i</em>&#x3D;−1;</li>
 </ul>
-<h3 id="题解-5">题解：</h3>
-<p>（树上背包模板）</p>
+<h3 id="题解：-5"><a href="#题解：-5" class="headerlink" title="题解："></a>题解：</h3><p>（树上背包模板）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn = <span class="hljs-number">1e3</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxm = <span class="hljs-number">1e3</span>;<br><br><span class="hljs-type">int</span> n,m,f,r;<br><span class="hljs-type">int</span> w[maxn],v[maxn];<br><span class="hljs-type">int</span> dp[maxn][maxm];<br>vector&lt;<span class="hljs-type">int</span> &gt; e[maxn];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-built_in">dfs</span>(it);<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it : e[x])&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = m ; j &gt;= <span class="hljs-number">0</span> ; j --)&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">0</span> ; j-k &gt;= w[x] ; k ++)&#123;<br>				dp[x][j] = <span class="hljs-built_in">max</span>(dp[x][j], dp[x][j-k] + dp[it][k]);<br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>&#123;<br>	cin&gt;&gt;n&gt;&gt;m;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>		cin&gt;&gt;w[i]&gt;&gt;v[i]&gt;&gt;f;<br>		<span class="hljs-keyword">if</span>(f == <span class="hljs-number">-1</span>) r = i;<br>		<span class="hljs-keyword">else</span> e[f].<span class="hljs-built_in">push_back</span>(i);<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = w[i]; j &lt;= m ; j ++)&#123;<br>			dp[i][j] = v[i];<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">dfs</span>(r);<br>	cout&lt;&lt;dp[r][m];<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          260 字
+          263 字
         
       </span>
     
@@ -278,19 +278,18 @@
             
               <div class="markdown-body">
                 
-                <h1 id="判断两点是否在同一对角线上">判断两点是否在同一对角线上</h1>
-<p>给定两个点 A(x1,y1) 和 B(x2,y2) B(x2,y2)</p>
-<p>若
-<code>abs(x1 - x2) == abs(y1 - y2)</code>，两点同一条对角线（/）上。</p>
-<p>若<code>x1 - y1 == x2 - y2</code>，两点在主对角线  上。</p>
-<p>若<code>x1 + y1 == x2 + y2</code>，两点在次对角线 / 上。</p>
-<p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805348915855360&amp;page=1">1128
-N Queens Puzzle - PAT (Advanced Level) Practice (pintia.cn)</a></p>
+                <h1 id="判断两点是否在同一对角线上"><a href="#判断两点是否在同一对角线上" class="headerlink" title="判断两点是否在同一对角线上"></a>判断两点是否在同一对角线上</h1><p>给定两个点 A(x1,y1) 和 B(x2,y2) B(x2,y2)</p>
+<p>若 <code>abs(x1 - x2) == abs(y1 - y2)</code>，两点同一条对角线（\或&#x2F;）上。</p>
+<p>若<code>x1 - y1 == x2 - y2</code>，两点在主对角线 \ 上。</p>
+<p>若<code>x1 + y1 == x2 + y2</code>，两点在次对角线 &#x2F; 上。</p>
+<p><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805342720868352/exam/problems/type/7?problemSetProblemId=994805348915855360&page=1">1128 N Queens Puzzle - PAT (Advanced Level) Practice (pintia.cn)</a></p>
 <p>以N皇后问题为例：</p>
 <p>O(n2)写法，较为简便，但效率低</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123; <span class="hljs-comment">//这里i表示行，col[i]表示列</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span>(col[i] == col[j] || <span class="hljs-built_in">abs</span>(i - j) == <span class="hljs-built_in">abs</span>(col[i] - col[j]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>O(n)写法，哈希优化，较为繁琐，但效率高</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-comment">//这里i表示行，col[i]表示列</span><br>    <span class="hljs-built_in">memset</span>(vis, <span class="hljs-literal">false</span>, <span class="hljs-built_in">sizeof</span>(vis));<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123; <span class="hljs-comment">//列</span><br>        <span class="hljs-keyword">if</span>(vis[col[i]]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        vis[col[i]] = <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-built_in">memset</span>(vis, <span class="hljs-literal">false</span>, <span class="hljs-built_in">sizeof</span>(vis));<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123; <span class="hljs-comment">//主对角线</span><br>        <span class="hljs-type">int</span> tep = i - col[i] + <span class="hljs-number">1500</span>;<br>        <span class="hljs-keyword">if</span>(vis[tep]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        vis[tep] = <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-built_in">memset</span>(vis, <span class="hljs-literal">false</span>, <span class="hljs-built_in">sizeof</span>(vis));<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123; <span class="hljs-comment">//次对角线</span><br>        <span class="hljs-type">int</span> tep = i + col[i];<br>        <span class="hljs-keyword">if</span>(vis[tep]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        vis[tep] = <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

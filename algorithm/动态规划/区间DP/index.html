@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -278,109 +278,73 @@
             
               <div class="markdown-body">
                 
-                <h1 id="区间dp">区间DP</h1>
-<h2 id="石子合并">石子合并</h2>
-<p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/21965/learning/?id=1149673&amp;compatibility=false">蓝桥杯省赛无忧班（C&amp;C++
-组）第 1 期 - 石子合并 - 蓝桥云课 (lanqiao.cn)</a></p>
+                <h1 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h1><h2 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h2><p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/21965/learning/?id=1149673&compatibility=false">蓝桥杯省赛无忧班（C&amp;C++ 组）第 1 期 - 石子合并 - 蓝桥云课 (lanqiao.cn)</a></p>
 <p>给n个石块，需要将所有石块合并为1块，每次合并的花销是两个石块的总重量，每次只能合并相邻的石块。</p>
-<p>求合并的最小花销。设 dp{i, j} 为 合并 从 i 到 j
-个石块的最小花销，可以得到如下的状态转移方程。 <span class="math display">\[
-dp[i, j] = \min(dp[i][k] + dp[k+1][j] + sum(i, j) | i &lt;= k &lt; j)
-\]</span> 其中，k为将 [i, j]
-这一列石块合并的中间点。为了得到最优解，我们需要遍历每一个k。</p>
+<p>求合并的最小花销。设 dp{i, j} 为 合并 从 i 到 j 个石块的最小花销，可以得到如下的状态转移方程。<br>$$<br>dp[i, j] &#x3D; \min(dp[i][k] + dp[k+1][j] + sum(i, j) | i &lt;&#x3D; k &lt; j)<br>$$<br>其中，k为将 [i, j] 这一列石块合并的中间点。为了得到最优解，我们需要遍历每一个k。</p>
 <p>注意：必须要以 [i, j]的区间长度 从小到大遍历</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;n;<br><span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0x3f3f3f3f</span> , <span class="hljs-built_in">sizeof</span>(dp));<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>    cin&gt;&gt;prefix[i]<br>    prefix[i] += prefix[i<span class="hljs-number">-1</span>];<br>    dp[i][i] = <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> l = <span class="hljs-number">1</span> ; l+i<span class="hljs-number">-1</span> &lt;= n ; l ++)&#123;<br>        <span class="hljs-type">int</span> r = l+i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = l ; k &lt; r ; k ++)&#123;<br>            dp[l][r] = <span class="hljs-built_in">min</span>(dp[l][r], dp[l][k] + dp[k<span class="hljs-number">+1</span>][r] + prefix[r] - prefix[l<span class="hljs-number">-1</span>]);<br>        &#125;<br>    &#125;<br>&#125;<br>cout&lt;&lt;dp[<span class="hljs-number">1</span>][n];<br></code></pre></td></tr></table></figure>
-<h2 id="涂色">涂色</h2>
-<p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/926/learning/?page=1&amp;first_category_id=1&amp;sort=students_count&amp;problem_id=926">1.涂色
-- 蓝桥云课 (lanqiao.cn)</a></p>
-<p>​ <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4170">CQOI2007 涂色 -
-洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+
+<h2 id="涂色"><a href="#涂色" class="headerlink" title="涂色"></a>涂色</h2><p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/926/learning/?page=1&first_category_id=1&sort=students_count&problem_id=926">1.涂色 - 蓝桥云课 (lanqiao.cn)</a></p>
+<p>​		 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4170">CQOI2007 涂色 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <p>给一个长度为n的字符串，每个字符代表一种颜色，比如：G代表绿，R代表红。每次涂色可以涂任意长度的区间，这一次的涂色会覆盖上一次的涂色。求最少的涂色次数。</p>
-<p>设 dp{i, j} 为 正确涂色 从 i 到 j
-个石块的最少次数，得到状态转移方程： <span class="math display">\[
-\begin{cases}
-dp[i][j] = min(dp[i-1][j], dp[i][j-1]) &amp;s[i] == s[j] \\ \\
-dp[i][j] = min(dp[i][k] + dp[k+1][j]  \space|\space i&lt;=k&lt;j )
-&amp;s[i] != s[j]
-\end{cases}
-\]</span> 对于左右端点相同的情况，当前区间的最少次数等同于删去
-左端点/右端点 后仍需的涂色次数；</p>
+<p>设 dp{i, j} 为 正确涂色 从 i 到 j 个石块的最少次数，得到状态转移方程：<br>$$<br>\begin{cases}<br>dp[i][j] &#x3D; min(dp[i-1][j], dp[i][j-1]) &amp;s[i] &#x3D;&#x3D; s[j] \ \<br>dp[i][j] &#x3D; min(dp[i][k] + dp[k+1][j]  \space|\space i&lt;&#x3D;k&lt;j ) &amp;s[i] !&#x3D; s[j]<br>\end{cases}<br>$$<br>对于左右端点相同的情况，当前区间的最少次数等同于删去 左端点&#x2F;右端点 后仍需的涂色次数；</p>
 <p>对于不相同的情况，则需要遍历每一种分解的情况。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;s;<br>n = s.<span class="hljs-built_in">length</span>();<br><span class="hljs-built_in">memset</span>(dp, <span class="hljs-number">0x3f3f3f3f</span>,<span class="hljs-built_in">sizeof</span>(dp));<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; n ; i ++) dp[i][i] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> l = <span class="hljs-number">0</span> ; l+i<span class="hljs-number">-1</span> &lt; n ; l ++)&#123;<br>        <span class="hljs-type">int</span> r = l+i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">if</span>(s[l] == s[r])&#123;<br>            <span class="hljs-keyword">if</span>(i == <span class="hljs-number">2</span>)&#123; <span class="hljs-comment">// 注意这里的特判</span><br>                dp[l][r] = <span class="hljs-number">1</span>;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                dp[l][r] = <span class="hljs-built_in">min</span>(dp[l<span class="hljs-number">+1</span>][r], dp[l][r<span class="hljs-number">-1</span>]);<br>            &#125;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = l ; k &lt; r ; k ++)&#123;<br>                dp[l][r] = <span class="hljs-built_in">min</span>(dp[l][r], dp[l][k] + dp[k<span class="hljs-number">+1</span>][r]);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br>cout&lt;&lt;dp[<span class="hljs-number">0</span>][n<span class="hljs-number">-1</span>];<br></code></pre></td></tr></table></figure>
-<h2 id="制作回文串">制作回文串</h2>
-<p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/1547/learning/?page=1&amp;first_category_id=1&amp;sort=students_count&amp;problem_id=1547">1.制作回文串
-- 蓝桥云课 (lanqiao.cn)</a></p>
+
+<h2 id="制作回文串"><a href="#制作回文串" class="headerlink" title="制作回文串"></a>制作回文串</h2><p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/1547/learning/?page=1&first_category_id=1&sort=students_count&problem_id=1547">1.制作回文串 - 蓝桥云课 (lanqiao.cn)</a></p>
 <p>给一个长度为n的字符串，字符串有m种不同的字母构成，并给出每种字符插入和删除的花销。</p>
 <p>求将这个字符串构造成回文串的最小花销。</p>
-<p>设 dp{i, j} 为 构造 从 i 到 j
-区间的回文串所需的花销，得到状态转移方程： <span class="math display">\[
-\begin{cases}
-dp[i, j] = dp[i+1][j-1] &amp; s[i] == s[j]\\ \\
-dp[i, j] = min(dp[i+1][j] + cost[i], dp[i][j-1]+cost[j]) &amp; s[i] !=
-s[j]
-\end{cases}
-\]</span> 左右端点相同时，我们跳过两端；</p>
+<p>设 dp{i, j} 为 构造 从 i 到 j 区间的回文串所需的花销，得到状态转移方程：<br>$$<br>\begin{cases}<br> dp[i, j] &#x3D; dp[i+1][j-1] &amp; s[i] &#x3D;&#x3D; s[j]\ \<br> dp[i, j] &#x3D; min(dp[i+1][j] + cost[i], dp[i][j-1]+cost[j]) &amp; s[i] !&#x3D; s[j]<br>\end{cases}<br>$$<br>左右端点相同时，我们跳过两端；</p>
 <p>不同时，我们选择删除一个花销较小的；</p>
 <p>注意：由于对最终生成的字符串没有要求，插入和删除操作都是相同的，我们选择其中一个较小的即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;m&gt;&gt;n;<br>cin&gt;&gt;s;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt; m ; i ++)&#123;<br>    <span class="hljs-type">char</span> c;cin&gt;&gt;c;<br>    <span class="hljs-type">int</span> w1,w2;cin&gt;&gt;w1&gt;&gt;w2;<br>    cost[<span class="hljs-built_in">int</span>(c)] = <span class="hljs-built_in">min</span>(w1,w2);<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> l = <span class="hljs-number">0</span> ; l &lt; n ; l ++)&#123;<br>        <span class="hljs-type">int</span> r = l+i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">if</span>(s[l] == s[r])&#123;<br>            <span class="hljs-keyword">if</span>(i == <span class="hljs-number">2</span>)&#123; <span class="hljs-comment">// 注意特判</span><br>                dp[l][r] = <span class="hljs-number">0</span>;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                dp[l][r] = dp[l<span class="hljs-number">+1</span>][r<span class="hljs-number">-1</span>];<br>            &#125;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            dp[l][r] = <span class="hljs-built_in">min</span>(dp[l][r<span class="hljs-number">-1</span>] + cost[<span class="hljs-built_in">int</span>(s[r])], dp[l<span class="hljs-number">+1</span>][r] + cost[<span class="hljs-built_in">int</span>(s[l])]);<br>        &#125;<br>    &#125;<br>&#125;<br>cout&lt;&lt;dp[<span class="hljs-number">0</span>][n<span class="hljs-number">-1</span>];<br></code></pre></td></tr></table></figure>
-<h2 id="石子合并2.0">石子合并2.0</h2>
-<p>原题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1880">NOI1995]
-石子合并 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<p>这题是一道经典的环形区间DP，与1.0的区别是，末尾的石子也可以和队首的石子合并，相当于把
-链 变成了 环 。</p>
+
+<h2 id="石子合并2-0"><a href="#石子合并2-0" class="headerlink" title="石子合并2.0"></a>石子合并2.0</h2><p>原题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1880">NOI1995] 石子合并 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<p>这题是一道经典的环形区间DP，与1.0的区别是，末尾的石子也可以和队首的石子合并，相当于把 链 变成了 环 。</p>
 <p>另外，这道题还要求同时求出 最大值 和 最小值。</p>
-<p>对于 4，5，9，4 这个数组，最后的计算结果可能来自 (4,5,9),4,
-也可能来自 (4,5) (9,4)。但对于环状的情况，还可能是 (4,4)
-(5,9)等，类似的情况无法被考虑。</p>
+<p>对于 4，5，9，4 这个数组，最后的计算结果可能来自 (4,5,9),4, 也可能来自 (4,5) (9,4)。但对于环状的情况，还可能是 (4,4) (5,9)等，类似的情况无法被考虑。</p>
 <p>解决环状区间的办法是 退化为 两个连接的链状区间 来解决。</p>
-<p>首先，我们将两个原数组相连，构造出：4 5 9 4, 4 5 9
-（末尾的4可以不要）</p>
+<p>首先，我们将两个原数组相连，构造出：4 5 9 4, 4 5 9 （末尾的4可以不要）</p>
 <p>按原长度划分，可以得到如下四种情况：</p>
-<p>dp(1,4) ==&gt;4 5 9 4</p>
-<p>dp(2,5) ==&gt;5 9 4 4</p>
-<p>dp(3,6) ==&gt;9 4 4 5</p>
-<p>dp(4,7) ==&gt;4 4 5 9</p>
+<p>dp(1,4) &#x3D;&#x3D;&gt;4 5 9 4 </p>
+<p>dp(2,5) &#x3D;&#x3D;&gt;5 9 4 4 </p>
+<p>dp(3,6) &#x3D;&#x3D;&gt;9 4 4 5 </p>
+<p>dp(4,7) &#x3D;&#x3D;&gt;4 4 5 9 </p>
 <p>我们要做的就是求出所有情况的最值，</p>
 <p>但是无需对每一段都做单独的dp，只需要做一次n*2规模的dp，然后取值即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 前缀和</span><br>cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>    cin&gt;&gt;prefix[i];<br>    prefix[i+n] = prefix[i];<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n*<span class="hljs-number">2</span> ; i ++)&#123;<br>    prefix[i] += prefix[i<span class="hljs-number">-1</span>];<br>&#125;<br><span class="hljs-comment">// 最小值</span><br><span class="hljs-built_in">memset</span>(dpMin, inf, <span class="hljs-built_in">sizeof</span>(dpMin));<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; n*<span class="hljs-number">2</span> ; i ++) dpMin[i][i] = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> l = <span class="hljs-number">1</span> ; l+i<span class="hljs-number">-1</span> &lt; n*<span class="hljs-number">2</span> ; l ++)&#123;<br>        <span class="hljs-type">int</span> r = l+i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = l ; k &lt; r ; k ++)&#123;<br>            dpMin[l][r] = <span class="hljs-built_in">min</span>(dpMin[l][r], dpMin[l][k] + dpMin[k<span class="hljs-number">+1</span>][r] + prefix[r] - prefix[l<span class="hljs-number">-1</span>]);<br>        &#125;<br>    &#125;<br>&#125;<br>min_ = inf;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; n ; i ++)&#123;<br>    min_ = <span class="hljs-built_in">min</span>(min_, dpMin[i][i+n<span class="hljs-number">-1</span>]);<br>&#125;<br><span class="hljs-comment">//最大值</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> l = <span class="hljs-number">1</span> ; l+i<span class="hljs-number">-1</span> &lt; n*<span class="hljs-number">2</span> ; l ++)&#123;<br>        <span class="hljs-type">int</span> r = l+i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = l ; k &lt; r ; k ++)&#123;<br>            dpMax[l][r] = <span class="hljs-built_in">max</span>(dpMax[l][r], dpMax[l][k] + dpMax[k<span class="hljs-number">+1</span>][r] + prefix[r] - prefix[l<span class="hljs-number">-1</span>]);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; n ; i ++)&#123;<br>    max_ = <span class="hljs-built_in">max</span>(max_, dpMax[i][i+n<span class="hljs-number">-1</span>]);<br>&#125;<br>cout&lt;&lt;min_&lt;&lt;<span class="hljs-string">&quot;\n&quot;</span>&lt;&lt;max_;<br></code></pre></td></tr></table></figure>
-<h2 id="能量项链">能量项链</h2>
-<p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/557/learning/?page=1&amp;first_category_id=1&amp;sort=students_count&amp;problem_id=557">1.能量项链
-- 蓝桥云课 (lanqiao.cn)</a></p>
+
+
+
+<h2 id="能量项链"><a href="#能量项链" class="headerlink" title="能量项链"></a>能量项链</h2><p>原题：<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/problems/557/learning/?page=1&first_category_id=1&sort=students_count&problem_id=557">1.能量项链 - 蓝桥云课 (lanqiao.cn)</a></p>
 <blockquote>
 <p>题目很复杂，不解释了</p>
 </blockquote>
 <p>这题和石子合并类似，区别累加的数字是一个乘积。</p>
-<p>状态转移方程如下： <span class="math display">\[
-dp[i, j] = max(dp[i][k] + dp[k+1][j] + v[i]*v[k+1]*v[j+1])
-\]</span> 代码：</p>
+<p>状态转移方程如下：<br>$$<br>dp[i, j] &#x3D; max(dp[i][k] + dp[k+1][j] + v[i]*v[k+1]*v[j+1])<br>$$<br>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cin&gt;&gt;n;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= n ; i ++)&#123;<br>    cin&gt;&gt;v[i];<br>    v[i+n] = v[i];<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span> ; i &lt;= n ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> l = <span class="hljs-number">1</span> ; l+i<span class="hljs-number">-1</span> &lt; n*<span class="hljs-number">2</span> ; l ++)&#123;<br>        <span class="hljs-type">int</span> r = l+i<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = l ; k &lt; r ; k ++)&#123;<br>            dp[l][r] = <span class="hljs-built_in">max</span>(dp[l][r], dp[l][k] + dp[k<span class="hljs-number">+1</span>][r] + v[l]*v[k<span class="hljs-number">+1</span>]*v[r<span class="hljs-number">+1</span>]);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt; n ; i ++)&#123;<br>    ans = <span class="hljs-built_in">max</span>(ans, dp[i][i+n<span class="hljs-number">-1</span>]);<br>&#125;<br>cout&lt;&lt;ans;<br></code></pre></td></tr></table></figure>
-<h2 id="最短编辑距离">最短编辑距离</h2>
-<blockquote>
+
+<h2 id="最短编辑距离"><a href="#最短编辑距离" class="headerlink" title="最短编辑距离"></a>最短编辑距离</h2><blockquote>
 <p>求最短编辑距离，也叫“近似串匹配”问题</p>
 </blockquote>
-<p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2758">P2758
-编辑距离 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<p>模板题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2758">P2758 编辑距离 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++">cin&gt;&gt;s1&gt;&gt;s2;<br>l1 = s<span class="hljs-number">1.l</span>ength(); s1 = <span class="hljs-string">&quot; &quot;</span> + s1;<br>l2 = s<span class="hljs-number">2.l</span>ength(); s2 = <span class="hljs-string">&quot; &quot;</span> + s2;<br><span class="hljs-comment">//初始化边界</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= l1; i ++) dp[i][<span class="hljs-number">0</span>] = i;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= l2; i ++) dp[<span class="hljs-number">0</span>][i] = i;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= l1; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= l2; j ++)&#123;<br>        <span class="hljs-keyword">if</span>(s1[i] == s2[j])&#123;<br>            dp[i][j] = dp[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];<span class="hljs-comment">//跳过</span><br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            dp[i][j] = <span class="hljs-built_in">min</span>(dp[i<span class="hljs-number">-1</span>][j] + <span class="hljs-number">1</span>, dp[i][j<span class="hljs-number">-1</span>] + <span class="hljs-number">1</span>);<span class="hljs-comment">//插入，删除</span><br>            dp[i][j] = <span class="hljs-built_in">min</span>(dp[i][j],dp[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + <span class="hljs-number">1</span>);<span class="hljs-comment">//修改</span><br>        &#125;<br>    &#125;<br>&#125;<br>cout&lt;&lt;dp[l1][l2]&lt;&lt;endl;<br></code></pre></td></tr></table></figure>
+
 <p><strong>模板+路径回溯</strong></p>
 <p>CAIP 2022 RC-u4 变牛的最快方法</p>
-<p>这里问的是把任意一种动物的图像变成牛的方法……
-比如把一只鼠的图像变换成牛的图像。方法如下：</p>
+<p>这里问的是把任意一种动物的图像变成牛的方法…… 比如把一只鼠的图像变换成牛的图像。方法如下：</p>
 <ul>
 <li>首先把屏幕上的像素点进行编号；</li>
 <li>然后把两只动物的外轮廓像素点编号按顺时针记录下来；</li>
-<li>用最少的变换次数将鼠的轮廓变成牛的 —— 这里仅允许对鼠的轮廓进行 3
-钟操作：</li>
+<li>用最少的变换次数将鼠的轮廓变成牛的 —— 这里仅允许对鼠的轮廓进行 3 钟操作：</li>
 </ul>
-<ol type="1">
+<ol>
 <li>插入一个像素编号</li>
 <li>删除一个像素编号</li>
 <li>更改一个像素编号</li>
 </ol>
 <p><strong>输入格式</strong></p>
-<p>输入分别在两行中给出两种动物的轮廓像素点编号，编号为 (0,106]
-区间内的整数，允许重复。轮廓以编号 −1
-结尾，这个编号不算在轮廓内。题目保证每种动物的轮廓包含不超过 1000
-个像素点。</p>
+<p>输入分别在两行中给出两种动物的轮廓像素点编号，编号为 (0,106] 区间内的整数，允许重复。轮廓以编号 −1 结尾，这个编号不算在轮廓内。题目保证每种动物的轮廓包含不超过 1000 个像素点。</p>
 <p><strong>输出格式</strong></p>
 <p>在第一行中输出从第一只动物变换成第二只动物需要的最少变换次数。</p>
 <p>在第二行中顺次描述对第一只动物轮廓的每个像素所作的操作：</p>
@@ -393,10 +357,13 @@ dp[i, j] = max(dp[i][k] + dp[k+1][j] + v[i]*v[k+1]*v[j+1])
 <p>答案可能不唯一，输出任何一种可能的解都可以。行首尾和数字间均无空格。</p>
 <p><strong>输入样例</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs in">13 5 6 20 2 20 1 13 9 20 3 28 3 34 6 25 233 -1<br>3 5 6 20 6 20 3 5 9 3 9 20 3 6 6 25 233 -1<br></code></pre></td></tr></table></figure>
+
 <p><strong>输出样例</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs out">8<br>122212112023121222<br></code></pre></td></tr></table></figure>
+
 <p><strong>代码</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span>(cin&gt;&gt;a1[++l1])&#123;<br>    <span class="hljs-keyword">if</span>(a1[l1] == <span class="hljs-number">-1</span>) <span class="hljs-keyword">break</span>;<br>&#125;l1--;<br><span class="hljs-keyword">while</span>(cin&gt;&gt;a2[++l2])&#123;<br>    <span class="hljs-keyword">if</span>(a2[l2] == <span class="hljs-number">-1</span>) <span class="hljs-keyword">break</span>;<br>&#125;l2--;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt;= l1 ; i ++)&#123;<br>    pre[i][<span class="hljs-number">0</span>] = <span class="hljs-built_in">make_pair</span>(i<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>);<br>    dp[i][<span class="hljs-number">0</span>] = i;<br>    op[i][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span> ; i &lt;= l2 ; i ++)&#123;<br>    pre[<span class="hljs-number">0</span>][i] = <span class="hljs-built_in">make_pair</span>(<span class="hljs-number">0</span>,i<span class="hljs-number">-1</span>);<br>    dp[<span class="hljs-number">0</span>][i] = i;<br>    op[<span class="hljs-number">0</span>][i] = <span class="hljs-number">3</span>;<br>&#125;<br><br><span class="hljs-comment">//删除 0 改变 1 不变 2 插入 3	</span><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span> ; i &lt;= l1 ; i ++)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span> ; j &lt;= l2 ; j ++)&#123;<br>        <span class="hljs-type">int</span> add = dp[i][j<span class="hljs-number">-1</span>] + <span class="hljs-number">1</span>; <span class="hljs-comment">// 3</span><br>        <span class="hljs-type">int</span> del = dp[i<span class="hljs-number">-1</span>][j] + <span class="hljs-number">1</span>; <span class="hljs-comment">// 0</span><br>        <span class="hljs-type">int</span> rpl = dp[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>] + (a1[i] != a2[j]); <span class="hljs-comment">//1 ; 2</span><br>        <span class="hljs-type">int</span> min_ = <span class="hljs-built_in">min</span>(add,<span class="hljs-built_in">min</span>(del,rpl));<br>        <span class="hljs-keyword">if</span>(min_ == add)&#123;<br>            dp[i][j] = add;<br>            pre[i][j] = <span class="hljs-built_in">make_pair</span>(i,j<span class="hljs-number">-1</span>);<br>            op[i][j] = <span class="hljs-number">3</span>;<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(min_ == del)&#123;<br>            dp[i][j] = del;<br>            pre[i][j] = <span class="hljs-built_in">make_pair</span>(i<span class="hljs-number">-1</span>,j);<br>            op[i][j] = <span class="hljs-number">0</span>;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            dp[i][j] = rpl;<br>            pre[i][j] = <span class="hljs-built_in">make_pair</span>(i<span class="hljs-number">-1</span>,j<span class="hljs-number">-1</span>);<br>            op[i][j] = a1[i] == a2[j] ? <span class="hljs-number">2</span>:<span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>&#125;<br>cout&lt;&lt;dp[l1][l2]&lt;&lt;endl;<br><span class="hljs-type">int</span> x = l1, y = l2;<br>stack&lt;<span class="hljs-type">int</span>&gt; ans;<br><span class="hljs-keyword">while</span>(x &gt; <span class="hljs-number">0</span>|| y &gt; <span class="hljs-number">0</span>)&#123;<br>    ans.<span class="hljs-built_in">push</span>(op[x][y]);<br>    pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; back = pre[x][y];<br>    x = back.first, y = back.second;<br>&#125;<br><span class="hljs-keyword">while</span>(!ans.<span class="hljs-built_in">empty</span>())&#123;<br>    cout&lt;&lt;ans.<span class="hljs-built_in">top</span>();ans.<span class="hljs-built_in">pop</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          198 字
+          200 字
         
       </span>
     
@@ -278,21 +278,15 @@
             
               <div class="markdown-body">
                 
-                <h1 id="导致段错误的可能原因">导致段错误的可能原因</h1>
-<h2 id="数组越界">1.数组越界</h2>
-<p>1）n = INT_MAX?</p>
+                <h1 id="导致段错误的可能原因"><a href="#导致段错误的可能原因" class="headerlink" title="导致段错误的可能原因"></a>导致段错误的可能原因</h1><h2 id="1-数组越界"><a href="#1-数组越界" class="headerlink" title="1.数组越界"></a>1.数组越界</h2><p>1）n &#x3D; INT_MAX?</p>
 <p>有时题目说的范围是int的取值范围，而不是1-n，</p>
-<p>此时，如果使用bool vis[N]来申请会出错，需要使用unordered_map&lt;int,
-bool&gt; mp;</p>
+<p>此时，如果使用bool vis[N]来申请会出错，需要使用unordered_map&lt;int, bool&gt; mp;</p>
 <p>2）<code>unsigned int cnt = v.size() - 1</code></p>
-<p>这种写法看似没有问题，但是当v为空时，cnt会赋值为-1，而unsigned int
-无法表示负数，</p>
+<p>这种写法看似没有问题，但是当v为空时，cnt会赋值为-1，而unsigned int 无法表示负数，</p>
 <p>会变为一个很大的正整数，在后续遍历时导致段错误。</p>
-<h2 id="函数错误">2.函数错误</h2>
-<p>Stoi和Stod使用前需保证传入的字符串是合法的数字/小数。</p>
+<h2 id="2-函数错误"><a href="#2-函数错误" class="headerlink" title="2.函数错误"></a>2.函数错误</h2><p>Stoi和Stod使用前需保证传入的字符串是合法的数字&#x2F;小数。</p>
 <p>STL中的front、back和top函数需要配合empty函数使用，为空时访问会报错。</p>
-<h2 id="栈溢出">3.栈溢出</h2>
-<p>有时使用DFS会导致栈空间溢出，此时应该改用BFS+queue的形式。</p>
+<h2 id="3-栈溢出"><a href="#3-栈溢出" class="headerlink" title="3.栈溢出"></a>3.栈溢出</h2><p>有时使用DFS会导致栈空间溢出，此时应该改用BFS+queue的形式。</p>
 
                 
               </div>

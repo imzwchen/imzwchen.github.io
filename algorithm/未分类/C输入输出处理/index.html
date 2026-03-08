@@ -100,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>陈志伟的个人博客</strong>
+      <strong>imzwchen&#39;s blogs</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          687 字
+          711 字
         
       </span>
     
@@ -278,107 +278,89 @@
             
               <div class="markdown-body">
                 
-                <h1 id="scanf">Scanf</h1>
-<p>常见%格式说明符</p>
+                <h1 id="Scanf"><a href="#Scanf" class="headerlink" title="Scanf"></a>Scanf</h1><p>常见%格式说明符</p>
 <table>
-
 <thead>
 <tr>
 <th>格式说明符</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>c</strong></td>
 <td>读入<strong>单个字符</strong>（后面不会加上空字节）</td>
 </tr>
 <tr>
 <td><strong>s</strong></td>
-<td>读入一个的<strong>字符序列</strong>，后面会加上空字节，遇到空白字符(空格等)完成读取。</td>
+<td>读入一个的<strong>字符序列</strong>，后面会加上空字节，遇到空白字符(\t \r \n 空格等)完成读取。</td>
 </tr>
 <tr>
 <td><strong>d</strong></td>
 <td>读入可选<strong>有符号十进制整数</strong></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ul>
-<li>%lld -- long long类型</li>
+<li>%lld – long long类型</li>
 </ul>
 <p>使用scanf来处理特殊的输入：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//例如：02:13:00 - 12:00:57</span><br><span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d:%d:%d - %d:%d:%d&quot;</span>,&amp;h1,&amp;m1,&amp;s1,&amp;h2,&amp;m2,&amp;s2);<br></code></pre></td></tr></table></figure>
-<h1 id="printf">printf</h1>
-<p>printf的格式控制字符串组成如下：</p>
+
+<h1 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h1><p>printf的格式控制字符串组成如下：</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less">%<span class="hljs-selector-attr">[flags]</span><span class="hljs-selector-attr">[width]</span><span class="hljs-selector-attr">[.prec]</span><span class="hljs-selector-attr">[length]</span><span class="hljs-selector-tag">type</span><br></code></pre></td></tr></table></figure>
+
 <p>也就是</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">%[标志][最小宽度][.精度][类型长度]类型<br></code></pre></td></tr></table></figure>
-<h2 id="标志--flag">1）标志--flag</h2>
-<p>flags规定输出样式，取值和含义如下：</p>
-<table>
 
+<h2 id="1）标志–flag"><a href="#1）标志–flag" class="headerlink" title="1）标志–flag"></a>1）标志–flag</h2><p>flags规定输出样式，取值和含义如下：</p>
+<table>
 <thead>
 <tr>
-<th style="text-align: left;">字符</th>
-<th style="text-align: center;">名称</th>
-<th style="text-align: center;">说明</th>
+<th align="left">字符</th>
+<th align="center">名称</th>
+<th align="center">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align: left;">-</td>
-<td style="text-align: center;">减号</td>
-<td style="text-align: center;">结果左对齐，右边填空格。默认是右对齐，左边填空格。</td>
+<tbody><tr>
+<td align="left">-</td>
+<td align="center">减号</td>
+<td align="center">结果左对齐，右边填空格。默认是右对齐，左边填空格。</td>
 </tr>
 <tr>
-<td style="text-align: left;">+</td>
-<td style="text-align: center;">加号</td>
-<td style="text-align: center;">输出符号(正号或负号)</td>
+<td align="left">+</td>
+<td align="center">加号</td>
+<td align="center">输出符号(正号或负号)</td>
 </tr>
 <tr>
-<td style="text-align: left;">space</td>
-<td style="text-align: center;">空格</td>
-<td style="text-align: center;">输出值为正时加上空格，为负时加上负号</td>
+<td align="left">space</td>
+<td align="center">空格</td>
+<td align="center">输出值为正时加上空格，为负时加上负号</td>
 </tr>
 <tr>
-<td style="text-align: left;">#</td>
-<td style="text-align: center;">井号</td>
-<td style="text-align: center;">type是o、x、X时，增加前缀0、0x、0X。
-type是a、A、e、E、f、g、G时，一定使用小数点。默认的，如果使用.0控制不输出小数部分，则不输出小数点。
-type是g、G时，尾部的0保留。</td>
+<td align="left">#</td>
+<td align="center">井号</td>
+<td align="center">type是o、x、X时，增加前缀0、0x、0X。 type是a、A、e、E、f、g、G时，一定使用小数点。默认的，如果使用.0控制不输出小数部分，则不输出小数点。 type是g、G时，尾部的0保留。</td>
 </tr>
 <tr>
-<td style="text-align: left;">0</td>
-<td style="text-align: center;">数字零</td>
-<td style="text-align: center;">将输出的前面补上0，直到占满指定列宽为止（不可以搭配使用“-”）</td>
+<td align="left">0</td>
+<td align="center">数字零</td>
+<td align="center">将输出的前面补上0，直到占满指定列宽为止（不可以搭配使用“-”）</td>
 </tr>
-</tbody>
-</table>
-<h2 id="width--最小宽度">2）width--最小宽度</h2>
-<p>用十进制整数来表示输出的最少位数。若实际位数多于指定的宽度，则按实际位数输出，若实际位数少于定义的宽度则补以空格或0。width的可能取值如下：</p>
-<p>xxxxxxxxxx #include&lt;bits/stdc++.h&gt;using namespace std;​int
-bits;​//将int型转化为二进制string getBitStr(int num){ string ans = "";
-int msk = 1; for(int i = 1 ; i &lt;= bits ; i ++){ ans = (num&amp;msk ?
-'1':'0') + ans; msk = msk &lt;&lt; 1; } return ans;}​void GrayCode(const
-int &amp;bits){ int x = pow(2,bits)-1; int num = 0;
-cout&lt;&lt;getBitStr(num)&lt;&lt;""; for(int i = 1 ; i &lt;= x ; i++){
-if(i % 2 != 0){ num = num^1; } else{ num = num^( ((num&amp;( (~num) +
-1)) &lt;&lt; 1) );            //Brian Kernighan 算法 }
-cout&lt;&lt;getBitStr(num)&lt;&lt;""; }}​int main(void){ cin&gt;&gt;bits;
-GrayCode(bits); return 0;}c++</p>
+</tbody></table>
+<h2 id="2）width–最小宽度"><a href="#2）width–最小宽度" class="headerlink" title="2）width–最小宽度"></a>2）width–最小宽度</h2><p>用十进制整数来表示输出的最少位数。若实际位数多于指定的宽度，则按实际位数输出，若实际位数少于定义的宽度则补以空格或0。width的可能取值如下：</p>
+<p>xxxxxxxxxx #include&lt;bits&#x2F;stdc++.h&gt;using namespace std;​int bits;​&#x2F;&#x2F;将int型转化为二进制string getBitStr(int num){    string ans &#x3D; “”;    int msk &#x3D; 1;    for(int i &#x3D; 1 ; i &lt;&#x3D; bits ; i ++){        ans &#x3D; (num&amp;msk ? ‘1’:’0’) + ans;        msk &#x3D; msk &lt;&lt; 1;    }    return ans;}​void GrayCode(const int &amp;bits){    int x &#x3D; pow(2,bits)-1;    int num &#x3D; 0;    cout&lt;&lt;getBitStr(num)&lt;&lt;”\n”;    for(int i &#x3D; 1 ; i &lt;&#x3D; x ; i++){        if(i % 2 !&#x3D; 0){            num &#x3D; num^1;        }        else{            num &#x3D; num^( ((num&amp;( (~num) + 1)) &lt;&lt; 1) );            &#x2F;&#x2F;Brian Kernighan 算法        }        cout&lt;&lt;getBitStr(num)&lt;&lt;”\n”;    }}​int main(void){    cin&gt;&gt;bits;    GrayCode(bits);    return 0;}c++</p>
 <p>输出：<code>001000</code></p>
-<h2 id="precision--精度字符串长度">3）precision--精度/字符串长度</h2>
-<p>主要用于浮点数和字符串，例如：</p>
+<h2 id="3）precision–精度-字符串长度"><a href="#3）precision–精度-字符串长度" class="headerlink" title="3）precision–精度&#x2F;字符串长度"></a>3）precision–精度&#x2F;字符串长度</h2><p>主要用于浮点数和字符串，例如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8d\n&quot;</span>,<span class="hljs-number">1000</span>);          <span class="hljs-comment">//不足指定宽度补前导0，效果等同于%06d</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8f\n&quot;</span>,<span class="hljs-number">1000.123456789</span>);<span class="hljs-comment">//超过精度，截断</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8f\n&quot;</span>,<span class="hljs-number">1000.123456</span>);   <span class="hljs-comment">//不足精度，补后置0</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8g\n&quot;</span>,<span class="hljs-number">1000.123456</span>);   <span class="hljs-comment">//最大有效数字为8位</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.8s\n&quot;</span>,“abcdefghij”);  <span class="hljs-comment">//超过指定长度截断</span><br><span class="hljs-comment">//00001000</span><br><span class="hljs-comment">//1000.12345679</span><br><span class="hljs-comment">//1000.12345600</span><br><span class="hljs-comment">//1000.1235</span><br><span class="hljs-comment">//abcdefgh</span><br></code></pre></td></tr></table></figure>
-<h1 id="sprintf">sprintf</h1>
-<p>sprinf用于将其他类型转化成cstr字符串类型</p>
+
+<h1 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h1><p>sprinf用于将其他类型转化成cstr字符串类型</p>
 <p>用法和printf类似</p>
 <p>例如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> cstring[<span class="hljs-number">100</span>];<br><span class="hljs-built_in">sprintf</span>(cstring,<span class="hljs-string">&quot;%02d:%02d:%02d&quot;</span>,h,m,s);<br><span class="hljs-function">string <span class="hljs-title">s</span><span class="hljs-params">(cstring)</span></span>;<br></code></pre></td></tr></table></figure>
-<h1 id="sscanf">sscanf</h1>
-<p>sscanf用于将已有字符串转化为其他类型，用法和scanf类似</p>
+
+<h1 id="sscanf"><a href="#sscanf" class="headerlink" title="sscanf"></a>sscanf</h1><p>sscanf用于将已有字符串转化为其他类型，用法和scanf类似</p>
 <p>例如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> cstring[<span class="hljs-number">100</span>];<br><span class="hljs-built_in">strcpy</span>(cstring,<span class="hljs-string">&quot;Saturday March 25 1989&quot;</span>);<br><span class="hljs-built_in">sscanf</span>(cstring, <span class="hljs-string">&quot;%s %s %d %d&quot;</span>, weekday, month, &amp;day, &amp;year );<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

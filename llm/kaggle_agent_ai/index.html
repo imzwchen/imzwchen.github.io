@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile_photo.png">
+  <link rel="icon" href="/img/profile_photo.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ChenZhiwei">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Google ADK Agent应用开发学习笔记Google的机器学习研究人员和工程师制作了一个为期5天的在线课程（Kaggle 5 Days of AI），讲解了AI Agent的基础和实际应用。 课程链接：5-Day AI Agents Intensive Course with Google | Kaggle 课程代码（NoteBook）：Kaggle 5 Days of AI | Kagg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google ADK Agent应用开发学习笔记">
+<meta property="og:url" content="https://imzwchen.github.io/llm/kaggle_agent_ai/index.html">
+<meta property="og:site_name" content="imzwchen&#39;s blogs">
+<meta property="og:description" content="Google ADK Agent应用开发学习笔记Google的机器学习研究人员和工程师制作了一个为期5天的在线课程（Kaggle 5 Days of AI），讲解了AI Agent的基础和实际应用。 课程链接：5-Day AI Agents Intensive Course with Google | Kaggle 课程代码（NoteBook）：Kaggle 5 Days of AI | Kagg">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imzwchen.github.io/llm/kaggle_agent_ai/agent-decision-tree.png">
+<meta property="og:image" content="https://imzwchen.github.io/llm/kaggle_agent_ai/custom-tools.png">
+<meta property="og:image" content="https://imzwchen.github.io/llm/kaggle_agent_ai/context-compaction.png">
+<meta property="og:image" content="https://imzwchen.github.io/llm/kaggle_agent_ai/memory-consolidation.png">
+<meta property="og:image" content="https://imzwchen.github.io/llm/kaggle_agent_ai/types_of_callbacks.png">
+<meta property="article:published_time" content="2026-03-13T05:00:13.000Z">
+<meta property="article:modified_time" content="2026-03-14T14:49:17.984Z">
+<meta property="article:author" content="ChenZhiwei">
+<meta property="article:tag" content="Agent">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://imzwchen.github.io/llm/kaggle_agent_ai/agent-decision-tree.png">
+  
+  
+  
+  <title>Google ADK Agent应用开发学习笔记 - imzwchen&#39;s blogs</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"imzwchen.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>imzwchen&#39;s blogs</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Google ADK Agent应用开发学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-13 13:00" pubdate>
+          2026年3月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Google ADK Agent应用开发学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Google-ADK-Agent应用开发学习笔记"><a href="#Google-ADK-Agent应用开发学习笔记" class="headerlink" title="Google ADK Agent应用开发学习笔记"></a>Google ADK Agent应用开发学习笔记</h1><p>Google的机器学习研究人员和工程师制作了一个为期5天的在线课程（Kaggle 5 Days of AI），讲解了AI Agent的基础和实际应用。</p>
+<p>课程链接：<a target="_blank" rel="noopener" href="https://www.kaggle.com/learn-guide/5-day-agents">5-Day AI Agents Intensive Course with Google | Kaggle</a></p>
+<p>课程代码（NoteBook）：<a target="_blank" rel="noopener" href="https://www.kaggle.com/kaggle5daysofai/code">Kaggle 5 Days of AI | Kaggle</a></p>
+<p>Google ADK API文档：</p>
+<p><a target="_blank" rel="noopener" href="https://adk.wiki/">Agent Development Kit 中文文档 - Agent Development Kit 中文文档 &#x2F; 智能体开发套件</a></p>
+<p><a target="_blank" rel="noopener" href="https://google.github.io/adk-docs/">Agent Development Kit (ADK)</a></p>
+<p>本文为笔者在该教程学习过程中记录的笔记。</p>
+<h2 id="1-Google-ADK部署"><a href="#1-Google-ADK部署" class="headerlink" title="1 Google ADK部署"></a>1 Google ADK部署</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install google-adk<br></code></pre></td></tr></table></figure>
+
+<p>检查是否导入成功</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> google.adk.agents <span class="hljs-keyword">import</span> Agent<br><span class="hljs-keyword">from</span> google.adk.models.google_llm <span class="hljs-keyword">import</span> Gemini<br><span class="hljs-keyword">from</span> google.adk.runners <span class="hljs-keyword">import</span> InMemoryRunner<br><span class="hljs-keyword">from</span> google.adk.tools <span class="hljs-keyword">import</span> google_search<br><span class="hljs-keyword">from</span> google.genai <span class="hljs-keyword">import</span> types<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;✅ ADK components imported successfully.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>设置api key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br>os.environ[<span class="hljs-string">&quot;GOOGLE_API_KEY&quot;</span>] = GOOGLE_API_KEY<br></code></pre></td></tr></table></figure>
+
+<p>设置重试选项</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">retry_config=types.HttpRetryOptions(<br>    attempts=<span class="hljs-number">5</span>,  <span class="hljs-comment"># Maximum retry attempts</span><br>    exp_base=<span class="hljs-number">7</span>,  <span class="hljs-comment"># Delay multiplier</span><br>    initial_delay=<span class="hljs-number">1</span>, <span class="hljs-comment"># Initial delay before first retry (in seconds)</span><br>    http_status_codes=[<span class="hljs-number">429</span>, <span class="hljs-number">500</span>, <span class="hljs-number">503</span>, <span class="hljs-number">504</span>] <span class="hljs-comment"># Retry on these HTTP errors</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Single-Agent"><a href="#Single-Agent" class="headerlink" title="Single Agent"></a>Single Agent</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">root_agent = Agent(<br>    name=<span class="hljs-string">&quot;helpful_assistant&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    description=<span class="hljs-string">&quot;A simple agent that can answer general questions.&quot;</span>,<br>    instruction=<span class="hljs-string">&quot;You are a helpful assistant. Use Google Search for current info or if unsure.&quot;</span>,<br>    tools=[google_search],<br>)<br></code></pre></td></tr></table></figure>
+
+<p>定义runner</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">runner = InMemoryRunner(agent=root_agent)<br></code></pre></td></tr></table></figure>
+
+<p>调试Agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">response = <span class="hljs-keyword">await</span> runner.run_debug(<br>    <span class="hljs-string">&quot;What is Agent Development Kit from Google? What languages is the SDK available in?&quot;</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p>run_debug方法抽象了会话的创建和维护过程，可用于代码调试。</p>
+<h3 id="ADK-Web"><a href="#ADK-Web" class="headerlink" title="ADK Web"></a>ADK Web</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">adk create sample-agent --model gemini-<span class="hljs-number">2.5</span>-flash-lite --api_key $GOOGLE_API_KEY<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">adk web<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-Multi-Agent架构"><a href="#2-Multi-Agent架构" class="headerlink" title="2 Multi-Agent架构"></a>2 Multi-Agent架构</h2><p>Google ADK提供了多种Multi-Agent系统的workflow，可供选择：</p>
+<p><img src="/llm/kaggle_agent_ai/agent-decision-tree.png" srcset="/img/loading.gif" lazyload alt="Agent Decision Tree"></p>
+<h3 id="Dynamic-Workflow"><a href="#Dynamic-Workflow" class="headerlink" title="Dynamic Workflow"></a>Dynamic Workflow</h3><p>Dynamic Workflow允许系统自行选择Agent的调用顺序。</p>
+<p>下面给出一个简单示例：</p>
+<p>Example: Research &amp; Summarization System</p>
+<p><strong>Research Agent</strong> - 使用谷歌Search搜索信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Research Agent: Its job is to use the google_search tool and present findings.</span><br>research_agent = Agent(<br>    name=<span class="hljs-string">&quot;ResearchAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a specialized research agent. Your only job is to use the</span><br><span class="hljs-string">    google_search tool to find 2-3 pieces of relevant information on the given topic and present the findings with citations.&quot;&quot;&quot;</span>,<br>    tools=[google_search],<br>    output_key=<span class="hljs-string">&quot;research_findings&quot;</span>,  <span class="hljs-comment"># The result of this agent will be stored in the session state with this key.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Summarizer Agent</strong> - 根据研究结果创建简洁的摘要</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Summarizer Agent: Its job is to summarize the text it receives.</span><br>summarizer_agent = Agent(<br>    name=<span class="hljs-string">&quot;SummarizerAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    <span class="hljs-comment"># The instruction is modified to request a bulleted list for a clear output format.</span><br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Read the provided research findings: &#123;research_findings&#125;</span><br><span class="hljs-string">Create a concise summary as a bulleted list with 3-5 key points.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;final_summary&quot;</span>,<br>)<br></code></pre></td></tr></table></figure>
+
+<p>然后我们把这两个agent放在一个root agent下统一由LLM调度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Root Coordinator: Orchestrates the workflow by calling the sub-agents as tools.</span><br>root_agent = Agent(<br>    name=<span class="hljs-string">&quot;ResearchCoordinator&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    <span class="hljs-comment"># This instruction tells the root agent HOW to use its tools (which are the other agents).</span><br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a research coordinator. Your goal is to answer the user&#x27;s query by orchestrating a workflow.</span><br><span class="hljs-string">1. First, you MUST call the `ResearchAgent` tool to find relevant information on the topic provided by the user.</span><br><span class="hljs-string">2. Next, after receiving the research findings, you MUST call the `SummarizerAgent` tool to create a concise summary.</span><br><span class="hljs-string">3. Finally, present the final summary clearly to the user as your response.&quot;&quot;&quot;</span>,<br>    <span class="hljs-comment"># We wrap the sub-agents in `AgentTool` to make them callable tools for the root agent.</span><br>    tools=[AgentTool(research_agent), AgentTool(summarizer_agent)],<br>)<br></code></pre></td></tr></table></figure>
+
+<p>调试代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">runner = InMemoryRunner(agent=root_agent)<br>response = <span class="hljs-keyword">await</span> runner.run_debug(<br>    <span class="hljs-string">&quot;What are the latest advancements in quantum computing and what do they mean for AI?&quot;</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Sequential-Workflow"><a href="#Sequential-Workflow" class="headerlink" title="Sequential Workflow"></a>Sequential Workflow</h3><p>Dynamic Workflow依赖于一个详细的指令提示来强制LLM按顺序运行步骤。这并不完全可靠，因为LLM可能会决定跳过一个步骤，以错误的顺序运行，或者“卡住”，使过程不可预测。</p>
+<p>当需要任务以保证的特定顺序发生时，可以使用Sequential Worfolw，按照您列出的顺序运行每个子agent。</p>
+<p>下面给出一个简单示例：</p>
+<p>Example: Blog Post Creation with Sequential Agents</p>
+<p><strong>Outline Agent</strong> - 为给定主题创建博客大纲</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Outline Agent: Creates the initial blog post outline.</span><br>outline_agent = Agent(<br>    name=<span class="hljs-string">&quot;OutlineAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Create a blog outline for the given topic with:</span><br><span class="hljs-string">    1. A catchy headline</span><br><span class="hljs-string">    2. An introduction hook</span><br><span class="hljs-string">    3. 3-5 main sections with 2-3 bullet points for each</span><br><span class="hljs-string">    4. A concluding thought&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;blog_outline&quot;</span>,  <span class="hljs-comment"># The result of this agent will be stored in the session state with this key.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Writer Agent</strong> - 写一篇博客的草稿</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Writer Agent: Writes the full blog post based on the outline from the previous agent.</span><br>writer_agent = Agent(<br>    name=<span class="hljs-string">&quot;WriterAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    <span class="hljs-comment"># The `&#123;blog_outline&#125;` placeholder automatically injects the state value from the previous agent&#x27;s output.</span><br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Following this outline strictly: &#123;blog_outline&#125;</span><br><span class="hljs-string">    Write a brief, 200 to 300-word blog post with an engaging and informative tone.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;blog_draft&quot;</span>,  <span class="hljs-comment"># The result of this agent will be stored with this key.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Editor Agent</strong> - 修改博客草稿</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Editor Agent: Edits and polishes the draft from the writer agent.</span><br>editor_agent = Agent(<br>    name=<span class="hljs-string">&quot;EditorAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    <span class="hljs-comment"># This agent receives the `&#123;blog_draft&#125;` from the writer agent&#x27;s output.</span><br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Edit this draft: &#123;blog_draft&#125;</span><br><span class="hljs-string">    Your task is to polish the text by fixing any grammatical errors, improving the flow and sentence structure, and enhancing overall clarity.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;final_blog&quot;</span>,  <span class="hljs-comment"># This is the final output of the entire pipeline.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p>root agent 如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">root_agent = SequentialAgent(<br>    name=<span class="hljs-string">&quot;BlogPipeline&quot;</span>,<br>    sub_agents=[outline_agent, writer_agent, editor_agent],<br>)<br><br>runner = InMemoryRunner(agent=root_agent)<br>response = <span class="hljs-keyword">await</span> runner.run_debug(<br>    <span class="hljs-string">&quot;Write a blog post about the benefits of multi-agent systems for software developers&quot;</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Parallel-Workflow"><a href="#Parallel-Workflow" class="headerlink" title="Parallel Workflow"></a>Parallel Workflow</h3><p>Sequential Workflow的每一步都必须等待前一步完成。如果存在几个互不依赖的任务，按顺序运行它们将是缓慢和低效的，造成每个任务不必要地等待的瓶颈。我们可以使用Parallel Workflow来并发地调用Agent。</p>
+<p>下面给出一个示例：</p>
+<p><strong>Example: Parallel Multi-Topic Research</strong></p>
+<p><strong>Tech Researcher</strong> - 调研AI&#x2F;ML新闻</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Tech Researcher: Focuses on AI and ML trends.</span><br>tech_researcher = Agent(<br>    name=<span class="hljs-string">&quot;TechResearcher&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Research the latest AI/ML trends. Include 3 key developments,</span><br><span class="hljs-string">the main companies involved, and the potential impact. Keep the report very concise (100 words).&quot;&quot;&quot;</span>,<br>    tools=[google_search],<br>    output_key=<span class="hljs-string">&quot;tech_research&quot;</span>,  <span class="hljs-comment"># The result of this agent will be stored in the session state with this key.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Health Researcher</strong> - 调研最近的医学新闻</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Health Researcher: Focuses on medical breakthroughs.</span><br>health_researcher = Agent(<br>    name=<span class="hljs-string">&quot;HealthResearcher&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Research recent medical breakthroughs. Include 3 significant advances,</span><br><span class="hljs-string">their practical applications, and estimated timelines. Keep the report concise (100 words).&quot;&quot;&quot;</span>,<br>    tools=[google_search],<br>    output_key=<span class="hljs-string">&quot;health_research&quot;</span>,  <span class="hljs-comment"># The result will be stored with this key.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Finance Researcher</strong> - 调研金融和金融科技新闻</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Finance Researcher: Focuses on fintech trends.</span><br>finance_researcher = Agent(<br>    name=<span class="hljs-string">&quot;FinanceResearcher&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Research current fintech trends. Include 3 key trends,</span><br><span class="hljs-string">their market implications, and the future outlook. Keep the report concise (100 words).&quot;&quot;&quot;</span>,<br>    tools=[google_search],<br>    output_key=<span class="hljs-string">&quot;finance_research&quot;</span>,  <span class="hljs-comment"># The result will be stored with this key.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Aggregator Agent</strong> - 将所有调研结果合并为一个摘要</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># The AggregatorAgent runs *after* the parallel step to synthesize the results.</span><br>aggregator_agent = Agent(<br>    name=<span class="hljs-string">&quot;AggregatorAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    <span class="hljs-comment"># It uses placeholders to inject the outputs from the parallel agents, which are now in the session state.</span><br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Combine these three research findings into a single executive summary:</span><br><span class="hljs-string"></span><br><span class="hljs-string">    **Technology Trends:**</span><br><span class="hljs-string">    &#123;tech_research&#125;</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    **Health Breakthroughs:**</span><br><span class="hljs-string">    &#123;health_research&#125;</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    **Finance Innovations:**</span><br><span class="hljs-string">    &#123;finance_research&#125;</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    Your summary should highlight common themes, surprising connections, and the most important key takeaways from all three reports. The final summary should be around 200 words.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;executive_summary&quot;</span>,  <span class="hljs-comment"># This will be the final output of the entire system.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p>最后，我们创建一个ParallelAgent统一并发调度三种研究主题的Agent，再将ParallelAgent和用于总结的Agent嵌套在一个SequentialAgent中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">parallel_research_team = ParallelAgent(<br>    name=<span class="hljs-string">&quot;ParallelResearchTeam&quot;</span>,<br>    sub_agents=[tech_researcher, health_researcher, finance_researcher],<br>)<br><br><span class="hljs-comment"># This SequentialAgent defines the high-level workflow: run the parallel team first, then run the aggregator.</span><br>root_agent = SequentialAgent(<br>    name=<span class="hljs-string">&quot;ResearchSystem&quot;</span>,<br>    sub_agents=[parallel_research_team, aggregator_agent],<br>)<br><br>runner = InMemoryRunner(agent=root_agent)<br>response = <span class="hljs-keyword">await</span> runner.run_debug(<br>    <span class="hljs-string">&quot;Run the daily executive briefing on Tech, Health, and Finance&quot;</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Loop-Workflow"><a href="#Loop-Workflow" class="headerlink" title="Loop Workflow"></a>Loop Workflow</h3><p>Sequential Workflow和Parallel Workflow都是从头到尾运行的。</p>
+<p>这种one-shot方法不适用于需要改进和质量控制的任务。如果初始输出不好，没有办法审查并要求重新生成。</p>
+<p>此时可以使用Loop Workflow，重复运行一组Agent，直到满足特定条件或达到最大迭代次数，允许系统不断改进自己的工作。</p>
+<p>下面给出一个示例；</p>
+<p>Example: Iterative Story Refinement</p>
+<p><strong>Writer Agent</strong> - 写一篇短篇小说的草稿</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># This agent runs ONCE at the beginning to create the first draft.</span><br>initial_writer_agent = Agent(<br>    name=<span class="hljs-string">&quot;InitialWriterAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Based on the user&#x27;s prompt, write the first draft of a short story (around 100-150 words).</span><br><span class="hljs-string">    Output only the story text, with no introduction or explanation.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;current_story&quot;</span>,  <span class="hljs-comment"># Stores the first draft in the state.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Critic Agent</strong> - 阅读草稿，提出改进建议</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># This agent&#x27;s only job is to provide feedback or the approval signal. It has no tools.</span><br>critic_agent = Agent(<br>    name=<span class="hljs-string">&quot;CriticAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a constructive story critic. Review the story provided below.</span><br><span class="hljs-string">    Story: &#123;current_story&#125;</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    Evaluate the story&#x27;s plot, characters, and pacing.</span><br><span class="hljs-string">    - If the story is well-written and complete, you MUST respond with the exact phrase: &quot;APPROVED&quot;</span><br><span class="hljs-string">    - Otherwise, provide 2-3 specific, actionable suggestions for improvement.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;critique&quot;</span>,  <span class="hljs-comment"># Stores the feedback in the state.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>Refiner Agent</strong> - 根据改进意见，修改草稿</p>
+<p>我们需要创建一个退出函数，使得系统可以退出循环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">exit_loop</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;Call this function ONLY when the critique is &#x27;APPROVED&#x27;, indicating the story is finished and no more changes are needed.&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;approved&quot;</span>, <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Story approved. Exiting refinement loop.&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在agent中嵌入这个退出函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># This agent refines the story based on critique OR calls the exit_loop function.</span><br>refiner_agent = Agent(<br>    name=<span class="hljs-string">&quot;RefinerAgent&quot;</span>,<br>    model=Gemini(<br>        model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>,<br>        retry_options=retry_config<br>    ),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a story refiner. You have a story draft and critique.</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    Story Draft: &#123;current_story&#125;</span><br><span class="hljs-string">    Critique: &#123;critique&#125;</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    Your task is to analyze the critique.</span><br><span class="hljs-string">    - IF the critique is EXACTLY &quot;APPROVED&quot;, you MUST call the `exit_loop` function and nothing else.</span><br><span class="hljs-string">    - OTHERWISE, rewrite the story draft to fully incorporate the feedback from the critique.&quot;&quot;&quot;</span>,<br>    output_key=<span class="hljs-string">&quot;current_story&quot;</span>,  <span class="hljs-comment"># It overwrites the story with the new, refined version.</span><br>    tools=[<br>        FunctionTool(exit_loop)<br>    ],  <span class="hljs-comment"># The tool is now correctly initialized with the function reference.</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p>和PrarallelAgent类似，我们将LoopAgent嵌套在SequntialAgent当中，构建完整工作流：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># The LoopAgent contains the agents that will run repeatedly: Critic -&gt; Refiner.</span><br>story_refinement_loop = LoopAgent(<br>    name=<span class="hljs-string">&quot;StoryRefinementLoop&quot;</span>,<br>    sub_agents=[critic_agent, refiner_agent],<br>    max_iterations=<span class="hljs-number">2</span>,  <span class="hljs-comment"># Prevents infinite loops</span><br>)<br><span class="hljs-comment"># The root agent is a SequentialAgent that defines the overall workflow: Initial Write -&gt; Refinement Loop.</span><br>root_agent = SequentialAgent(<br>    name=<span class="hljs-string">&quot;StoryPipeline&quot;</span>,<br>    sub_agents=[initial_writer_agent, story_refinement_loop],<br>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-Agent-Tool"><a href="#3-Agent-Tool" class="headerlink" title="3 Agent Tool"></a>3 Agent Tool</h2><p>每个实际场景都有通用工具无法处理的独特需求，自定义工具允许我们实现特定的业务逻辑、连接到系统并解决特定于领域的问题。</p>
+<p>Google ADK提供了多种自定义工具类型来处理这些场景，包括Custom tools（自定义工具） 和 Built-in tools（内置工具）。</p>
+<p><img src="/llm/kaggle_agent_ai/custom-tools.png" srcset="/img/loading.gif" lazyload alt="Custom Tools"></p>
+<p>1）Custom tool：</p>
+<p>Function Tools：将任意Python函数转变为智能体工具，例如： <code>get_fee_for_payment_method</code>, <code>get_exchange_rate</code></p>
+<p>Long Running Function Tools：智能体可启动任务后继续其他工作，无需等待完成。</p>
+<p>Agent Tools：将其他智能体作为工具调用，例如：<code>AgentTool(agent=calculation_agent)</code></p>
+<p>MCP Tools：连接任意兼容MCP协议的服务，例如：Filesystem access, Google Maps, databases</p>
+<p>OpenAPI Tools：仅需提供API规范即可获得现成工具</p>
+<p>2）Bulti-in tools：</p>
+<p>Gemini Tools：利用 Gemini 能力的工具，例如：<code>google_search</code>, <code>BuiltInCodeExecutor</code></p>
+<p>Google Cloud Tools：用于 Google Cloud 服务和企业集成的工具，例如：<code>BigQueryToolset</code>, <code>SpannerToolset</code>, <code>APIHubToolset</code></p>
+<h3 id="自定义工具"><a href="#自定义工具" class="headerlink" title="自定义工具"></a>自定义工具</h3><p>任何Python函数都可以成为代理工具，将函数添加到代理的<code>tools=[]</code>列表中，ADK会自动处理其余操作。</p>
+<p>该函数最好遵守下面的规则：</p>
+<ol>
+<li>返回 <code>&#123;&quot;status&quot;: &quot;success&quot;, &quot;data&quot;: ...&#125;</code> 或 <code>&#123;&quot;status&quot;: &quot;error&quot;, &quot;error_message&quot;: ...&#125;</code> 格式的字典。</li>
+<li>在Returns中说明字典中每个key-value对的具体类型。</li>
+<li>在Args中说明工具的适用场景及使用方法。</li>
+</ol>
+<p>下面给出一个自定义工具示例：</p>
+<p><strong>Example: Currency Converter Agent</strong></p>
+<p>该Agent可以将货币从一种面额转换为另一种面额，并计算进行转换的费用。</p>
+<p><strong>Fee Lookup Tool</strong> - 查找转换的交易费用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Pay attention to the docstring, type hints, and return value.</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_fee_for_payment_method</span>(<span class="hljs-params">method: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">dict</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;Looks up the transaction fee percentage for a given payment method.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    This tool simulates looking up a company&#x27;s internal fee structure based on</span><br><span class="hljs-string">    the name of the payment method provided by the user.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        method: The name of the payment method. It should be descriptive,</span><br><span class="hljs-string">                e.g., &quot;platinum credit card&quot; or &quot;bank transfer&quot;.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Returns:</span><br><span class="hljs-string">        Dictionary with status and fee information.</span><br><span class="hljs-string">        Success: &#123;&quot;status&quot;: &quot;success&quot;, &quot;fee_percentage&quot;: 0.02&#125;</span><br><span class="hljs-string">        Error: &#123;&quot;status&quot;: &quot;error&quot;, &quot;error_message&quot;: &quot;Payment method not found&quot;&#125;</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># This simulates looking up a company&#x27;s internal fee structure.</span><br>    fee_database = &#123;<br>        <span class="hljs-string">&quot;platinum credit card&quot;</span>: <span class="hljs-number">0.02</span>,  <span class="hljs-comment"># 2%</span><br>        <span class="hljs-string">&quot;gold debit card&quot;</span>: <span class="hljs-number">0.035</span>,  <span class="hljs-comment"># 3.5%</span><br>        <span class="hljs-string">&quot;bank transfer&quot;</span>: <span class="hljs-number">0.01</span>,  <span class="hljs-comment"># 1%</span><br>    &#125;<br><br>    fee = fee_database.get(method.lower())<br>    <span class="hljs-keyword">if</span> fee <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;fee_percentage&quot;</span>: fee&#125;<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>,<br>            <span class="hljs-string">&quot;error_message&quot;</span>: <span class="hljs-string">f&quot;Payment method &#x27;<span class="hljs-subst">&#123;method&#125;</span>&#x27; not found&quot;</span>,<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>Exchange Rate Tool</strong> - 获取货币兑换率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_exchange_rate</span>(<span class="hljs-params">base_currency: <span class="hljs-built_in">str</span>, target_currency: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">dict</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;Looks up and returns the exchange rate between two currencies.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        base_currency: The ISO 4217 currency code of the currency you</span><br><span class="hljs-string">                       are converting from (e.g., &quot;USD&quot;).</span><br><span class="hljs-string">        target_currency: The ISO 4217 currency code of the currency you</span><br><span class="hljs-string">                         are converting to (e.g., &quot;EUR&quot;).</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Returns:</span><br><span class="hljs-string">        Dictionary with status and rate information.</span><br><span class="hljs-string">        Success: &#123;&quot;status&quot;: &quot;success&quot;, &quot;rate&quot;: 0.93&#125;</span><br><span class="hljs-string">        Error: &#123;&quot;status&quot;: &quot;error&quot;, &quot;error_message&quot;: &quot;Unsupported currency pair&quot;&#125;</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br><br>    <span class="hljs-comment"># Static data simulating a live exchange rate API</span><br>    <span class="hljs-comment"># In production, this would call something like: requests.get(&quot;api.exchangerates.com&quot;)</span><br>    rate_database = &#123;<br>        <span class="hljs-string">&quot;usd&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;eur&quot;</span>: <span class="hljs-number">0.93</span>,  <span class="hljs-comment"># Euro</span><br>            <span class="hljs-string">&quot;jpy&quot;</span>: <span class="hljs-number">157.50</span>,  <span class="hljs-comment"># Japanese Yen</span><br>            <span class="hljs-string">&quot;inr&quot;</span>: <span class="hljs-number">83.58</span>,  <span class="hljs-comment"># Indian Rupee</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment"># Input validation and processing</span><br>    base = base_currency.lower()<br>    target = target_currency.lower()<br><br>    <span class="hljs-comment"># Return structured result with status</span><br>    rate = rate_database.get(base, &#123;&#125;).get(target)<br>    <span class="hljs-keyword">if</span> rate <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;rate&quot;</span>: rate&#125;<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>,<br>            <span class="hljs-string">&quot;error_message&quot;</span>: <span class="hljs-string">f&quot;Unsupported currency pair: <span class="hljs-subst">&#123;base_currency&#125;</span>/<span class="hljs-subst">&#123;target_currency&#125;</span>&quot;</span>,<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<p>currency agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Currency agent with custom function tools</span><br>currency_agent = LlmAgent(<br>    name=<span class="hljs-string">&quot;currency_agent&quot;</span>,<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a smart currency conversion assistant.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    For currency conversion requests:</span><br><span class="hljs-string">    1. Use `get_fee_for_payment_method()` to find transaction fees</span><br><span class="hljs-string">    2. Use `get_exchange_rate()` to get currency conversion rates</span><br><span class="hljs-string">    3. Check the &quot;status&quot; field in each tool&#x27;s response for errors</span><br><span class="hljs-string">    4. Calculate the final amount after fees based on the output from `get_fee_for_payment_method` and `get_exchange_rate` methods and provide a clear breakdown.</span><br><span class="hljs-string">    5. First, state the final converted amount.</span><br><span class="hljs-string">        Then, explain how you got that result by showing the intermediate amounts. Your explanation must include: the fee percentage and its</span><br><span class="hljs-string">        value in the original currency, the amount remaining after the fee, and the exchange rate used for the final conversion.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    If any tool returns status &quot;error&quot;, explain the issue to the user clearly.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span>,<br>    tools=[get_fee_for_payment_method, get_exchange_rate],<br>)<br>currency_runner = InMemoryRunner(agent=currency_agent)<br>_ = <span class="hljs-keyword">await</span> currency_runner.run_debug(<br>    <span class="hljs-string">&quot;I want to convert 500 US Dollars to Euros using my Platinum Credit Card. How much will I receive?&quot;</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="代码执行器"><a href="#代码执行器" class="headerlink" title="代码执行器"></a>代码执行器</h3><p>大模型的计算不一定正确，但我们可以使用一个代码执行器来计算结果。</p>
+<p>修改：</p>
+<p>更新Agent的指令以生成Python代码</p>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk"><span class="hljs-type">Original</span>: <span class="hljs-comment">&quot;Calculate the final amount after fees&quot;</span> (vague math instructions)<br><span class="hljs-type">Enhanced</span>: <span class="hljs-comment">&quot;Generate a Python code to calculate the final amount .. and use the calculation_agent to run the code and compute final amount&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>增加可执行代码的agent tool，输入代码，得到沙盒上的执行结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">calculation_agent = LlmAgent(<br>    name=<span class="hljs-string">&quot;CalculationAgent&quot;</span>,<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a specialized calculator that ONLY responds with Python code. You are forbidden from providing any text, explanations, or conversational responses.</span><br><span class="hljs-string"> </span><br><span class="hljs-string">     Your task is to take a request for a calculation and translate it into a single block of Python code that calculates the answer.</span><br><span class="hljs-string">     </span><br><span class="hljs-string">     **RULES:**</span><br><span class="hljs-string">    1.  Your output MUST be ONLY a Python code block.</span><br><span class="hljs-string">    2.  Do NOT write any text before or after the code block.</span><br><span class="hljs-string">    3.  The Python code MUST calculate the result.</span><br><span class="hljs-string">    4.  The Python code MUST print the final result to stdout.</span><br><span class="hljs-string">    5.  You are PROHIBITED from performing the calculation yourself. Your only job is to generate the code that will perform the calculation.</span><br><span class="hljs-string">   </span><br><span class="hljs-string">    Failure to follow these rules will result in an error.</span><br><span class="hljs-string">       &quot;&quot;&quot;</span>,<br>    code_executor=BuiltInCodeExecutor(),  <span class="hljs-comment"># Use the built-in Code Executor Tool. This gives the agent code execution capabilities</span><br>)<br></code></pre></td></tr></table></figure>
+
+<p>修改后的完整Agent</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python">enhanced_currency_agent = LlmAgent(<br>    name=<span class="hljs-string">&quot;enhanced_currency_agent&quot;</span>,<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    <span class="hljs-comment"># Updated instruction</span><br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a smart currency conversion assistant. You must strictly follow these steps and use the available tools.</span><br><span class="hljs-string"></span><br><span class="hljs-string">  For any currency conversion request:</span><br><span class="hljs-string"></span><br><span class="hljs-string">   1. Get Transaction Fee: Use the get_fee_for_payment_method() tool to determine the transaction fee.</span><br><span class="hljs-string">   2. Get Exchange Rate: Use the get_exchange_rate() tool to get the currency conversion rate.</span><br><span class="hljs-string">   3. Error Check: After each tool call, you must check the &quot;status&quot; field in the response. If the status is &quot;error&quot;, you must stop and clearly explain the issue to the user.</span><br><span class="hljs-string">   4. Calculate Final Amount (CRITICAL): You are strictly prohibited from performing any arithmetic calculations yourself. You must use the calculation_agent tool to generate Python code that calculates the final converted amount. This </span><br><span class="hljs-string">      code will use the fee information from step 1 and the exchange rate from step 2.</span><br><span class="hljs-string">   5. Provide Detailed Breakdown: In your summary, you must:</span><br><span class="hljs-string">       * State the final converted amount.</span><br><span class="hljs-string">       * Explain how the result was calculated, including:</span><br><span class="hljs-string">           * The fee percentage and the fee amount in the original currency.</span><br><span class="hljs-string">           * The amount remaining after deducting the fee.</span><br><span class="hljs-string">           * The exchange rate applied.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span>,<br>    tools=[<br>        get_fee_for_payment_method,<br>        get_exchange_rate,<br>        AgentTool(agent=calculation_agent),  <span class="hljs-comment"># Using another agent as a tool!</span><br>    ],<br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="MCP协议"><a href="#MCP协议" class="headerlink" title="MCP协议"></a>MCP协议</h3><p>Model Context Protocol（MCP）是一个开放标准，允许Agent：</p>
+<ul>
+<li>访问来自数据库、API和服务的实时外部数据</li>
+<li>利用带有MCP标准化接口的社区构建工具</li>
+<li>通过连接多个专用服务器扩展功能</li>
+</ul>
+<p>因此，对于上述服务，我们无须编写自己的集成和API客户端，只需连接到现有的MCP服务器即可。</p>
+<p>下面给出一个MCP协议的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># MCP integration with Everything Server</span><br>mcp_image_server = McpToolset(<br>    connection_params=StdioConnectionParams(<br>        server_params=StdioServerParameters(<br>            command=<span class="hljs-string">&quot;npx&quot;</span>,  <span class="hljs-comment"># Run MCP server via npx</span><br>            args=[<br>                <span class="hljs-string">&quot;-y&quot;</span>,  <span class="hljs-comment"># Argument for npx to auto-confirm install</span><br>                <span class="hljs-string">&quot;@modelcontextprotocol/server-everything&quot;</span>,<br>            ],<br>            tool_filter=[<span class="hljs-string">&quot;getTinyImage&quot;</span>],<br>        ),<br>        timeout=<span class="hljs-number">30</span>,<br>    )<br>)<br></code></pre></td></tr></table></figure>
+
+<p>将这一MCP服务添加到工具列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">image_agent = LlmAgent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;image_agent&quot;</span>,<br>    instruction=<span class="hljs-string">&quot;Use the MCP Tool to generate images for user queries&quot;</span>,<br>    tools=[mcp_image_server],<br>)<br><br>runner = InMemoryRunner(agent=image_agent)<br>response = <span class="hljs-keyword">await</span> runner.run_debug(<span class="hljs-string">&quot;Provide a sample tiny image&quot;</span>, verbose=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="LRO操作"><a href="#LRO操作" class="headerlink" title="LRO操作"></a>LRO操作</h3><p>如果您的工具需要长时间运行，并在完成操作之前需要人工批准，就需要构建下面的操作流程：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">User</span> <span class="hljs-title">asks</span> → Agent calls tool → Tool PAUSES <span class="hljs-keyword">and</span> asks human → Human approves → Tool completes → Agent responds<br></code></pre></td></tr></table></figure>
+
+<p>这被称为长时间运行操作（Long-Running Operation，LRO），即工具需要暂停，等待外部输入（人工批准），然后恢复。</p>
+<p>下面给出一个具体示例：</p>
+<p>自动批准小订单（≤5个集装箱），暂停并请求批准大订单（bbb50个集装箱）根据批准决定完成或取消。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs python">LARGE_ORDER_THRESHOLD = <span class="hljs-number">5</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">place_shipping_order</span>(<span class="hljs-params"></span><br><span class="hljs-params">    num_containers: <span class="hljs-built_in">int</span>, destination: <span class="hljs-built_in">str</span>, tool_context: ToolContext</span><br><span class="hljs-params"></span>) -&gt; <span class="hljs-built_in">dict</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;Places a shipping order. Requires approval if ordering more than 5 containers (LARGE_ORDER_THRESHOLD).</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        num_containers: Number of containers to ship</span><br><span class="hljs-string">        destination: Shipping destination</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Returns:</span><br><span class="hljs-string">        Dictionary with order status</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># -----------------------------------------------------------------------------------------------</span><br>    <span class="hljs-comment"># -----------------------------------------------------------------------------------------------</span><br>    <span class="hljs-comment"># SCENARIO 1: Small orders (≤5 containers) auto-approve</span><br>    <span class="hljs-keyword">if</span> num_containers &lt;= LARGE_ORDER_THRESHOLD:<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;approved&quot;</span>,<br>            <span class="hljs-string">&quot;order_id&quot;</span>: <span class="hljs-string">f&quot;ORD-<span class="hljs-subst">&#123;num_containers&#125;</span>-AUTO&quot;</span>,<br>            <span class="hljs-string">&quot;num_containers&quot;</span>: num_containers,<br>            <span class="hljs-string">&quot;destination&quot;</span>: destination,<br>            <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">f&quot;Order auto-approved: <span class="hljs-subst">&#123;num_containers&#125;</span> containers to <span class="hljs-subst">&#123;destination&#125;</span>&quot;</span>,<br>        &#125;<br><br>    <span class="hljs-comment"># -----------------------------------------------------------------------------------------------</span><br>    <span class="hljs-comment"># -----------------------------------------------------------------------------------------------</span><br>    <span class="hljs-comment"># SCENARIO 2: This is the first time this tool is called. Large orders need human approval - PAUSE here.</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> tool_context.tool_confirmation:<br>        tool_context.request_confirmation(<br>            hint=<span class="hljs-string">f&quot;⚠️ Large order: <span class="hljs-subst">&#123;num_containers&#125;</span> containers to <span class="hljs-subst">&#123;destination&#125;</span>. Do you want to approve?&quot;</span>,<br>            payload=&#123;<span class="hljs-string">&quot;num_containers&quot;</span>: num_containers, <span class="hljs-string">&quot;destination&quot;</span>: destination&#125;,<br>        )<br>        <span class="hljs-keyword">return</span> &#123;  <span class="hljs-comment"># This is sent to the Agent</span><br>            <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;pending&quot;</span>,<br>            <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">f&quot;Order for <span class="hljs-subst">&#123;num_containers&#125;</span> containers requires approval&quot;</span>,<br>        &#125;<br><br>    <span class="hljs-comment"># -----------------------------------------------------------------------------------------------</span><br>    <span class="hljs-comment"># -----------------------------------------------------------------------------------------------</span><br>    <span class="hljs-comment"># SCENARIO 3: The tool is called AGAIN and is now resuming. Handle approval response - RESUME here.</span><br>    <span class="hljs-keyword">if</span> tool_context.tool_confirmation.confirmed:<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;approved&quot;</span>,<br>            <span class="hljs-string">&quot;order_id&quot;</span>: <span class="hljs-string">f&quot;ORD-<span class="hljs-subst">&#123;num_containers&#125;</span>-HUMAN&quot;</span>,<br>            <span class="hljs-string">&quot;num_containers&quot;</span>: num_containers,<br>            <span class="hljs-string">&quot;destination&quot;</span>: destination,<br>            <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">f&quot;Order approved: <span class="hljs-subst">&#123;num_containers&#125;</span> containers to <span class="hljs-subst">&#123;destination&#125;</span>&quot;</span>,<br>        &#125;<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;rejected&quot;</span>,<br>            <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">f&quot;Order rejected: <span class="hljs-subst">&#123;num_containers&#125;</span> containers to <span class="hljs-subst">&#123;destination&#125;</span>&quot;</span>,<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<p>Agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python">shipping_agent = LlmAgent(<br>    name=<span class="hljs-string">&quot;shipping_agent&quot;</span>,<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;You are a shipping coordinator assistant.</span><br><span class="hljs-string">  </span><br><span class="hljs-string">  When users request to ship containers:</span><br><span class="hljs-string">   1. Use the place_shipping_order tool with the number of containers and destination</span><br><span class="hljs-string">   2. If the order status is &#x27;pending&#x27;, inform the user that approval is required</span><br><span class="hljs-string">   3. After receiving the final result, provide a clear summary including:</span><br><span class="hljs-string">      - Order status (approved/rejected)</span><br><span class="hljs-string">      - Order ID (if available)</span><br><span class="hljs-string">      - Number of containers and destination</span><br><span class="hljs-string">   4. Keep responses concise but informative</span><br><span class="hljs-string">  &quot;&quot;&quot;</span>,<br>    tools=[FunctionTool(func=place_shipping_order)],<br>)<br></code></pre></td></tr></table></figure>
+
+<p>每个Agent都是无状态的，因此需要将Agent封装在一个APP中，来记录请求状态。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Wrap the agent in a resumable app - THIS IS THE KEY FOR LONG-RUNNING OPERATIONS!</span><br>shipping_app = App(<br>    name=<span class="hljs-string">&quot;shipping_coordinator&quot;</span>,<br>    root_agent=shipping_agent,<br>    resumability_config=ResumabilityConfig(is_resumable=<span class="hljs-literal">True</span>),<br>)<br><br>session_service = InMemorySessionService()<br><br><span class="hljs-comment"># Create runner with the resumable app</span><br>shipping_runner = Runner(<br>    app=shipping_app,  <span class="hljs-comment"># Pass the app instead of the agent</span><br>    session_service=session_service,<br>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-短期记忆（上下文）"><a href="#4-短期记忆（上下文）" class="headerlink" title="4 短期记忆（上下文）"></a>4 短期记忆（上下文）</h2><p>短期记忆指的是LLM在单次对话中的上下文内容。</p>
+<p>在Google ADK中，使用Agent Session来实现上下文管理。</p>
+<p>Session是上下文的容器，以时间顺序封装了对话历史，并且还记录了所有工具交互和响应。</p>
+<p>Google ADK提供了多种Session类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">用途</th>
+<th align="left">存储位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">InMemorySessionService</td>
+<td align="left">测试</td>
+<td align="left">内存（临时）</td>
+</tr>
+<tr>
+<td align="left">DatabaseSessionService</td>
+<td align="left">小型应用</td>
+<td align="left">本地数据库</td>
+</tr>
+<tr>
+<td align="left">Agent Engine Sessions</td>
+<td align="left">企业级应用</td>
+<td align="left">云端</td>
+</tr>
+</tbody></table>
+<h3 id="上下文存储"><a href="#上下文存储" class="headerlink" title="上下文存储"></a>上下文存储</h3><p>使用InMemorySessionService实现临时存储：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python">APP_NAME = <span class="hljs-string">&quot;default&quot;</span>  <span class="hljs-comment"># Application</span><br>USER_ID = <span class="hljs-string">&quot;default&quot;</span>  <span class="hljs-comment"># User</span><br>SESSION = <span class="hljs-string">&quot;default&quot;</span>  <span class="hljs-comment"># Session</span><br><br>MODEL_NAME = <span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span><br><br><span class="hljs-comment"># Step 1: Create the LLM Agent</span><br>root_agent = Agent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;text_chat_bot&quot;</span>,<br>    description=<span class="hljs-string">&quot;A text chatbot&quot;</span>,  <span class="hljs-comment"># Description of the agent&#x27;s purpose</span><br>)<br><br><span class="hljs-comment"># Step 2: Set up Session Management</span><br><span class="hljs-comment"># InMemorySessionService stores conversations in RAM (temporary)</span><br>session_service = InMemorySessionService()<br><br><span class="hljs-comment"># Step 3: Create the Runner</span><br>runner = Runner(agent=root_agent, app_name=APP_NAME, session_service=session_service)<br></code></pre></td></tr></table></figure>
+
+<p>使用DatabaseSessionService实现永久存储：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">chatbot_agent = LlmAgent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;text_chat_bot&quot;</span>,<br>    description=<span class="hljs-string">&quot;A text chatbot with persistent memory&quot;</span>,<br>)<br><br><span class="hljs-comment"># Step 2: Switch to DatabaseSessionService</span><br><span class="hljs-comment"># SQLite database will be created automatically</span><br>db_url = <span class="hljs-string">&quot;sqlite:///my_agent_data.db&quot;</span>  <span class="hljs-comment"># Local SQLite file</span><br>session_service = DatabaseSessionService(db_url=db_url)<br><br><span class="hljs-comment"># Step 3: Create a new runner with persistent storage</span><br>runner = Runner(agent=chatbot_agent, app_name=APP_NAME, session_service=session_service)<br></code></pre></td></tr></table></figure>
+
+<p>测试Agent Session：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">await</span> run_session(<br>    runner,<br>    [<br>        <span class="hljs-string">&quot;Hi, I am Sam! What is the capital of United States?&quot;</span>,<br>        <span class="hljs-string">&quot;Hello! What is my name?&quot;</span>,  <span class="hljs-comment"># This time, the agent should remember!</span><br>    ],<br>    <span class="hljs-string">&quot;stateful-agentic-session&quot;</span>, <span class="hljs-comment"># session name</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="上下文压缩"><a href="#上下文压缩" class="headerlink" title="上下文压缩"></a>上下文压缩</h3><p>对于长而复杂的任务，此Session占据的空间可能会变得非常大。</p>
+<p>此时，可以使用ADK提供的上下文总结功能，来自动压缩存储在会话中的上下文。</p>
+<p><img src="/llm/kaggle_agent_ai/context-compaction.png" srcset="/img/loading.gif" lazyload alt="Context compaction"></p>
+<p>为了实现自动的上下文压缩，需要在创建App时添加额外的设置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Re-define our app with Events Compaction enabled</span><br>research_app_compacting = App(<br>    name=<span class="hljs-string">&quot;research_app_compacting&quot;</span>,<br>    root_agent=chatbot_agent,<br>    <span class="hljs-comment"># This is the new part!</span><br>    events_compaction_config=EventsCompactionConfig(<br>        compaction_interval=<span class="hljs-number">3</span>,  <span class="hljs-comment"># Trigger compaction every 3 invocations</span><br>        overlap_size=<span class="hljs-number">1</span>,  <span class="hljs-comment"># Keep 1 previous turn for context</span><br>    ),<br>)<br><br>db_url = <span class="hljs-string">&quot;sqlite:///my_agent_data.db&quot;</span>  <span class="hljs-comment"># Local SQLite file</span><br>session_service = DatabaseSessionService(db_url=db_url)<br><br><span class="hljs-comment"># Create a new runner for our upgraded app</span><br>research_runner_compacting = Runner(<br>    app=research_app_compacting, session_service=session_service<br>)<br></code></pre></td></tr></table></figure>
+
+<p>EventsCompactionConfig定义了两个关键变量：</p>
+<ul>
+<li><p>compaction_interval：在每n个对话重叠后进行上下文压缩。</p>
+</li>
+<li><p>overlap_size：定义之前的对话保留重叠的数量。</p>
+</li>
+</ul>
+<p>测试代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Turn 1</span><br><span class="hljs-keyword">await</span> run_session(<br>    research_runner_compacting,<br>    <span class="hljs-string">&quot;What is the latest news about AI in healthcare?&quot;</span>,<br>    <span class="hljs-string">&quot;compaction_demo&quot;</span>,<br>)<br><br><span class="hljs-comment"># Turn 2</span><br><span class="hljs-keyword">await</span> run_session(<br>    research_runner_compacting,<br>    <span class="hljs-string">&quot;Are there any new developments in drug discovery?&quot;</span>,<br>    <span class="hljs-string">&quot;compaction_demo&quot;</span>,<br>)<br><br><span class="hljs-comment"># Turn 3 - Compaction should trigger after this turn!</span><br><span class="hljs-keyword">await</span> run_session(<br>    research_runner_compacting,<br>    <span class="hljs-string">&quot;Tell me more about the second development you found.&quot;</span>,<br>    <span class="hljs-string">&quot;compaction_demo&quot;</span>,<br>)<br><br><span class="hljs-comment"># Turn 4</span><br><span class="hljs-keyword">await</span> run_session(<br>    research_runner_compacting,<br>    <span class="hljs-string">&quot;Who are the main companies involved in that?&quot;</span>,<br>    <span class="hljs-string">&quot;compaction_demo&quot;</span>,<br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="状态字典"><a href="#状态字典" class="headerlink" title="状态字典"></a>状态字典</h3><p>Google ADK允许Agent调用自定义的工具，将内容存储在Session的字典中，并在后续调用。</p>
+<p>创建存储&#x2F;查询的自定义工具：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Define scope levels for state keys (following best practices)</span><br>USER_NAME_SCOPE_LEVELS = (<span class="hljs-string">&quot;temp&quot;</span>, <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;app&quot;</span>)<br><br><span class="hljs-comment"># This demonstrates how tools can write to session state using tool_context.</span><br><span class="hljs-comment"># The &#x27;user:&#x27; prefix indicates this is user-specific data.</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">save_userinfo</span>(<span class="hljs-params"></span><br><span class="hljs-params">    tool_context: ToolContext, user_name: <span class="hljs-built_in">str</span>, country: <span class="hljs-built_in">str</span></span><br><span class="hljs-params"></span>) -&gt; <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Tool to record and save user name and country in session state.</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">        user_name: The username to store in session state</span><br><span class="hljs-string">        country: The name of the user&#x27;s country</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># Write to session state using the &#x27;user:&#x27; prefix for user data</span><br>    tool_context.state[<span class="hljs-string">&quot;user:name&quot;</span>] = user_name<br>    tool_context.state[<span class="hljs-string">&quot;user:country&quot;</span>] = country<br><br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>&#125;<br><br><br><span class="hljs-comment"># This demonstrates how tools can read from session state.</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">retrieve_userinfo</span>(<span class="hljs-params">tool_context: ToolContext</span>) -&gt; <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Tool to retrieve user name and country from session state.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-comment"># Read from session state</span><br>    user_name = tool_context.state.get(<span class="hljs-string">&quot;user:name&quot;</span>, <span class="hljs-string">&quot;Username not found&quot;</span>)<br>    country = tool_context.state.get(<span class="hljs-string">&quot;user:country&quot;</span>, <span class="hljs-string">&quot;Country not found&quot;</span>)<br><br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;user_name&quot;</span>: user_name, <span class="hljs-string">&quot;country&quot;</span>: country&#125;<br></code></pre></td></tr></table></figure>
+
+<p>创建Agent：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Configuration</span><br>APP_NAME = <span class="hljs-string">&quot;default&quot;</span><br>USER_ID = <span class="hljs-string">&quot;default&quot;</span><br>MODEL_NAME = <span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span><br><br><span class="hljs-comment"># Create an agent with session state tools</span><br>root_agent = LlmAgent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;text_chat_bot&quot;</span>,<br>    description=<span class="hljs-string">&quot;&quot;&quot;A text chatbot.</span><br><span class="hljs-string">    Tools for managing user context:</span><br><span class="hljs-string">    * To record username and country when provided use `save_userinfo` tool. </span><br><span class="hljs-string">    * To fetch username and country when required use `retrieve_userinfo` tool.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span>,<br>    tools=[save_userinfo, retrieve_userinfo],  <span class="hljs-comment"># Provide the tools to the agent</span><br>)<br><br><span class="hljs-comment"># Set up session service and runner</span><br>session_service = InMemorySessionService()<br>runner = Runner(agent=root_agent, session_service=session_service, app_name=<span class="hljs-string">&quot;default&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="5-长期记忆"><a href="#5-长期记忆" class="headerlink" title="5 长期记忆"></a>5 长期记忆</h2><p>长期记忆指的是LLM知识之外的数据库内容&#x2F; 过去对话中保存的短期记忆。</p>
+<p>下面给出一个简单的样例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Define constants used throughout the notebook</span><br>APP_NAME = <span class="hljs-string">&quot;MemoryDemoApp&quot;</span><br>USER_ID = <span class="hljs-string">&quot;demo_user&quot;</span><br><br><span class="hljs-comment"># Create agent</span><br>user_agent = LlmAgent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;MemoryDemoAgent&quot;</span>,<br>    instruction=<span class="hljs-string">&quot;Answer user questions in simple words.&quot;</span>,<br>)<br><br><span class="hljs-comment"># Create Session Service</span><br>session_service = InMemorySessionService()  <span class="hljs-comment"># Handles conversations</span><br><br>memory_service = (<br>    InMemoryMemoryService()<br>)  <span class="hljs-comment"># ADK&#x27;s built-in Memory Service for development and testing</span><br><br><br><span class="hljs-comment"># Create runner with BOTH services</span><br>runner = Runner(<br>    agent=user_agent,<br>    app_name=<span class="hljs-string">&quot;MemoryDemoApp&quot;</span>,<br>    session_service=session_service,<br>    memory_service=memory_service,  <span class="hljs-comment"># Memory service is now available!</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="将上下文保存为长期记忆"><a href="#将上下文保存为长期记忆" class="headerlink" title="将上下文保存为长期记忆"></a>将上下文保存为长期记忆</h3><p>Google ADK内置了add_session_to_memory(session)函数。</p>
+<p>在Agent结束运行时，调用add_session_to_memory(session)可以自动将上下文保存为长期记忆。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># User tells agent about their favorite color</span><br><span class="hljs-keyword">await</span> run_session(<br>    runner,<br>    <span class="hljs-string">&quot;My favorite color is blue-green. Can you write a Haiku about it?&quot;</span>,<br>    <span class="hljs-string">&quot;conversation-01&quot;</span>,  <span class="hljs-comment"># Session ID</span><br>)<br><span class="hljs-comment"># This is the key method!</span><br><span class="hljs-keyword">await</span> memory_service.add_session_to_memory(session)<br></code></pre></td></tr></table></figure>
+
+<p>然后，我们还需要允许Agent在无法回答相关问题时，查询长期记忆。</p>
+<p>Google ADK内置了load_memory和preload_memory函数。</p>
+<ul>
+<li><p>load_memory：LLM决定何时检索长期记忆。</p>
+</li>
+<li><p>preload_memory：每次运行Agent前自动检索。</p>
+</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Create agent</span><br>user_agent = LlmAgent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;MemoryDemoAgent&quot;</span>,<br>    instruction=<span class="hljs-string">&quot;Answer user questions in simple words. Use load_memory tool if you need to recall past conversations.&quot;</span>,<br>    tools=[<br>        load_memory<br>    ],  <span class="hljs-comment"># Agent now has access to Memory and can search it whenever it decides to!</span><br>)<br><br><span class="hljs-comment"># Create a new runner with the updated agent</span><br>runner = Runner(<br>    agent=user_agent,<br>    app_name=APP_NAME,<br>    session_service=session_service,<br>    memory_service=memory_service,<br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="利用CallBack自动保存"><a href="#利用CallBack自动保存" class="headerlink" title="利用CallBack自动保存"></a>利用CallBack自动保存</h3><p>上文提到，调用add_session_to_memory(session)可以自动将上下文保存为长期记忆。</p>
+<p>Google提供了<a href="#Callback%E6%9C%BA%E5%88%B6">callback机制</a>，允许在Agent执行的某些时刻，自动调用函数。</p>
+<p>对于自动上下文保存，可以使用after_agent_callback，这个函数在Agent完成一次对话时触发。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">auto_save_to_memory</span>(<span class="hljs-params">callback_context</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;Automatically save session to memory after each agent turn.&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">await</span> callback_context._invocation_context.memory_service.add_session_to_memory(<br>        callback_context._invocation_context.session<br>    )<br>    <br>auto_memory_agent = LlmAgent(<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    name=<span class="hljs-string">&quot;AutoMemoryAgent&quot;</span>,<br>    instruction=<span class="hljs-string">&quot;Answer user questions.&quot;</span>,<br>    tools=[preload_memory],<br>    after_agent_callback=auto_save_to_memory,  <span class="hljs-comment"># Saves after each turn!</span><br>)<br><br>auto_runner = Runner(<br>    agent=auto_memory_agent,  <span class="hljs-comment"># Use the agent with callback + preload_memory</span><br>    app_name=APP_NAME,<br>    session_service=session_service,  <span class="hljs-comment"># Same services from Section 3</span><br>    memory_service=memory_service,<br>)<br></code></pre></td></tr></table></figure>
+
+<p>测试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Test 1: Tell the agent about a gift (first conversation)</span><br><span class="hljs-comment"># The callback will automatically save this to memory when the turn completes</span><br><span class="hljs-keyword">await</span> run_session(<br>    auto_runner,<br>    <span class="hljs-string">&quot;I gifted a new toy to my nephew on his 1st birthday!&quot;</span>,<br>    <span class="hljs-string">&quot;auto-save-test&quot;</span>,<br>)<br><br><span class="hljs-comment"># Test 2: Ask about the gift in a NEW session (second conversation)</span><br><span class="hljs-comment"># The agent should retrieve the memory using preload_memory and answer correctly</span><br><span class="hljs-keyword">await</span> run_session(<br>    auto_runner,<br>    <span class="hljs-string">&quot;What did I gift my nephew?&quot;</span>,<br>    <span class="hljs-string">&quot;auto-save-test-2&quot;</span>,  <span class="hljs-comment"># Different session ID - proves memory works across sessions!</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="记忆结构化存储"><a href="#记忆结构化存储" class="headerlink" title="记忆结构化存储"></a>记忆结构化存储</h3><p>为了节约空间和提高模型性能，可以在长期记忆中，将对话文本存储为结构化数据。</p>
+<p>结构化后的数据，只包括重要的事实，同时排除对话中的噪音。</p>
+<p><img src="/llm/kaggle_agent_ai/memory-consolidation.png" srcset="/img/loading.gif" lazyload alt="Memory consolidation"></p>
+<p>原始内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;I&#x27;m allergic to peanuts. I can&#x27;t eat anything with nuts.&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>结构化记忆：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Memory &#123;<br>  allergy: <span class="hljs-string">&quot;peanuts, tree nuts&quot;</span><br>  severity: <span class="hljs-string">&quot;avoid completely&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>要实现结构化存储，只需要将上述程序中使用的InMemoryMemoryService修改为VertexAiMemoryBankService即可。</p>
+<h2 id="6-日志与调试"><a href="#6-日志与调试" class="headerlink" title="6 日志与调试"></a>6 日志与调试</h2><h3 id="Web-UI"><a href="#Web-UI" class="headerlink" title="Web UI"></a>Web UI</h3><p>Google ADK提供了一个内置的Web UI，以方便地进行Agent的调试与测试。</p>
+<p>首先，我们在本地创建目录research-agent&#x2F;agent.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> google.adk.agents <span class="hljs-keyword">import</span> LlmAgent<br><span class="hljs-keyword">from</span> google.adk.models.google_llm <span class="hljs-keyword">import</span> Gemini<br><span class="hljs-keyword">from</span> google.adk.tools.agent_tool <span class="hljs-keyword">import</span> AgentTool<br><span class="hljs-keyword">from</span> google.adk.tools.google_search_tool <span class="hljs-keyword">import</span> google_search<br><br><span class="hljs-keyword">from</span> google.genai <span class="hljs-keyword">import</span> types<br><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br>retry_config = types.HttpRetryOptions(<br>    attempts=<span class="hljs-number">5</span>,  <span class="hljs-comment"># Maximum retry attempts</span><br>    exp_base=<span class="hljs-number">7</span>,  <span class="hljs-comment"># Delay multiplier</span><br>    initial_delay=<span class="hljs-number">1</span>,<br>    http_status_codes=[<span class="hljs-number">429</span>, <span class="hljs-number">500</span>, <span class="hljs-number">503</span>, <span class="hljs-number">504</span>],  <span class="hljs-comment"># Retry on these HTTP errors</span><br>)<br><br><span class="hljs-comment"># ---- Intentionally pass incorrect datatype - `str` instead of `List[str]` ----</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">count_papers</span>(<span class="hljs-params">papers: <span class="hljs-built_in">str</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    This function counts the number of papers in a list of strings.</span><br><span class="hljs-string">    Args:</span><br><span class="hljs-string">      papers: A list of strings, where each string is a research paper.</span><br><span class="hljs-string">    Returns:</span><br><span class="hljs-string">      The number of papers in the list.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(papers)<br><br><br><span class="hljs-comment"># Google Search agent</span><br>google_search_agent = LlmAgent(<br>    name=<span class="hljs-string">&quot;google_search_agent&quot;</span>,<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    description=<span class="hljs-string">&quot;Searches for information using Google search&quot;</span>,<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Use the google_search tool to find information on the given topic. Return the raw search results.</span><br><span class="hljs-string">    If the user asks for a list of papers, then give them the list of research papers you found and not the summary.&quot;&quot;&quot;</span>,<br>    tools=[google_search]<br>)<br><br><br><span class="hljs-comment"># Root agent</span><br>root_agent = LlmAgent(<br>    name=<span class="hljs-string">&quot;research_paper_finder_agent&quot;</span>,<br>    model=Gemini(model=<span class="hljs-string">&quot;gemini-2.5-flash-lite&quot;</span>, retry_options=retry_config),<br>    instruction=<span class="hljs-string">&quot;&quot;&quot;Your task is to find research papers and count them. </span><br><span class="hljs-string"></span><br><span class="hljs-string">    You MUST ALWAYS follow these steps:</span><br><span class="hljs-string">    1) Find research papers on the user provided topic using the &#x27;google_search_agent&#x27;. </span><br><span class="hljs-string">    2) Then, pass the papers to &#x27;count_papers&#x27; tool to count the number of papers returned.</span><br><span class="hljs-string">    3) Return both the list of research papers and the total number of papers.</span><br><span class="hljs-string">    &quot;&quot;&quot;</span>,<br>    tools=[AgentTool(agent=google_search_agent), count_papers]<br>)<br></code></pre></td></tr></table></figure>
+
+<p>然后在命令行输入，来创建Web UI。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">adk web --log_level DEBUG<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">&gt;<span class="hljs-keyword">INFO</span>:     Started <span class="hljs-keyword">server</span> process [<span class="hljs-number">71</span>]<br>&gt;<span class="hljs-keyword">INFO</span>:     Waiting <span class="hljs-keyword">for</span> application startup.<br><br>&gt;+<span class="hljs-comment">-----------------------------------------------------------------------------+</span><br>&gt;| ADK Web <span class="hljs-keyword">Server</span> started                                                      |<br>&gt;|                                                                             |<br>&gt;| <span class="hljs-keyword">For</span> <span class="hljs-keyword">local</span> testing, <span class="hljs-keyword">access</span> at http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8000.</span>                         |<br>&gt;+<span class="hljs-comment">-----------------------------------------------------------------------------+</span><br><br>&gt;<span class="hljs-keyword">INFO</span>:     Application startup complete.<br>&gt;<span class="hljs-keyword">INFO</span>:     Uvicorn running <span class="hljs-keyword">on</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8000</span> (Press CTRL+C <span class="hljs-keyword">to</span> quit)<br>&gt;^C<br>&gt;<span class="hljs-keyword">INFO</span>:     Shutting down<br>&gt;<span class="hljs-keyword">INFO</span>:     Waiting <span class="hljs-keyword">for</span> application shutdown<br></code></pre></td></tr></table></figure></blockquote>
+<h3 id="Callback机制"><a href="#Callback机制" class="headerlink" title="Callback机制"></a>Callback机制</h3><p>Plugin是一个自定义的代码模块，可以在Agent生命周期的各个阶段依赖Callback机制自动运行。</p>
+<p><img src="/llm/kaggle_agent_ai/types_of_callbacks.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>如下是常见的callback：</p>
+<ul>
+<li><code>before_agent_callback</code> → 在Agent开始处理请求之前运行</li>
+<li><code>after_agent_callback</code> → 在代理完成请求任务后运行</li>
+<li><code>before_tool_callback</code> &#x2F; <code>after_tool_callback</code> → 在工具被调用前&#x2F;后</li>
+<li><code>before_model_callback</code> &#x2F; <code>after_model_callback</code> → 在LLM API被调用前&#x2F;后</li>
+<li><code>on_model_error_callback</code> → 当错误发生</li>
+</ul>
+<p>只需要在Runner上注册一个Plugin，即可根据定义自动应用于Agent、工具调用和LLM请求。</p>
+<p>如下是一个自定义插件的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> logging<br><span class="hljs-keyword">from</span> google.adk.agents.base_agent <span class="hljs-keyword">import</span> BaseAgent<br><span class="hljs-keyword">from</span> google.adk.agents.callback_context <span class="hljs-keyword">import</span> CallbackContext<br><span class="hljs-keyword">from</span> google.adk.models.llm_request <span class="hljs-keyword">import</span> LlmRequest<br><span class="hljs-keyword">from</span> google.adk.plugins.base_plugin <span class="hljs-keyword">import</span> BasePlugin<br><br><br><span class="hljs-comment"># Applies to all agent and model calls</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CountInvocationPlugin</span>(<span class="hljs-title class_ inherited__">BasePlugin</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;A custom plugin that counts agent and tool invocations.&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-string">&quot;&quot;&quot;Initialize the plugin with counters.&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">super</span>().__init__(name=<span class="hljs-string">&quot;count_invocation&quot;</span>)<br>        <span class="hljs-variable language_">self</span>.agent_count: <span class="hljs-built_in">int</span> = <span class="hljs-number">0</span><br>        <span class="hljs-variable language_">self</span>.tool_count: <span class="hljs-built_in">int</span> = <span class="hljs-number">0</span><br>        <span class="hljs-variable language_">self</span>.llm_request_count: <span class="hljs-built_in">int</span> = <span class="hljs-number">0</span><br><br>    <span class="hljs-comment"># Callback 1: Runs before an agent is called. You can add any custom logic here.</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">before_agent_callback</span>(<span class="hljs-params"></span><br><span class="hljs-params">        self, *, agent: BaseAgent, callback_context: CallbackContext</span><br><span class="hljs-params">    </span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-string">&quot;&quot;&quot;Count agent runs.&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.agent_count += <span class="hljs-number">1</span><br>        logging.info(<span class="hljs-string">f&quot;[Plugin] Agent run count: <span class="hljs-subst">&#123;self.agent_count&#125;</span>&quot;</span>)<br><br>    <span class="hljs-comment"># Callback 2: Runs before a model is called. You can add any custom logic here.</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">before_model_callback</span>(<span class="hljs-params"></span><br><span class="hljs-params">        self, *, callback_context: CallbackContext, llm_request: LlmRequest</span><br><span class="hljs-params">    </span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-string">&quot;&quot;&quot;Count LLM requests.&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.llm_request_count += <span class="hljs-number">1</span><br>        logging.info(<span class="hljs-string">f&quot;[Plugin] LLM request count: <span class="hljs-subst">&#123;self.llm_request_count&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>但是不一定要想上面这样自定义一个插件来捕获标准的可观察性数据。</p>
+<p>Google ADK提供了一个内置的LoggingPlugin，可以自动记录所有Agent活动：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> google.adk.runners <span class="hljs-keyword">import</span> InMemoryRunner<br><span class="hljs-keyword">from</span> google.adk.plugins.logging_plugin <span class="hljs-keyword">import</span> (<br>    LoggingPlugin,<br>)  <span class="hljs-comment"># &lt;---- 1. Import the Plugin</span><br><span class="hljs-keyword">from</span> google.genai <span class="hljs-keyword">import</span> types<br><span class="hljs-keyword">import</span> asyncio<br><br>runner = InMemoryRunner(<br>    agent=research_agent_with_plugin,<br>    plugins=[<br>        LoggingPlugin()<br>    ],  <span class="hljs-comment"># &lt;---- 2. Add the plugin. Handles standard Observability logging across ALL agents</span><br>)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Logging Plugin can automatically can capture:</p>
+<ul>
+<li>🚀 User messages and agent responses</li>
+<li>⏱️ Timing data for performance analysis</li>
+<li>🧠 LLM requests and responses for debugging</li>
+<li>🔧 Tool calls and results</li>
+<li>✅ Complete execution traces</li>
+</ul>
+</blockquote>
+<p>在Runner中插入plugin：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> google.adk.runners <span class="hljs-keyword">import</span> InMemoryRunner<br><span class="hljs-keyword">from</span> google.adk.plugins.logging_plugin <span class="hljs-keyword">import</span> (<br>    LoggingPlugin,<br>)  <span class="hljs-comment"># &lt;---- 1. Import the Plugin</span><br><span class="hljs-keyword">from</span> google.genai <span class="hljs-keyword">import</span> types<br><span class="hljs-keyword">import</span> asyncio<br><br>runner = InMemoryRunner(<br>    agent=research_agent_with_plugin,<br>    plugins=[<br>        LoggingPlugin()<br>    ],  <span class="hljs-comment"># &lt;---- 2. Add the plugin. Handles standard Observability logging across ALL agents</span><br>)<br><br>response = <span class="hljs-keyword">await</span> runner.run_debug(<span class="hljs-string">&quot;Find recent papers on quantum computing&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>Google ADK内置了一个测试脚本，可以通过运行如下脚本，对Agent进行测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">adk <span class="hljs-built_in">eval</span> home_automation_agent home_automation_agent/integration.evalset.json --config_file_path=home_automation_agent/test_config.json --print_detailed_results<br></code></pre></td></tr></table></figure>
+
+<p>需要按照如下的格式书写测试样例和测试配置：</p>
+<p>home_automation_agent&#x2F;integration.evalset.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;eval_set_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;home_automation_integration_suite&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;eval_cases&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>        <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;eval_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;living_room_light_on&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;conversation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                <span class="hljs-punctuation">&#123;</span><br>                    <span class="hljs-attr">&quot;user_content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                        <span class="hljs-attr">&quot;parts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                            <span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Please turn on the floor lamp in the living room&quot;</span><span class="hljs-punctuation">&#125;</span><br>                        <span class="hljs-punctuation">]</span><br>                    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                    <span class="hljs-attr">&quot;final_response&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                        <span class="hljs-attr">&quot;parts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                            <span class="hljs-punctuation">&#123;</span><br>                                <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Successfully set the floor lamp in the living room to on.&quot;</span><br>                            <span class="hljs-punctuation">&#125;</span><br>                        <span class="hljs-punctuation">]</span><br>                    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                    <span class="hljs-attr">&quot;intermediate_data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                        <span class="hljs-attr">&quot;tool_uses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                            <span class="hljs-punctuation">&#123;</span><br>                                <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;set_device_status&quot;</span><span class="hljs-punctuation">,</span><br>                                <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                                    <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;living room&quot;</span><span class="hljs-punctuation">,</span><br>                                    <span class="hljs-attr">&quot;device_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;floor lamp&quot;</span><span class="hljs-punctuation">,</span><br>                                    <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ON&quot;</span><span class="hljs-punctuation">,</span><br>                                <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                            <span class="hljs-punctuation">&#125;</span><br>                        <span class="hljs-punctuation">]</span><br>                    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-punctuation">&#125;</span><br>            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;eval_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;kitchen_on_off_sequence&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;conversation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                <span class="hljs-punctuation">&#123;</span><br>                    <span class="hljs-attr">&quot;user_content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                        <span class="hljs-attr">&quot;parts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch on the main light in the kitchen.&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br>                    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                    <span class="hljs-attr">&quot;final_response&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                        <span class="hljs-attr">&quot;parts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                            <span class="hljs-punctuation">&#123;</span><br>                                <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Successfully set the main light in the kitchen to on.&quot;</span><br>                            <span class="hljs-punctuation">&#125;</span><br>                        <span class="hljs-punctuation">]</span><br>                    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                    <span class="hljs-attr">&quot;intermediate_data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                        <span class="hljs-attr">&quot;tool_uses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>                            <span class="hljs-punctuation">&#123;</span><br>                                <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;set_device_status&quot;</span><span class="hljs-punctuation">,</span><br>                                <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>                                    <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;kitchen&quot;</span><span class="hljs-punctuation">,</span><br>                                    <span class="hljs-attr">&quot;device_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;main light&quot;</span><span class="hljs-punctuation">,</span><br>                                    <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ON&quot;</span><span class="hljs-punctuation">,</span><br>                                <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                            <span class="hljs-punctuation">&#125;</span><br>                        <span class="hljs-punctuation">]</span><br>                    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-punctuation">&#125;</span><br>            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>home_automation_agent&#x2F;test_config.json：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>	<span class="hljs-attr">&quot;criteria&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;tool_trajectory_avg_score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.0</span><span class="hljs-punctuation">,</span> <br>        <span class="hljs-attr">&quot;response_match_score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.8</span><span class="hljs-punctuation">,</span>  <br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>response_match_score：实际响应与预期响应的文本相似度。1.0分&#x3D;完美匹配，0.0分&#x3D;完全不同。</p>
+</li>
+<li><p>tool_trajectory_avg_score：是否使用了正确的工具和正确的参数。根据预期的行为检查工具调用的顺序。1.0分&#x3D;完美的工具使用，0.0分&#x3D;错误的工具或参数。</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Agent/" class="category-chain-item">Agent</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Agent/" class="print-no-link">#Agent</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Google ADK Agent应用开发学习笔记</div>
+      <div>https://imzwchen.github.io/llm/kaggle_agent_ai/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ChenZhiwei</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
